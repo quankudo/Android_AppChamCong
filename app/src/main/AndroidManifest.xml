@@ -13,10 +13,10 @@
         android:theme="@style/Theme.AppChamCong"
         tools:targetApi="31">
         <activity
-            android:name=".activity.HomeActivity"
+            android:name=".activity.JoinTeam"
             android:exported="false" />
         <activity
-            android:name=".activity.SliceActivity"
+            android:name=".activity.SubNotification"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +25,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SliceActivity"
             android:exported="false"></activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
