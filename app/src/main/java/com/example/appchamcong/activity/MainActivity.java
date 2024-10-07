@@ -12,7 +12,7 @@ import com.example.appchamcong.R;
 import com.example.appchamcong.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
+    boolean flag = false;
     ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigation.setBackground(null);
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
-                replaceFragment(new HomeFragment());
+                if(flag){
+                    replaceFragment(new HomeFragment());
+                }
+                else
+                    replaceFragment(new HomeDataFragment());
                 return true;
             } else if (item.getItemId() == R.id.account) {
                 replaceFragment(new ProfileFragment());
