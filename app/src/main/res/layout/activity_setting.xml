@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    tools:context=".activity.SettingActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/black"
+            android:contentDescription="finger"
+            android:padding="0dp"
+            android:src="@drawable/chevron_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cài đặt chung"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginVertical="10dp"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:text="Hiển thị"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_light"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginVertical="10dp"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:text="Chế độ nền tối"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:thumbTint="@color/white"
+            android:trackTint="@color/blue"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginVertical="10dp"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:text="Thông báo"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_light"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginVertical="10dp"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:text="Bật âm thanh"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:thumbTint="@color/white"
+            android:trackTint="@color/blue"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginVertical="10dp"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:text="Thông báo"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_light"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginVertical="10dp"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:text="Mã bảo vệ"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:thumbTint="@color/white"
+            android:trackTint="@color/blue"/>
+    </LinearLayout>
+</LinearLayout>

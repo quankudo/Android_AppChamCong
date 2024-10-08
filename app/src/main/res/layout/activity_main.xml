@@ -20,7 +20,8 @@
         android:layout_gravity="bottom"
         app:labelVisibilityMode="labeled"
         android:background="#212121"
-        app:itemTextColor="@color/white"
+        app:itemTextColor="@color/custom_color_navigation"
+        app:itemIconTint="@color/custom_color_navigation"
         app:menu="@menu/bottom_menu"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

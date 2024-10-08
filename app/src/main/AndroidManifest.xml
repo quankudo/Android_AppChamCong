@@ -13,15 +13,10 @@
         android:theme="@style/Theme.AppChamCong"
         tools:targetApi="31">
         <activity
-            android:name=".activity.WeatherActivity"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name=".activity.HomeActivity"
+            android:name=".activity.InfoAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SliceActivity"
+            android:name=".activity.NotifyManageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +24,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.QRCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SecurityCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CustomerCareActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.WeatherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SliceActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".activity.MainActivity"
             android:exported="false" />

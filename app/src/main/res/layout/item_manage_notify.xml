@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_light"
+    android:padding="10dp"
+    android:layout_marginBottom="15dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thiết kế web"
+        android:id="@+id/title_notify"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thời gian nhắc nhở: "
+            android:textColor="@color/gray"
+            android:layout_gravity="center"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19:30"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:id="@+id/time_notify"
+            android:textSize="16sp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/edit_square_30"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trang thai: "
+            android:textColor="@color/gray"
+            android:layout_gravity="center"
+            android:textSize="16sp"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:padding="0dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:thumbTint="@color/white"
+            android:trackTint="@color/blue"/>
+    </LinearLayout>
+</LinearLayout>
