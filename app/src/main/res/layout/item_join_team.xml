@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/black"
+    android:background="@drawable/bg_light"
     android:padding="16dp">
     <LinearLayout
         android:layout_width="wrap_content"
@@ -20,6 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/name"
             android:text="Nguyễn Phước Kỳ"
             android:textSize="16sp"
             android:textColor="@color/white"/>
@@ -40,6 +41,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/number"
             android:text="0974214313"
             android:textSize="16sp"
             android:textColor="@color/white"/>
@@ -60,6 +62,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/positions"
             android:text="Chưa cập nhật"
             android:textSize="16sp"
             android:textColor="@color/white"/>

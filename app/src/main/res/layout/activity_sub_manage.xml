@@ -5,10 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SubJoinTeam"
+    tools:context=".activity.SubManage"
     android:background="@color/black"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,23 +24,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xem xét tham gia nhóm"
+            android:text="Quản lý nhân viên"
             android:layout_gravity="center"
             android:textSize="22sp"
             android:textColor="@color/white"
             android:layout_weight="1"
             android:textStyle="bold"/>
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/upload_50"
-            android:backgroundTint="@color/black"
-            android:layout_gravity="center"/>
+
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng số nhân viên: 1"
+        android:paddingHorizontal="16dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recJoinTeam"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:id="@+id/recManage"/>
 
 </LinearLayout>

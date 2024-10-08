@@ -12,6 +12,7 @@ public class JoinTeam {
         this.valuePosition = valuePosition;
     }
 
+
     public String getValueName() {
         return valueName;
     }
