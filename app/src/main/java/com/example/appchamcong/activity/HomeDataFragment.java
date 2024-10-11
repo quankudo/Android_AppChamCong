@@ -1,18 +1,24 @@
 package com.example.appchamcong.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.appchamcong.R;
@@ -20,13 +26,23 @@ import com.google.android.material.tabs.TabLayout;
 
 public class HomeDataFragment extends Fragment {
     private TabLayout tabLayout;
-    @SuppressLint("MissingInflatedId")
+    private ImageButton btn_add_home;
+    @SuppressLint({"MissingInflatedId"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home_data, container, false);
         replaceFragment(new PersonFragment());
+        btn_add_home = (ImageButton)v.findViewById(R.id.btn_add_home);
+
+        btn_add_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                show();
+            }
+        });
+
         tabLayout = v.findViewById(R.id.tabLayout);
         TabLayout.Tab tabPersonal = tabLayout.newTab();
         tabPersonal.setCustomView(createCustomTab("Cá nhân", true));
@@ -98,5 +114,24 @@ public class HomeDataFragment extends Fragment {
                 tabView.setBackgroundResource(R.drawable.tab_unselected_background);
             }
         }
+    }
+
+    public void show(){
+        final Dialog dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bottom_sheet_layout);
+
+        ImageView cancel = dialog.findViewById(R.id.cencelBtn);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 }
