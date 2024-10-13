@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import com.example.appchamcong.R;
 
 public class CreateJob extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +25,8 @@ public class CreateJob extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+
     }
 }
