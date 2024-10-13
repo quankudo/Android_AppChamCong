@@ -121,7 +121,7 @@ public class HomeDataFragment extends Fragment {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.bottom_sheet_layout);
 
-        ImageView cancel = dialog.findViewById(R.id.cencelBtn);
+        ImageView cancel = dialog.findViewById(R.id.cancel_btn);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

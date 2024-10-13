@@ -13,18 +13,8 @@
         android:theme="@style/Theme.AppChamCong"
         tools:targetApi="31">
         <activity
-            android:name=".activity.acivityProcessOfCompletingWork1"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-
-        <activity
-            android:name=".activity.CreateJob"
-            android:exported="false">
-        </activity>
+            android:name=".activity.InfoAccountActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.NotifyManageActivity"
             android:exported="false" />
@@ -42,7 +32,13 @@
             android:exported="false" />
         <activity
             android:name=".activity.SalaryActivity"
-            android:exported="true"></activity>
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.SubManage"
             android:exported="false" />
@@ -54,13 +50,13 @@
             android:exported="false" />
         <activity
             android:name=".activity.SliceActivity"
-            android:exported="false" />
+            android:exported="false"></activity>
         <activity
             android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".activity.SubJoinTeam"
-            android:exported="false" />
+            android:exported="false"></activity>
     </application>
 
 </manifest>
