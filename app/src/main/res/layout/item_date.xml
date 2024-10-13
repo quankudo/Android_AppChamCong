@@ -26,6 +26,4 @@
         android:buttonTint="@color/radio_btn_color"
         android:shadowColor="@color/white"
         />
-
-
 </LinearLayout>

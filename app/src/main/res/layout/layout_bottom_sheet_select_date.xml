@@ -22,6 +22,7 @@
            android:layout_weight="5"
            ></TextView>
        <ImageView
+           android:id="@+id/btnCloseBottomSheet"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:src="@drawable/close_30">
@@ -37,6 +38,7 @@
         android:layout_marginTop="20dp"
         />
     <Button
+        android:id="@+id/btnConfirm"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@drawable/custom_btn_blue"

@@ -19,7 +19,7 @@ import java.util.List;
 public class DateAdapter extends RecyclerView.Adapter<DateAdapter.DateViewHolder> {
 
     private List<String> dateList;
-    private int selectedPosition = 0; // Đặt vị trí mặc định là 0 (Ngày cuối cùng của mỗi tháng)
+    private int selectedPosition = 0;
     private Context context;
 
     public DateAdapter(Context context, List<String> dateList) {

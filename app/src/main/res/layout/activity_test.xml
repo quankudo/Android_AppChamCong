@@ -70,18 +70,15 @@
             android:backgroundTint="@color/white"
             android:src="@drawable/business" />
     </LinearLayout>
-
     <TextView
-        android:layout_marginTop="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="* Đây chỉ là tiền công mặc định. Bạn có thể tùy chỉnh tiền công cho từng nhân viên trong lúc xác nhận nhân viên tham gia nhóm."
+        android:textColor="@color/gray"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
-        android:textSize="16sp"
-        android:text="* Đây chỉ là tiền công mặc định. Bạn có thể tùy chỉnh tiền công cho từng nhân viên trong lúc xác nhận nhân viên tham gia nhóm."
-        android:textColor="@color/gray"></TextView>
-
+        ></TextView>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -142,15 +139,13 @@
             android:backgroundTint="@color/white"
             android:src="@drawable/arrow" />
     </LinearLayout>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3sp"
-        android:layout_marginRight="20dp"
-        android:textSize="16dp"
         android:text="* Ngày chốt tiền lương là ngày làm việc cuối cùng của bạn trong tháng đó. Hệ thống dựa trên ngày chốt tiền lương để lập bảng lương phù hợp cho bạn."
-        android:textColor="@color/gray"></TextView>
+        android:textColor="@color/gray"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        ></TextView>
 
 </LinearLayout>
