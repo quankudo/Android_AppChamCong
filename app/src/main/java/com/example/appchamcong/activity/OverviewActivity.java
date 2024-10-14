@@ -13,22 +13,23 @@ import com.example.appchamcong.adapter.Staff;
 
 import java.util.ArrayList;
 
-public class SalaryActivity extends AppCompatActivity {
+public class OverviewActivity extends AppCompatActivity {
     ArrayList<com.example.appchamcong.domain.Staff> list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_salary);
+        setContentView(R.layout.activity_overview);
         init();
-        RecyclerView recyclerView = findViewById(R.id.recSalary);
+        RecyclerView recyclerView = findViewById(R.id.recOverview);
         Staff salaryAdapter = new Staff(list);
         DividerItemDecoration dividerItemDecoration = new  DividerItemDecoration(recyclerView.getContext(), LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(salaryAdapter);
-        };
+    }
 
     public void init()
     {
@@ -36,4 +37,4 @@ public class SalaryActivity extends AppCompatActivity {
         com.example.appchamcong.domain.Staff s1 = new com.example.appchamcong.domain.Staff("Nguyễn Phước Kỳ", 1, 1, 0, 0, 0);
         list.add(s1);
     }
-    }
+}

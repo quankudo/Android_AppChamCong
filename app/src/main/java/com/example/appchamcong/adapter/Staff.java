@@ -9,27 +9,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.R;
-import com.example.appchamcong.domain.Manage;
-import com.example.appchamcong.domain.Salary;
 
 import java.util.ArrayList;
 
-public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.ViewHolder> {
-    ArrayList<Salary> list;
+public class Staff extends RecyclerView.Adapter<Staff.ViewHolder> {
+    ArrayList<com.example.appchamcong.domain.Staff> list;
 
-    public SalaryAdapter(ArrayList<Salary> list) {
+    public Staff(ArrayList<com.example.appchamcong.domain.Staff> list) {
         this.list = list;
     }
 
     @NonNull
     @Override
-    public SalaryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Staff.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_salary,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SalaryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Staff.ViewHolder holder, int position) {
         holder.tvName.setText(list.get(position).getValueName());
         holder.tvWorkday.setText(list.get(position).getValueWorkday() +"");
         holder.tvSalary.setText(list.get(position).getValueSalary() +"");

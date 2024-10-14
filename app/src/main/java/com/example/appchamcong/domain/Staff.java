@@ -1,10 +1,10 @@
 package com.example.appchamcong.domain;
 
-public class Salary {
+public class Staff {
     String valueName;
     float valueWorkday, valuePaidLeave, valueSalary, valueReceived, valueNotReceived;
 
-    public Salary(String valueName, float valueWorkday, float valuePaidLeave, float valueSalary, float valueReceived, float valueNotReceived) {
+    public Staff(String valueName, float valueWorkday, float valuePaidLeave, float valueSalary, float valueReceived, float valueNotReceived) {
         this.valueName = valueName;
         this.valueWorkday = valueWorkday;
         this.valuePaidLeave = valuePaidLeave;
@@ -13,7 +13,7 @@ public class Salary {
         this.valueNotReceived = valueNotReceived;
     }
 
-    public  Salary(){
+    public Staff(){
 
     }
 
