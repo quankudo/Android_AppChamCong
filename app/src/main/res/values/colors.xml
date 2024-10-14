@@ -8,4 +8,6 @@
     <color name="pink">#CA7C7C</color>
     <color name="red">#CF1212</color>
     <color name="green">#139E42</color>
+    <color name="darkGrey">#212121</color>
+
 </resources>

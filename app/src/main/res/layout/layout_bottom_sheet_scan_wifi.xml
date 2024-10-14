@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="550dp"
+    android:background="@color/black">
+    <LinearLayout
+        android:id="@+id/lnl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_title_scanwf"
+        android:padding="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chọn điểm Wfi để thiết lập chấm công"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/lexend_deca_light"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/baseline_autorenew_24" />
+
+    </LinearLayout>
+
+    <ProgressBar
+    android:id="@+id/progressBar"
+    style="?android:attr/progressBarStyle"
+    android:layout_width="91dp"
+    android:layout_height="48dp"
+    android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
+    <ListView
+    android:background="@color/darkGrey"
+        android:id="@+id/listViewWifi"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/lnl"
+        android:layout_height="match_parent"
+        ></ListView>
+
+</RelativeLayout>
