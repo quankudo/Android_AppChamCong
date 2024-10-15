@@ -1,6 +1,7 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 
 public class NotifyManageActivity extends AppCompatActivity {
     ArrayList<Notify> list;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +43,13 @@ public class NotifyManageActivity extends AppCompatActivity {
         list.add(notify2);
         list.add(notify3);
         list.add(notify4);
+    }
+
+    public void initData(){
+        title.setText("Quản lý thông báo");
+    }
+
+    public void initMapping(){
+        title = findViewById(R.id.title_header);
     }
 }

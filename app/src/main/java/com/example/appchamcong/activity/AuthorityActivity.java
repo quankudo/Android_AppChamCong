@@ -1,6 +1,7 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.appchamcong.R;
 
 public class AuthorityActivity extends AppCompatActivity {
-
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +23,13 @@ public class AuthorityActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void initData(){
+        title.setText("Thưởng/Phụ cấp");
+    }
+
+    public void initMapping(){
+        title = findViewById(R.id.title_center);
     }
 }

@@ -632,10 +632,10 @@
             <Button
                 android:id="@+id/btn_attendance"
                 android:layout_width="140dp"
-                android:paddingHorizontal="20dp"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/chevron_left"
+                android:background="@drawable/custom_btn_blue"
                 android:padding="12dp"
+                android:textAllCaps="false"
                 android:text="Chấm công"
                 android:textColor="@android:color/white"
                 />

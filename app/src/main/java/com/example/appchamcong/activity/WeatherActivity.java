@@ -1,6 +1,7 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     ArrayList<Hour_Weather> hourWeathers;
     ArrayList<Day_Weather> dayWeathers;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,5 +75,13 @@ public class WeatherActivity extends AppCompatActivity {
         dayWeathers.add(dayWeather5);
         dayWeathers.add(dayWeather6);
         dayWeathers.add(dayWeather7);
+    }
+
+    public void initData(){
+        title.setText("Thời tiết");
+    }
+
+    public void initMapping(){
+        title = findViewById(R.id.title_header);
     }
 }

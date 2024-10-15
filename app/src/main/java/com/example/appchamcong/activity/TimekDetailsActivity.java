@@ -21,6 +21,7 @@ import com.example.appchamcong.R;
 
 public class TimekDetailsActivity extends AppCompatActivity {
     TextView txtghichu;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,5 +53,13 @@ public class TimekDetailsActivity extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }
+
+    public void initData(){
+        title.setText("Chi tiết chấm công");
+    }
+
+    public void initMapping(){
+        title = findViewById(R.id.title_header);
     }
 }

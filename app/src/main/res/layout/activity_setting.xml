@@ -8,29 +8,7 @@
     android:orientation="vertical"
     android:background="@color/black"
     tools:context=".activity.SettingActivity">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/black"
-            android:contentDescription="finger"
-            android:padding="0dp"
-            android:src="@drawable/chevron_left" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Cài đặt chung"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+    <include layout="@layout/header_title_common"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
