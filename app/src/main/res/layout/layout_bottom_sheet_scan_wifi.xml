@@ -45,6 +45,7 @@
         android:background="@color/darkGrey"></ListView>
 
     <Button
+        android:id="@+id/addWifi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/listViewWifi"

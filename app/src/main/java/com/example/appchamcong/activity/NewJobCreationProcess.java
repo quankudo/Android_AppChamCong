@@ -1,5 +1,6 @@
 package com.example.appchamcong.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -20,12 +21,10 @@ public class NewJobCreationProcess extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_job_creation_process);
 
-        // Thiết lập ViewPager2 và Adapter
         viewPager = findViewById(R.id.viewpager);
         adapter = new HourlyTimekeepingStepsUsingWifiAdapter(this);
         viewPager.setAdapter(adapter);
 
-        // Tìm các nút Next và Previous trong layout
         TextView nextButton = findViewById(R.id.tvNext);
         TextView previousButton = findViewById(R.id.tvBack);
         progressBar = findViewById(R.id.progress);
@@ -33,7 +32,6 @@ public class NewJobCreationProcess extends AppCompatActivity {
 
 
         progressBar.setProgress(100/totalsSteps);
-        // Thiết lập sự kiện OnClick cho nút Next
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,11 +43,14 @@ public class NewJobCreationProcess extends AppCompatActivity {
                 if (currentItem < adapter.getItemCount() - 1) {
                     viewPager.setCurrentItem(currentItem + 1);
                 }
+                if(progressBarCurrent == 100){
+                    Intent intent = new Intent(NewJobCreationProcess.this, QRCodeActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
 
-        // Thiết lập sự kiện OnClick cho nút Previous
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,5 +64,6 @@ public class NewJobCreationProcess extends AppCompatActivity {
                 }
             }
         });
+
     }
 }
