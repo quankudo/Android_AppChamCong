@@ -31,6 +31,7 @@ public class NewJobCreationProcess extends AppCompatActivity {
         progressBar = findViewById(R.id.progress);
         int totalsSteps = adapter.getItemCount();
 
+
         progressBar.setProgress(100/totalsSteps);
         // Thiết lập sự kiện OnClick cho nút Next
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +39,7 @@ public class NewJobCreationProcess extends AppCompatActivity {
             public void onClick(View v) {
 
                 int progressBarCurrent = progressBar.getProgress();
+
                 progressBar.setProgress(progressBarCurrent + 100/totalsSteps);
                 int currentItem = viewPager.getCurrentItem();
                 if (currentItem < adapter.getItemCount() - 1) {
@@ -51,6 +53,10 @@ public class NewJobCreationProcess extends AppCompatActivity {
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int progressBarCurrent = progressBar.getProgress();
+
+                progressBar.setProgress( progressBarCurrent  - 100/totalsSteps);
+
                 int currentItem = viewPager.getCurrentItem();
                 if (currentItem > 0) {
                     viewPager.setCurrentItem(currentItem - 1);
