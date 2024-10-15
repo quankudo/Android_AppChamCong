@@ -50,24 +50,28 @@
             android:exported="false" />
         <activity
             android:name=".activity.HomeActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".activity.SliceActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.SubJoinTeam"
-            android:exported="false" />
-        <activity
-            android:name=".activity.NewJobCreationProcess"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.SubJoinTeam"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NewJobCreationProcess"
+            android:exported="true">
+
         </activity>
     </application>
 

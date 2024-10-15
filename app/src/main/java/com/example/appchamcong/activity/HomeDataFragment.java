@@ -22,6 +22,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.activity.GroupFragment;
+import com.example.appchamcong.activity.PersonFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class HomeDataFragment extends Fragment {
