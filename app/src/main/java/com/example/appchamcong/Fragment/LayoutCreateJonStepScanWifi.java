@@ -16,8 +16,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.appchamcong.R;
-import com.example.appchamcong.activity.WifiBottomSheetFragment;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.example.appchamcong.domain.Wifi;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -101,5 +100,8 @@ public class LayoutCreateJonStepScanWifi extends Fragment {
             }
         }
     }
-
+    public void onItemSelected(String selectedItem) {
+        // Xử lý item được chọn
+        Toast.makeText(getContext(), "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
+    }
 }

@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
         tools:ignore="CoarseFineLocation" />
 
     <application
@@ -17,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppChamCong"
         tools:targetApi="31">
+        <activity
+            android:name=".activity.SubCreateJobStepFiveEditNameGroupOwner"
+            android:exported="false" />
         <activity
             android:name=".activity.InfoAccountActivity"
             android:exported="false" />
@@ -37,9 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.SalaryActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".activity.SubManage"
             android:exported="false" />
@@ -48,23 +50,28 @@
             android:exported="false" />
         <activity
             android:name=".activity.HomeActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".activity.SliceActivity"
-            android:exported="false"></activity>
-        <activity
-            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SubJoinTeam"
-            android:exported="false"></activity>
-        <activity android:name=".activity.NewJobCreationProcess"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.SubJoinTeam"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NewJobCreationProcess"
+            android:exported="true">
+
         </activity>
     </application>
 

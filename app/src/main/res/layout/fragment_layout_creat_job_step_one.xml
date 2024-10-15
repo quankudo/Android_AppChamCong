@@ -270,6 +270,7 @@
             </RadioGroup>
             <!--    Tich hop nang cao-->
             <LinearLayout
+                android:id="@+id/lnlHidden1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -279,7 +280,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hình thức chấm công "
+                    android:text="Tích hợp nâng cao "
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -293,6 +294,7 @@
             </LinearLayout>
 
             <RadioGroup
+                android:id="@+id/radioGroupHidden"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

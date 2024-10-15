@@ -47,7 +47,7 @@
         app:srcCompat="@drawable/image_empty_home" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonCreateJob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -62,70 +62,19 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonJoinTeam"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_btn_yellow"
-        android:text="Tham gia nhóm"
-        android:textSize="20dp"
         android:padding="20dp"
-        android:textStyle="bold"
+        android:text="Tham gia nhóm"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/buttonCreateJob"
+        app:layout_constraintStart_toStartOf="@+id/buttonCreateJob"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCreateJob" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:orientation="horizontal"
-        android:weightSum="1"
-        android:background="#212121"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_home" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Trang chủ"
-                android:textAlignment="center"
-                android:textColor="@color/blue"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_account" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cá nhân"
-                android:textColor="@color/white"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-        </LinearLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
