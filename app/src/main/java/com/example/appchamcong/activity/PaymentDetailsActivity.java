@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -20,6 +21,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class PaymentDetailsActivity extends AppCompatActivity {
     private TabLayout tabLayout;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,8 @@ public class PaymentDetailsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initMapping();
+        initData();
 
         tabLayout = findViewById(R.id.tabLayout);
         TabLayout.Tab tabPersonal = tabLayout.newTab();
@@ -60,6 +64,15 @@ public class PaymentDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Tạo hiệu ứng chuyển cảnh
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
     }
@@ -101,5 +114,13 @@ public class PaymentDetailsActivity extends AppCompatActivity {
                 tabView.setBackgroundResource(R.drawable.tab_unselected_background);
             }
         }
+    }
+
+    public void initData(){
+        title.setText("01/09/2024 - 30/09/2024");
+    }
+
+    public void initMapping(){
+        title = findViewById(R.id.title_header);
     }
 }

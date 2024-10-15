@@ -1,8 +1,12 @@
 package com.example.appchamcong.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -30,6 +34,8 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
     private RecyclerView recyclerView, recShift;
     private LocalDate localDate;
     private ArrayList<Shift> listShift;
+    private LinearLayout ungluong, tangca, phucap, trutien, loinhuan, thanhtoan, thongke, xemthem;
+    private Button btn_cham;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +43,76 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_personal_timekeep);
         initWidget();
+        initEvent();
         localDate = LocalDate.now();
         setMonthView();
         initListShift();
         setShiftView();
+    }
+
+    private void initEvent() {
+        ungluong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, SalaryAdvanceActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        tangca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, OvertimeActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        phucap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, RewardActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        trutien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, DeductMoneyActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        loinhuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, ProfitManageActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        thanhtoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, PaymentManagementActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        btn_cham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, TimekDetailsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
     }
 
     private void setShiftView() {
@@ -100,5 +172,14 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rec_grid_date);
         monthYearTxt = findViewById(R.id.month_year);
         recShift = findViewById(R.id.rec_work);
+        ungluong = findViewById(R.id.ungluong_gr);
+        tangca = findViewById(R.id.tangca_gr);
+        phucap = findViewById(R.id.phucap_gr);
+        trutien = findViewById(R.id.trutien_gr);
+        loinhuan = findViewById(R.id.loinhuan_gr);
+        thanhtoan = findViewById(R.id.thanhtoan_gr);
+        thongke = findViewById(R.id.thongke_gr);
+        xemthem = findViewById(R.id.xemthem_gr);
+        btn_cham = findViewById(R.id.btn_attendance);
     }
 }

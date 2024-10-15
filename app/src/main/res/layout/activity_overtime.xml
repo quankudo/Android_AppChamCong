@@ -179,6 +179,7 @@
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/custom_btn_blue"
         android:text="Them moi"
+        android:id="@+id/btn_add_ca"
         android:layout_marginBottom="15dp"
         android:textAllCaps="false"
         android:textColor="@color/white"

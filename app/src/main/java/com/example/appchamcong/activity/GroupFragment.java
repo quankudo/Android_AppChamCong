@@ -30,7 +30,7 @@ public class GroupFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_group, container, false);
         init();
         recyclerView = view.findViewById(R.id.recGroups);
-        groupAdapter = new GroupAdapter(list);
+        groupAdapter = new GroupAdapter(list, getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(groupAdapter);
         return view;

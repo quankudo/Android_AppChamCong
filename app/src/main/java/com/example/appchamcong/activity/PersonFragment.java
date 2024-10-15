@@ -17,11 +17,7 @@ import com.example.appchamcong.domain.Person_Timekeeping;
 import java.util.ArrayList;
 
 public class PersonFragment extends Fragment {
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//    }
+
     private RecyclerView recyclerView;
     private PersonAdapter personAdapter;
     private ArrayList<Person_Timekeeping> list;
@@ -32,7 +28,7 @@ public class PersonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_person, container, false);
         init();
         recyclerView = view.findViewById(R.id.recPersons);
-        personAdapter = new PersonAdapter(list);
+        personAdapter = new PersonAdapter(list, getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(personAdapter);
         return view;

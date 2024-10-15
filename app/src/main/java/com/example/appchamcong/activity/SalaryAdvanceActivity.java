@@ -1,9 +1,14 @@
 package com.example.appchamcong.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -13,6 +18,8 @@ import com.example.appchamcong.R;
 
 public class SalaryAdvanceActivity extends AppCompatActivity {
     TextView title;
+    LinearLayout back;
+    Button btnAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +30,37 @@ public class SalaryAdvanceActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initMapping();
+        initData();
+
+        initEvent();
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Tạo hiệu ứng chuyển cảnh
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
+
+    private void initEvent() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SalaryAdvanceActivity.this, AddApplySalaryActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
     }
 
     public void initData(){
@@ -31,5 +69,7 @@ public class SalaryAdvanceActivity extends AppCompatActivity {
 
     public void initMapping(){
         title = findViewById(R.id.title_header);
+        back = findViewById(R.id.linearLayout_header);
+        btnAdd = findViewById(R.id.btn_add_ungluong);
     }
 }

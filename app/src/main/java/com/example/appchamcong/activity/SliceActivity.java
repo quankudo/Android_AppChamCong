@@ -24,16 +24,16 @@ public class SliceActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpager);
         adapter = new SlideViewPagerAdapter(this);
         viewPager.setAdapter(adapter);
-        if(isOpenAlready()){
-            Intent intent = new Intent(SliceActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-        }
-        else{
-            SharedPreferences.Editor editor = getSharedPreferences("slide", MODE_PRIVATE).edit();
-            editor.putBoolean("slide", true);
-            editor.commit();
-        }
+//        if(isOpenAlready()){
+//            Intent intent = new Intent(SliceActivity.this, MainActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
+//        }
+//        else{
+//            SharedPreferences.Editor editor = getSharedPreferences("slide", MODE_PRIVATE).edit();
+//            editor.putBoolean("slide", true);
+//            editor.commit();
+//        }
     }
 
     private boolean isOpenAlready() {

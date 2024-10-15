@@ -23,6 +23,9 @@ public class InfoAccountActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        initMapping();
+        initData();
     }
     public void initData(){
         title.setText("Thông tin tài khoản");

@@ -152,6 +152,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btn_thongbao"
             android:orientation="vertical">
             <ImageView
                 android:layout_width="wrap_content"
@@ -169,6 +170,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btn_thuvien"
             android:layout_marginHorizontal="20dp"
             android:orientation="vertical">
             <ImageView
@@ -187,6 +189,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btn_thoitiet"
             android:orientation="vertical">
             <ImageView
                 android:layout_width="wrap_content"

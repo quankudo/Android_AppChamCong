@@ -32,6 +32,7 @@ public class SalaryDetailsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initMapping();
         initData();
         recyclerView = findViewById(R.id.recSalaryDetailsParent);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
