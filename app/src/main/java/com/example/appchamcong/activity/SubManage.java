@@ -1,6 +1,9 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,8 @@ import java.util.ArrayList;
 
 public class SubManage extends AppCompatActivity {
     ArrayList<Manage> list;
+    TextView title;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,31 @@ public class SubManage extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(manageAdapter);
+
+        initMapping();
+        initData();
+        initEvent();
 }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
+
+    private void initData() {
+        title.setText("Quản lý nhân viên");
+    }
+
+    private void initMapping() {
+        title = findViewById(R.id.title_header);
+        btnClose = findViewById(R.id.chevLeftClose);
+    }
+
     public void init(){
         list = new ArrayList<>();
         Manage m1 = new Manage("Nguyễn Phước Kỳ", "0346387246", "15:23 28/09/2024", 100000);

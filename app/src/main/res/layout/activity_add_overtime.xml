@@ -23,9 +23,12 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginVertical="10dp"
         app:layout_constraintTop_toBottomOf="@+id/include4">
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnGioTangCa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/textView46"
                 android:layout_width="wrap_content"
@@ -50,6 +53,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/lnTangCa"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/custom_btn_blue"
@@ -73,6 +77,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/lnNhapTien"
                     android:layout_marginLeft="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_light"
@@ -106,7 +111,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout15" />
 
             <LinearLayout
-                android:id="@+id/linearLayout16"
+                android:id="@+id/btnHeso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -144,10 +149,10 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout16" />
+                app:layout_constraintTop_toBottomOf="@+id/btnHeso" />
 
             <LinearLayout
-                android:id="@+id/linearLayout17"
+                android:id="@+id/btn_GioTangCa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -186,14 +191,14 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout17" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_GioTangCa" />
 
             <LinearLayout
                 android:id="@+id/linearLayout11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="8dp"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView49">
@@ -204,6 +209,7 @@
                     android:background="@drawable/bg_light"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="10dp"
+                    android:id="@+id/btnPre"
                     android:text="&lt;&lt;"
                     android:textColor="@color/white"
                     android:textSize="20sp"
@@ -214,6 +220,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
                     android:layout_weight="1"
+                    android:id="@+id/tvDate"
                     android:background="@drawable/bg_light"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="10dp"
@@ -228,12 +235,14 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_light"
                     android:paddingHorizontal="15dp"
+                    android:id="@+id/btnNext"
                     android:paddingVertical="10dp"
                     android:text="&gt;&gt;"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
             <TextView
                 android:id="@+id/textView39"
                 android:layout_width="wrap_content"
@@ -277,20 +286,21 @@
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/bg_light"
                 android:gravity="top|start"
                 android:inputType="textMultiLine"
                 android:maxLines="10"
                 android:minLines="5"
                 android:padding="10dp"
-                android:layout_marginBottom="15dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="16sp"
-                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -299,9 +309,9 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@+id/editText"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

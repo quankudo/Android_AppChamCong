@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +16,7 @@ import com.example.appchamcong.R;
 public class StatisticalRewardActivity extends AppCompatActivity {
     TextView titleHeader;
     TextView type1, type2, type3, type4, type5;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,17 @@ public class StatisticalRewardActivity extends AppCompatActivity {
         });
         initMapping();
         initData();
+        initEvent();
+    }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
     }
 
     public void initData(){
@@ -44,5 +58,6 @@ public class StatisticalRewardActivity extends AppCompatActivity {
         type1 = findViewById(R.id.textView55);
         type1 = findViewById(R.id.textView57);
         type1 = findViewById(R.id.textView59);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 }

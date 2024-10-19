@@ -1,6 +1,9 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,8 @@ import java.util.ArrayList;
 
 public class SubNotification extends AppCompatActivity {
     ArrayList<Notify> list;
+    TextView title;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,29 @@ public class SubNotification extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         r1.setLayoutManager(linearLayoutManager);
         r1.setAdapter(n1);
+
+        initMapping();
+        initData();
+        initEvent();
+    }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
+
+    private void initData() {
+        title.setText("Thông báo");
+    }
+
+    private void initMapping() {
+        title = findViewById(R.id.title_header);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 
     public  void init(){

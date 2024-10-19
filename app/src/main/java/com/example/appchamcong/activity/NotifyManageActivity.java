@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 public class NotifyManageActivity extends AppCompatActivity {
     ArrayList<Notify> list;
     TextView title;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +38,22 @@ public class NotifyManageActivity extends AppCompatActivity {
 
         initMapping();
         initData();
+        initEvent();
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 // Tạo hiệu ứng chuyển cảnh
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
@@ -64,5 +78,6 @@ public class NotifyManageActivity extends AppCompatActivity {
 
     public void initMapping(){
         title = findViewById(R.id.title_header);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 }

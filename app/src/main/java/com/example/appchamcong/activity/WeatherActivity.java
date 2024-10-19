@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -28,6 +30,7 @@ public class WeatherActivity extends AppCompatActivity {
     ArrayList<Hour_Weather> hourWeathers;
     ArrayList<Day_Weather> dayWeathers;
     TextView title;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,7 @@ public class WeatherActivity extends AppCompatActivity {
         initMapping();
         initData();
         init();
+        initEvent();
         RecyclerView r1 = findViewById(R.id.hourWeathers);
         RecyclerView r2 = findViewById(R.id.dayWeathers);
         HourWeatherAdapter hourWeatherAdapter = new HourWeatherAdapter(hourWeathers);
@@ -53,6 +57,16 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void handleOnBackPressed() {
                 // Tạo hiệu ứng chuyển cảnh
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
@@ -95,5 +109,6 @@ public class WeatherActivity extends AppCompatActivity {
 
     public void initMapping(){
         title = findViewById(R.id.title_header);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 }

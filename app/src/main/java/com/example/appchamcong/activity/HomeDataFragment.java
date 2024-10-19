@@ -50,7 +50,6 @@ public class HomeDataFragment extends Fragment {
         tabPersonal.setCustomView(createCustomTab("Cá nhân", true));
         tabLayout.addTab(tabPersonal);
 
-// Tạo tab nhóm và thêm vào TabLayout
         TabLayout.Tab tabGroup = tabLayout.newTab();
         tabGroup.setCustomView(createCustomTab("Nhóm", false));
         tabLayout.addTab(tabGroup);

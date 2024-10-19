@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -12,8 +14,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appchamcong.R;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
 public class AddRewardActivity extends AppCompatActivity {
     TextView title;
+    TextView btnClose, tvDate, btnPre, btnNext;
+    LinearLayout btnLeTet, btnDatCT, btnDiLai, btnAnUong, btnChuyenCan, btnKhac;
+    ArrayList<LinearLayout> listBtn;
+    SimpleDateFormat sdf;
+    Calendar cal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +36,56 @@ public class AddRewardActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        sdf = new SimpleDateFormat("E, dd/MM/yyyy");
+        cal = Calendar.getInstance();
         initMapping();
         initData();
+        initEvent();
+
+    }
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+
+        listBtn.forEach(item ->{
+            item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setBtnOnClick(item);
+                }
+            });
+        });
+
+        btnPre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(tvDate.getText().equals("Hôm nay")){
+                    cal = Calendar.getInstance();
+                }
+                cal.add(Calendar.DAY_OF_MONTH, -1);
+                String yesterday = sdf.format(cal.getTime());
+                tvDate.setText(yesterday);
+            }
+        });
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(tvDate.getText().equals("Hôm nay") || tvDate.getText().equals(sdf.format(Calendar.getInstance().getTime()))){
+
+                }
+                else{
+                    cal.add(Calendar.DAY_OF_MONTH, 1);
+                    String date = sdf.format(cal.getTime());
+                    tvDate.setText(date);
+                }
+            }
+        });
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -43,5 +103,26 @@ public class AddRewardActivity extends AppCompatActivity {
 
     public void initMapping(){
         title = findViewById(R.id.title_center);
+        btnClose = findViewById(R.id.title_close);
+        btnLeTet = findViewById(R.id.btnLeTet);
+        btnDiLai = findViewById(R.id.btnDiLai);
+        btnKhac = findViewById(R.id.btnKhac);
+        btnAnUong = findViewById(R.id.btnAnUong);
+        btnChuyenCan = findViewById(R.id.btnChuyenCan);
+        btnDatCT = findViewById(R.id.btnDatCT);
+        btnNext = findViewById(R.id.btn_next);
+        btnPre = findViewById(R.id.btn_pre);
+        tvDate = findViewById(R.id.tvDate);
+
+        listBtn = new ArrayList<>(List.of(btnAnUong, btnChuyenCan, btnKhac, btnLeTet, btnDiLai, btnDatCT));
+    }
+
+    public void setBtnOnClick(LinearLayout btn){
+        btn.setBackgroundResource(R.drawable.custom_btn_blue);
+        for (LinearLayout item: listBtn) {
+            if(item.getId() != btn.getId()){
+                item.setBackgroundResource(R.drawable.border_outline_pink);
+            }
+        }
     }
 }

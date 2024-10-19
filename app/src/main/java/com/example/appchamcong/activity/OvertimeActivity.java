@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.example.appchamcong.R;
 public class OvertimeActivity extends AppCompatActivity {
     TextView title;
     Button btnAdd;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,14 @@ public class OvertimeActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
         });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
     }
 
     public void initData(){
@@ -62,5 +72,6 @@ public class OvertimeActivity extends AppCompatActivity {
     public void initMapping(){
         title = findViewById(R.id.title_header);
         btnAdd = findViewById(R.id.btn_add_ca);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 }

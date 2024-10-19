@@ -17,9 +17,12 @@
         android:layout_alignParentTop="true"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:backgroundTint="@color/black"
+            android:id="@+id/btnClose"
             android:src="@drawable/chevron_left" />
 
         <TextView
@@ -643,6 +646,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_btn_blue"
                 android:padding="12dp"
+                android:paddingBottom="20dp"
                 android:textAllCaps="false"
                 android:text="Chấm công"
                 android:textColor="@android:color/white"

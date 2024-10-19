@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:orientation="horizontal"
+    android:background="@color/black">
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radio_btn"
+        android:checked="true"
+        android:padding="15dp"
+        android:button="@android:color/transparent"
+        android:background="@drawable/custom_radio_selector"
+        android:text="Title of radio button"
+        android:drawableRight="@drawable/check_circle_24"
+        android:drawableTint="@color/custom_radio_border"
+        android:textColor="@color/custom_radio_border"/>
+</LinearLayout>

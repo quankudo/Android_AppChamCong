@@ -1,9 +1,11 @@
 package com.example.appchamcong.activity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +28,7 @@ public class PaymentManagementActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView title;
     Button btnThanhtoan, btnxemct;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +71,14 @@ public class PaymentManagementActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
         });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
     }
 
     public void initData(){
@@ -85,5 +96,6 @@ public class PaymentManagementActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rcv_lstt);
         btnThanhtoan = findViewById(R.id.btn_thanhtoan);
         btnxemct = findViewById(R.id.btn_tt_xemct);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 }

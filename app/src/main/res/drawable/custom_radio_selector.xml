@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <stroke android:width="2dp" android:color="@color/blue"/> <!-- Đường viền khi được chọn -->
+            <corners android:radius="10dp"/> <!-- Bo góc -->
+        </shape>
+    </item>
+    <item android:state_checked="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/> <!-- Màu nền khi chưa được chọn -->
+            <stroke android:width="2dp" android:color="@color/white"/> <!-- Đường viền khi chưa được chọn -->
+            <corners android:radius="10dp"/> <!-- Bo góc -->
+        </shape>
+    </item>
+</selector>

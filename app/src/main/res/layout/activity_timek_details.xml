@@ -202,7 +202,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -211,12 +212,12 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/button5"
+            app:layout_constraintBottom_toTopOf="@+id/btn_ChamCongHalf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btn_ChamCongHalf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_btn_yellow"
@@ -229,16 +230,17 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
+            android:id="@+id/btnChamCong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="244dp"
             android:background="@drawable/custom_btn_blue"
             android:paddingHorizontal="30dp"
             android:text="Cham cong"
             android:textAllCaps="false"
+
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

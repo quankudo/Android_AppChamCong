@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,6 +24,7 @@ public class SalaryDetailsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<SalaryDetails> list;
     TextView title;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +37,26 @@ public class SalaryDetailsActivity extends AppCompatActivity {
         });
         initMapping();
         initData();
+        initEvent();
         recyclerView = findViewById(R.id.recSalaryDetailsParent);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(new SalaryDetailsAdapter(list, this));
 
     }
 
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
+
     public void initMapping(){
         title = findViewById(R.id.title_header);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 
     private void initData() {

@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 
 public class SalaryActivity extends AppCompatActivity {
     ArrayList<com.example.appchamcong.domain.Staff> list;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +31,20 @@ public class SalaryActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(salaryAdapter);
-        };
+
+        initMapping();
+        initEvent();
+    }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
 
     public void init()
     {
@@ -36,4 +52,8 @@ public class SalaryActivity extends AppCompatActivity {
         com.example.appchamcong.domain.Staff s1 = new com.example.appchamcong.domain.Staff("Nguyễn Phước Kỳ", 1, 1, 0, 0, 0);
         list.add(s1);
     }
+
+    public void initMapping(){
+        btnClose = findViewById(R.id.btnClose);
     }
+}

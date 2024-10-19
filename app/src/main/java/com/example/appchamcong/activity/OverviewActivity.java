@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 
 public class OverviewActivity extends AppCompatActivity {
     ArrayList<com.example.appchamcong.domain.Staff> list;
-
+    ImageView btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,18 @@ public class OverviewActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(salaryAdapter);
+
+        initEvent();
+    }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
     }
 
     public void init()
@@ -36,5 +50,9 @@ public class OverviewActivity extends AppCompatActivity {
         list = new ArrayList<>();
         com.example.appchamcong.domain.Staff s1 = new com.example.appchamcong.domain.Staff("Nguyễn Phước Kỳ", 1, 1, 0, 0, 0);
         list.add(s1);
+    }
+
+    public void initMapping(){
+        btnClose = findViewById(R.id.btnClose);
     }
 }

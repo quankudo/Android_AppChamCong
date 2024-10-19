@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +15,7 @@ import com.example.appchamcong.R;
 
 public class AuthorityActivity extends AppCompatActivity {
     TextView title;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,16 @@ public class AuthorityActivity extends AppCompatActivity {
         });
         initMapping();
         initData();
+        initEvent();
+    }
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
     }
 
     public void initData(){
@@ -32,6 +45,7 @@ public class AuthorityActivity extends AppCompatActivity {
     }
 
     public void initMapping(){
-        title = findViewById(R.id.title_center);
+        title = findViewById(R.id.title_header);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 }

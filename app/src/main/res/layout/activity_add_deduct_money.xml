@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include5" />
     <LinearLayout
-        android:id="@+id/linearLayout12"
+        android:id="@+id/btnLeTet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -49,16 +49,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout18"
+        android:id="@+id/btnKoDat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout12"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout12"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout12">
+        app:layout_constraintBottom_toBottomOf="@+id/btnLeTet"
+        app:layout_constraintStart_toEndOf="@+id/btnLeTet"
+        app:layout_constraintTop_toTopOf="@+id/btnLeTet">
 
         <TextView
             android:layout_width="wrap_content"
@@ -72,15 +72,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout13"
+        android:id="@+id/btnDiLai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout12"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
+        app:layout_constraintStart_toStartOf="@+id/btnLeTet"
+        app:layout_constraintTop_toBottomOf="@+id/btnLeTet">
 
         <TextView
             android:layout_width="wrap_content"
@@ -94,16 +94,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout19"
+        android:id="@+id/btnBaoHiem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout13"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout13"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout13">
+        app:layout_constraintBottom_toBottomOf="@+id/btnDiLai"
+        app:layout_constraintStart_toEndOf="@+id/btnDiLai"
+        app:layout_constraintTop_toTopOf="@+id/btnDiLai">
 
         <TextView
             android:layout_width="wrap_content"
@@ -117,16 +117,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/btnKhac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
         android:layout_marginStart="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout19"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout19"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout19">
+        app:layout_constraintBottom_toBottomOf="@+id/btnBaoHiem"
+        app:layout_constraintStart_toEndOf="@+id/btnBaoHiem"
+        app:layout_constraintTop_toTopOf="@+id/btnBaoHiem">
 
         <TextView
             android:layout_width="wrap_content"
@@ -134,180 +134,170 @@
             android:text="Khac"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
+            android:textStyle="normal" />
     </LinearLayout>
-    <TextView
-        android:id="@+id/textView47"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="So tien"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <LinearLayout
-        android:id="@+id/linearLayout16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/custom_input"
-        android:orientation="horizontal"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="5dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView47">
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="#00000000"
+        app:layout_constraintTop_toBottomOf="@+id/btnDiLai">
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="So tien"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
             android:textSize="18sp" />
 
-        <ImageView
+        <LinearLayout
+            android:id="@+id/btnHeso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_input"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icon_account" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewDiMuon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/icon_account" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView48"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Tong phut di muon"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout16" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout17"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/custom_input"
-        android:orientation="horizontal"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView48">
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="#00000000"
+            android:layout_marginTop="10dp"
+            android:text="Tong phut di muon"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
             android:textSize="18sp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayoutDiMuon"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/icon_account" />
-    </LinearLayout>
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_input"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp">
 
-    <TextView
-        android:id="@+id/textView49"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Ngay"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout17" />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="18sp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView49">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icon_account" />
+        </LinearLayout>
 
         <TextView
+            android:id="@+id/textView49"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_light"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp"
-            android:text="&lt;&lt;"
+            android:layout_marginTop="10dp"
+            android:text="Ngay"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
+        <LinearLayout
+            android:id="@+id/linearLayout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_light"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:text="&lt;&lt;"
+                android:id="@+id/btnPre"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_weight="1"
+                android:id="@+id/tvDate"
+                android:background="@drawable/bg_light"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:text="Hôm nay"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_light"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:text="&gt;&gt;"
+                android:id="@+id/btnNext"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
         <TextView
+            android:id="@+id/textView43"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_light"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp"
-            android:text="Hôm nay"
-            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:text="Ghi chú"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="normal" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_light"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp"
-            android:text="&gt;&gt;"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:minLines="5"
+            android:padding="10dp"
+            android:layout_marginBottom="15dp"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColorHint="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Ghi chú"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout11" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_light"
-        android:gravity="top|start"
-        android:inputType="textMultiLine"
-        android:maxLines="10"
-        android:minLines="5"
-        android:padding="10dp"
-        android:layout_marginBottom="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView43" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

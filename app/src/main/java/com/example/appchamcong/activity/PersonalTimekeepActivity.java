@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
     private ArrayList<Shift> listShift;
     private LinearLayout ungluong, tangca, phucap, trutien, loinhuan, thanhtoan, thongke, xemthem;
     private Button btn_cham;
+    ImageButton btnClose;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +115,14 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
         });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
     }
 
     private void setShiftView() {
@@ -181,5 +191,6 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         thongke = findViewById(R.id.thongke_gr);
         xemthem = findViewById(R.id.xemthem_gr);
         btn_cham = findViewById(R.id.btn_attendance);
+        btnClose = findViewById(R.id.btnClose);
     }
 }

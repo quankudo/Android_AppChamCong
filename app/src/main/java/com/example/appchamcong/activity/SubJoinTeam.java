@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 public class SubJoinTeam extends AppCompatActivity {
     ArrayList<JoinTeam> list;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,23 @@ public class SubJoinTeam extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(joinTeamAdapter);
+
+        initMapping();
+        initEvent();
+    }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
+
+    private void initMapping() {
+        btnClose = findViewById(R.id.btnClose);
     }
 
     private void inin() {
@@ -38,4 +58,6 @@ public class SubJoinTeam extends AppCompatActivity {
         JoinTeam j1 = new JoinTeam("Nguyen Phuoc Ky","0274267267", "Chua cap nhat");
         list.add(j1);
     }
+
+
 }

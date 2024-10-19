@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 public class PaymentDetailsActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     TextView title;
+    ImageButton btnClose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class PaymentDetailsActivity extends AppCompatActivity {
         });
         initMapping();
         initData();
+        initEvent();
 
         tabLayout = findViewById(R.id.tabLayout);
         TabLayout.Tab tabPersonal = tabLayout.newTab();
@@ -71,6 +74,16 @@ public class PaymentDetailsActivity extends AppCompatActivity {
             @Override
             public void handleOnBackPressed() {
                 // Tạo hiệu ứng chuyển cảnh
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+    }
+
+    private void initEvent() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
@@ -122,5 +135,6 @@ public class PaymentDetailsActivity extends AppCompatActivity {
 
     public void initMapping(){
         title = findViewById(R.id.title_header);
+        btnClose = findViewById(R.id.chevLeftClose);
     }
 }
