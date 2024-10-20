@@ -8,28 +8,34 @@
     android:background="@color/black"
     tools:context=".activity.QRCodeActivity">
 
-    <include layout="@layout/header_title_common" />
+    <include
+        android:id="@+id/include11"
+        layout="@layout/header_title_common"
+        tools:layout_editor_absoluteY="5dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="@color/black"
         android:padding="0dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
         android:src="@drawable/baseline_qr_code_24"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/include11"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="20dp"
         android:src="@drawable/qrcode_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/include11"
+        android:layout_marginTop="2dp"/>
 
     <TextView
         android:id="@+id/textView9"

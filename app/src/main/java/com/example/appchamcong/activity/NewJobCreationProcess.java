@@ -62,6 +62,10 @@ public class NewJobCreationProcess extends AppCompatActivity {
                 if (currentItem > 0) {
                     viewPager.setCurrentItem(currentItem - 1);
                 }
+                if(progressBarCurrent == 100/totalsSteps){
+                    Intent intent = new Intent(NewJobCreationProcess.this, MainActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
