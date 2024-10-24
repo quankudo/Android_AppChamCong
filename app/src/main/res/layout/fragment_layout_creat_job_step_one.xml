@@ -115,159 +115,26 @@
                     tools:layout_editor_absoluteX="112dp" />
             </LinearLayout>
 
-            <RadioGroup
-                android:id="@+id/radioGroup3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-               >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/custom_radio_group"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp">
                     <!--CHAM CONG THEO NGAY-->
-                    <LinearLayout
-                        android:id="@+id/byDay"
-                        android:layout_width="match_parent"
-                        android:layout_height="99dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="330dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="3dp"
-                                android:text="Chấm công theo ngày"
-                                android:textColor="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/lexend_deca_extra_light"
-                                android:text="Mô tả: chấm cả ngày, chấm nữa ngày..."
-                                android:textColor="@color/white">
-
-                            </TextView>
-
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/radioByDay"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:buttonTint="@color/radio_btn_color"></RadioButton>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/gray" />
-                    <!--CHẤM THEO ca -->
-                    <LinearLayout
-                        android:id="@+id/byShift"
-                        android:layout_width="match_parent"
-                        android:layout_height="99dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="330dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="3dp"
-                                android:text="Chấm theo ca"
-                                android:textColor="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/lexend_deca_extra_light"
-                                android:text="Mô tả: chấm ca sáng, ca chiều, ca tối..."
-                                android:textColor="@color/white">
-
-                            </TextView>
-
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/radioByShift"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:buttonTint="@color/radio_btn_color"></RadioButton>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/gray" />
-                    <!--        Cham theo gio-->
-                    <LinearLayout
-                        android:id="@+id/hourly"
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="330dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
-
-                            <TextView
-                                android:id="@+id/textView17"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="3dp"
-                                android:text="Chấm công theo giờ"
-                                android:textColor="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/lexend_deca_extra_light"
-                                android:text="Mô tả: thời gian vào làm, tan làm..."
-                                android:textColor="@color/white">
-
-                            </TextView>
-
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/radioHourly"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:buttonTint="@color/radio_btn_color"></RadioButton>
-
-                    </LinearLayout>
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/rcvTimekeepingForm"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@drawable/custom_radio_group">
+                   </androidx.recyclerview.widget.RecyclerView>
 
 
                 </LinearLayout>
 
-            </RadioGroup>
             <!--    Tich hop nang cao-->
             <LinearLayout
                 android:id="@+id/lnlHidden1"

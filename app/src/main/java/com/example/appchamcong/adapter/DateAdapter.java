@@ -40,15 +40,14 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.DateViewHolder
         holder.textViewDate.setText(date);
         holder.textViewDate.setTextColor(Color.WHITE);
 
-        // Đặt RadioButton được chọn dựa trên vị trí đã chọn
         holder.radioButtonDate.setChecked(position == selectedPosition);
 
-        // Xử lý sự kiện khi RadioButton được chọn
+
         holder.radioButtonDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectedPosition = holder.getAdapterPosition();
-                notifyDataSetChanged(); // Cập nhật lại danh sách để chỉ một RadioButton được chọn
+                notifyDataSetChanged();
             }
         });
 
@@ -57,7 +56,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.DateViewHolder
             @Override
             public void onClick(View v) {
                 selectedPosition = holder.getAdapterPosition();
-                notifyDataSetChanged(); // Cập nhật lại danh sách để chỉ một RadioButton được chọn
+                notifyDataSetChanged();
             }
         });
     }

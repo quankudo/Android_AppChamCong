@@ -26,6 +26,7 @@
                 android:textStyle="bold"></TextView>
 
             <ImageView
+                android:id="@+id/cancel_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_weight="0"
@@ -293,6 +294,7 @@
             </TableLayout>
         </RadioGroup>
         <Button
+            android:id="@+id/btnNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tiếp tục"
@@ -303,6 +305,5 @@
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="15dp"
             >
-
         </Button>
 </LinearLayout>

@@ -11,7 +11,7 @@ import com.example.appchamcong.adapter.DateAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class addDateToLayoutBottomSheetSelectDate extends AppCompatActivity {
+public class AddDateToLayoutBottomSheetSelectDate extends AppCompatActivity {
 
     private RecyclerView recyclerViewDates;
     private DateAdapter dateAdapter;
