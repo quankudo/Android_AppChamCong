@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp">
+
+
+        <LinearLayout
+            android:id="@+id/lnlTimekeepingOptions"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_timekeeping_form"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imgViewTimekeepingOptions"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/user_timepicking_form"></ImageView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nameTimekeepingOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Chấm cho cá nhân"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/describeTimekeepingOptions"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:text="Bạn sẽ tự chấm công cho riêng cá nhân bạn"
+                    android:textColor="#8E8E8E"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+                <RadioButton
+                    android:id="@+id/radioBtnTimekeepingOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/radio_btn_color"
+                    android:shadowColor="@color/white"
+                    android:textColor="@color/white"></RadioButton>
+        </LinearLayout>
+
+</LinearLayout>

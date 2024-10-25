@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    >
+    <LinearLayout
+        android:id="@+id/lnlAdvancedIntegration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            >
+
+            <TextView
+                android:id="@+id/tvNameAdvancedIntegration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:text="Tích hợp chấm công bằng Wifi"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvDescribeAdvancedIntegration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexend_deca_extra_light"
+                android:text="Kết nối wifi tại nơi làm việc để tiến hành chấm công"
+                android:textColor="@color/white">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <RadioButton
+            android:id="@+id/radioAdvancedIntegration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/radio_btn_color">
+
+        </RadioButton>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/barAdvancedIntegration"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+</LinearLayout>

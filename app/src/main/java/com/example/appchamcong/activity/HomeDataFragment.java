@@ -2,6 +2,7 @@ package com.example.appchamcong.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -10,7 +11,10 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +28,13 @@ import android.widget.TextView;
 import com.example.appchamcong.R;
 import com.example.appchamcong.activity.GroupFragment;
 import com.example.appchamcong.activity.PersonFragment;
+import com.example.appchamcong.adapter.TimekeepingOptionsAdapter;
+import com.example.appchamcong.domain.TimekeepingOptions;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeDataFragment extends Fragment {
     private TabLayout tabLayout;
@@ -118,21 +128,49 @@ public class HomeDataFragment extends Fragment {
     }
 
     public void show(){
-        final Dialog dialog = new Dialog(getContext());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.bottom_sheet_layout);
 
-        ImageView cancel = dialog.findViewById(R.id.cancel_btn);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-        dialog.getWindow().setGravity(Gravity.BOTTOM);
+            View view = getLayoutInflater().inflate(R.layout.bottom_sheet_layout, null);
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
+            bottomSheetDialog.setContentView(view);
+            RecyclerView rcv = view.findViewById(R.id.rcvTimekeepingOptions);
+            rcv.setLayoutManager(new LinearLayoutManager(getContext()));
+            List<TimekeepingOptions> list = new ArrayList<>();
+            TimekeepingOptionsAdapter adapter = new TimekeepingOptionsAdapter(list, getContext());
+            TimekeepingOptions to1 = new TimekeepingOptions(R.drawable.user_timepicking_form, "Chấm cho cá nhân","Bạn sẽ tự chấm công cho riêng cá nhân bạn");
+            list.add(to1);
+
+            TimekeepingOptions to2 = new TimekeepingOptions(R.drawable.people, "Chấm cho nhân viên","Với tư cách là chủ, bạn sẽ tự chấm công cho nhân viên của mình");
+            list.add(to2);
+
+            TimekeepingOptions to3 = new TimekeepingOptions(R.drawable.connect, "Nhân viên tự chấm","Bạn sẽ theo dõi toàn bộ quá trình chấm công của tất cả nhân viên");
+            list.add(to3);
+
+            TimekeepingOptions to4 = new TimekeepingOptions(R.drawable.scan, "Tham gia nhóm bằng QR code","Bạn sẽ tham gia vào một công việc được tạo từ người chủ của mình");
+            list.add(to4);
+            Log.d("TimekeepingOptionsList", "List size: " + list.size());
+            // Khởi tạo Adapter và đặt nó vào RecyclerView
+            adapter = new TimekeepingOptionsAdapter(list, getContext());
+            rcv.setAdapter(adapter);
+
+
+
+            bottomSheetDialog.show();
+
+
+
+            ImageView btnClose = view.findViewById(R.id.cancel_btn);
+            btnClose.setOnClickListener(v -> {
+                bottomSheetDialog.dismiss();
+            });
+
+            Button btnNext = view.findViewById(R.id.btnNextTKPO);
+            btnNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), NewJobCreationProcess.class);
+                    startActivity(intent);
+                }
+            });
+
+        }
     }
-}

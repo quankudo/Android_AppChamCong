@@ -115,7 +115,6 @@
                     tools:layout_editor_absoluteX="112dp" />
             </LinearLayout>
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -131,7 +130,6 @@
                        android:layout_height="wrap_content"
                        android:background="@drawable/custom_radio_group">
                    </androidx.recyclerview.widget.RecyclerView>
-
 
                 </LinearLayout>
 
@@ -160,205 +158,23 @@
                     tools:layout_editor_absoluteX="112dp" />
             </LinearLayout>
 
-            <RadioGroup
-                android:id="@+id/radioGroupHidden"
+            <LinearLayout
+                android:id="@+id/lnlHidden2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_radio_group"
+                android:orientation="vertical"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                >
-
-                <LinearLayout
+                android:layout_marginEnd="16dp">
+                <!--CHAM CONG THEO NGAY-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvAdvancedIntegration"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_radio_group"
-                    android:orientation="vertical">
-                    <!--Tích hợp chấm công bằng Wifi-->
-                    <LinearLayout
-                        android:id="@+id/lnlWifi"
-                        android:layout_width="match_parent"
-                        android:layout_height="99dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-
-                            android:layout_width="330dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="3dp"
-                                android:text="Tích hợp chấm công bằng Wifi"
-                                android:textColor="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/lexend_deca_extra_light"
-                                android:text="Kết nối wifi tại nơi làm việc để tiến hành chấm công"
-                                android:textColor="@color/white">
-
-                            </TextView>
-
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/radioWifi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:buttonTint="@color/radio_btn_color"></RadioButton>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/gray" />
-                    <!--CHẤM THEO-->
-                    <LinearLayout
-                        android:id="@+id/lnlQR"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="330dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="3dp"
-                                android:text="Tích hợp chấm công bằng mã QR Code"
-                                android:textColor="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/lexend_deca_extra_light"
-                                android:text="Quét mã QR Code tại nơi làm việc để tiến hành chấm công"
-                                android:textColor="@color/white">
-
-                            </TextView>
-
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/radioQR"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:buttonTint="@color/radio_btn_color"></RadioButton>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/gray" />
-                    <!--        tich hop cham cong bang vi tri-->
-                    <LinearLayout
-                        android:id="@+id/lnlLocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="330dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="3dp"
-                                android:text="Tích hợp chấm công bằng Vị trí"
-                                android:textColor="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/lexend_deca_extra_light"
-                                android:text="Vị trí nhân viên sẽ được lưu trữ lại tại mỗi lần chấm công"
-                                android:textColor="@color/white">
-
-                            </TextView>
-
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/radioLocation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:buttonTint="@color/radio_btn_color"></RadioButton>
-
-                    </LinearLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/gray" />
-                    <!--khongtisich hop nang cao-->
-                    <LinearLayout
-                        android:id="@+id/lnlNoAdvancedIntegration"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="330dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="3dp"
-                                android:text="Không tích hợp nâng cao"
-                                android:textColor="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/lexend_deca_extra_light"
-                                android:text="Nhân viên của bạn chỉ cần chấm công 1 lần trong ngày. Lưu ý tính năng này sẽ không cần chấm công Vào làm và Ra làm"
-                                android:textColor="@color/white">
-
-                            </TextView>
-
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/radioNoAdvancedIntegration"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:buttonTint="@color/radio_btn_color"></RadioButton>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </RadioGroup>
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_radio_group">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
