@@ -25,6 +25,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/QRCodeAccount"
             android:src="@drawable/baseline_qr_code_24"
             android:contentDescription="qr code"
             android:background="@color/black"/>
@@ -33,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:id="@+id/infoAccount"
         android:padding="10dp"
         android:background="@drawable/bg_light"
         android:orientation="horizontal">
@@ -108,30 +110,35 @@
             android:src="@drawable/chevron_right_30"/>
 
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/btnSaoChepMa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/bg_light"
-        android:padding="8dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="8dp">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:src="@drawable/baseline_security_24"/>
+            android:src="@drawable/baseline_security_24" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="Sao chep ma ca nhan"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:textSize="18dp"
-            android:layout_gravity="center"/>
+            android:text="Sao chep ma ca nhan"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/chevron_right_30"/>
+            android:src="@drawable/chevron_right_30" />
 
     </LinearLayout>
     <TextView
@@ -245,6 +252,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/hotrokythuat"
             android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <ImageView

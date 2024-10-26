@@ -38,7 +38,7 @@ public class ProfitManageActivity extends AppCompatActivity {
         initData();
         initEvent();
 
-        tabLayout = findViewById(R.id.tabLayout_profit);
+
         TabLayout.Tab tabPersonal = tabLayout.newTab();
         tabPersonal.setCustomView(createCustomTab("Thu vào", true));
         tabLayout.addTab(tabPersonal);
@@ -136,5 +136,6 @@ public class ProfitManageActivity extends AppCompatActivity {
     public void initMapping(){
         title = findViewById(R.id.title_header);
         btnClose = findViewById(R.id.chevLeftClose);
+        tabLayout = findViewById(R.id.tabLayout_profit);
     }
 }

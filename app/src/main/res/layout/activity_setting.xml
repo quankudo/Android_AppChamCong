@@ -88,7 +88,7 @@
         android:layout_marginVertical="10dp"
         android:textColor="@color/gray"
         android:textStyle="bold"
-        android:text="Thông báo"/>
+        android:text="Bảo mật"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,6 +106,7 @@
             android:layout_weight="1"
             android:text="Mã bảo vệ"/>
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/btnMaBaoVe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"

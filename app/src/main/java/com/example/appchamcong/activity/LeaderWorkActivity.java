@@ -1,11 +1,15 @@
 package com.example.appchamcong.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,13 +22,24 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.adapter.TimekeepingOptionsAdapter;
+import com.example.appchamcong.domain.TimekeepingOptions;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LeaderWorkActivity extends AppCompatActivity {
     private TabLayout tabLayout;
-    LinearLayout btnNhanvien;
+    LinearLayout btnNhanvien, btnXemThem;
+    TextView btnBangLuongTheoThang;
+    ImageButton btnThongBao;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +78,45 @@ public class LeaderWorkActivity extends AppCompatActivity {
             }
         });
 
+        initMapping();
+        initEvent();
+    }
+
+    private void initEvent() {
+        btnNhanvien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LeaderWorkActivity.this, SubManage.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        btnXemThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openBottomSheetDialog();
+            }
+        });
+
+        btnThongBao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LeaderWorkActivity.this, SubNotification.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        btnBangLuongTheoThang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LeaderWorkActivity.this, SalaryActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -71,14 +125,13 @@ public class LeaderWorkActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
+    }
 
+    private void initMapping() {
         btnNhanvien = findViewById(R.id.btn_nhanvien);
-        btnNhanvien.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+        btnXemThem  = findViewById(R.id.btnXemThem);
+        btnBangLuongTheoThang = findViewById(R.id.btnBangLuongTheoThang);
+        btnThongBao = findViewById(R.id.btnThongBao);
     }
 
     private View createCustomTab(String title, boolean isSelected) {
@@ -116,6 +169,13 @@ public class LeaderWorkActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_leader, fragment);
         fragmentTransaction.commit();
+    }
+
+    private void openBottomSheetDialog() {
+        View view = getLayoutInflater().inflate(R.layout.bottom_sheet_setting, null);
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(view);
+        bottomSheetDialog.show();
     }
 
 }

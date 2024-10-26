@@ -63,13 +63,7 @@ public class HomeFragment extends Fragment {
         // Khởi tạo Adapter và đặt nó vào RecyclerView
         adapter = new TimekeepingOptionsAdapter(list, getContext());
         rcv.setAdapter(adapter);
-
-
-
         bottomSheetDialog.show();
-
-
-
         ImageView btnClose = view.findViewById(R.id.cancel_btn);
         btnClose.setOnClickListener(v -> {
             bottomSheetDialog.dismiss();

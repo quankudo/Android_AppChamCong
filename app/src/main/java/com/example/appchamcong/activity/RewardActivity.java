@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.appchamcong.R;
 
 public class RewardActivity extends AppCompatActivity {
-    TextView title;
+    TextView title, xemThongKe;
     Button btnAdd;
     ImageButton btnClose;
     @Override
@@ -53,6 +53,15 @@ public class RewardActivity extends AppCompatActivity {
             }
         });
 
+        xemThongKe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RewardActivity.this, StatisticalRewardActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,5 +79,6 @@ public class RewardActivity extends AppCompatActivity {
         title = findViewById(R.id.title_header);
         btnAdd = findViewById(R.id.btn_add_phucap);
         btnClose = findViewById(R.id.chevLeftClose);
+        xemThongKe = findViewById(R.id.xemThongKe);
     }
 }

@@ -1,9 +1,14 @@
 package com.example.appchamcong.activity;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +21,7 @@ import com.example.appchamcong.R;
 public class QRCodeActivity extends AppCompatActivity {
     TextView title;
     ImageButton btnClose;
+    LinearLayout btnSaoChepMaNhom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +45,13 @@ public class QRCodeActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
+
+        btnSaoChepMaNhom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toastShow();
+            }
+        });
     }
 
     public void initData(){
@@ -48,5 +61,18 @@ public class QRCodeActivity extends AppCompatActivity {
     public void initMapping(){
         title = findViewById(R.id.title_header);
         btnClose = findViewById(R.id.chevLeftClose);
+        btnSaoChepMaNhom = findViewById(R.id.btnSaoChepMaNhom);
+    }
+
+    public void toastShow() {
+        Toast toast = new Toast(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View v = inflater.inflate(R.layout.toast_successful_layout, findViewById(R.id.layout_toast_successful));
+        TextView tv = v.findViewById(R.id.tvToast);
+        tv.setText("Sao chép mã thành công");
+        toast.setView(v);
+        toast.setGravity(Gravity.TOP, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.show();
     }
 }

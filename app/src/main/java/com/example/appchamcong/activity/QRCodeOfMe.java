@@ -1,9 +1,7 @@
 package com.example.appchamcong.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -15,20 +13,22 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appchamcong.R;
 
-public class ConsiderJoinTeamActivity extends AppCompatActivity {
-    TextView title;
+public class QRCodeOfMe extends AppCompatActivity {
+    TextView title, tieuDeMa, noidungMa;
     ImageButton btnClose;
-    Button btnThamGiaNhom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_consider_join_team);
+        setContentView(R.layout.activity_qrcode);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initMapping();
+        initData();
+        initEvent();
     }
 
     private void initEvent() {
@@ -39,24 +39,18 @@ public class ConsiderJoinTeamActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
-
-        btnThamGiaNhom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ConsiderJoinTeamActivity.this, QRCodeActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-            }
-        });
     }
 
     public void initData(){
-        title.setText("Xét duyệt tham gia nhóm");
+        title.setText("Mã QR Code của tôi");
+        tieuDeMa.setText("Mã gồm các ký tự");
+        noidungMa.setText("66f**********2e6");
     }
 
     public void initMapping(){
         title = findViewById(R.id.title_header);
         btnClose = findViewById(R.id.chevLeftClose);
-        btnThamGiaNhom = findViewById(R.id.btnThamGiaNhom);
+        tieuDeMa = findViewById(R.id.textView9);
+        noidungMa = findViewById(R.id.textView10);
     }
 }
