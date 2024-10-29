@@ -34,11 +34,16 @@
 
         <ImageButton
             android:id="@+id/btnThongBao"
+            android:padding="0dp"
+            android:background="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_qr_code_24" />
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/btnSettings_Nhom"
+            android:padding="0dp"
+            android:background="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_qr_code_24" />
@@ -132,6 +137,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/imageView8">
                         <LinearLayout
+                            android:id="@+id/btnLoiNhuan_Nhom"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.25"
@@ -186,6 +192,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/btnXetDuyet"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.25"

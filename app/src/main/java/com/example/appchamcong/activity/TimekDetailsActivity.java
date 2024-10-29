@@ -1,6 +1,8 @@
 package com.example.appchamcong.activity;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -28,7 +30,9 @@ public class TimekDetailsActivity extends AppCompatActivity {
     TextView txtghichu;
     TextView title;
     ImageButton btnClose;
-    Button chamCongHalf, chamCong;
+    Button chamCongHalf, chamCong, khongLyDo, btnCoLyDo;
+
+    int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,8 @@ public class TimekDetailsActivity extends AppCompatActivity {
                 show();
             }
         });
+
+        position = getIntent().getIntExtra("position", -1);
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -68,6 +74,12 @@ public class TimekDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 toastShow();
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("ChamCong", "ALL");
+                returnIntent.putExtra("position", position);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
 
@@ -75,6 +87,38 @@ public class TimekDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 toastShow();
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("ChamCong", "HALF");
+                returnIntent.putExtra("position", position);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+
+        btnCoLyDo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toastShow();
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("ChamCong", "COLD");
+                returnIntent.putExtra("position", position);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+
+        khongLyDo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toastShow();
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("ChamCong", "KLD");
+                returnIntent.putExtra("position", position);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
     }
@@ -106,6 +150,8 @@ public class TimekDetailsActivity extends AppCompatActivity {
         btnClose = findViewById(R.id.chevLeftClose);
         chamCong = findViewById(R.id.btnChamCong);
         chamCongHalf = findViewById(R.id.btn_ChamCongHalf);
+        khongLyDo = findViewById(R.id.button4);
+        btnCoLyDo = findViewById(R.id.btnCoLyDo);
     }
 
     public void toastShow() {

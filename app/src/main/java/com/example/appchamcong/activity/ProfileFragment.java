@@ -21,7 +21,6 @@ import com.example.appchamcong.R;
 public class ProfileFragment extends Fragment {
     LinearLayout thoit, tb, btnSaoChepMa, infoAccount, hotrokythuat;
     ImageButton btnQRCode;
-    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

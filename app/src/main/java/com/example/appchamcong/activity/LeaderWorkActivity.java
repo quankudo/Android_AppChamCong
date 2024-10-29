@@ -36,9 +36,9 @@ import java.util.List;
 
 public class LeaderWorkActivity extends AppCompatActivity {
     private TabLayout tabLayout;
-    LinearLayout btnNhanvien, btnXemThem;
-    TextView btnBangLuongTheoThang;
-    ImageButton btnThongBao;
+    LinearLayout btnNhanvien, btnXemThem, btnXetDuyet, btnLoiNhuan_Nhom;
+    TextView btnBangLuongTheoThang, btnXemTongQuan;
+    ImageButton btnThongBao, btnSettings_Nhom;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -117,6 +117,40 @@ public class LeaderWorkActivity extends AppCompatActivity {
             }
         });
 
+        btnSettings_Nhom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openBottomSheetDialog();
+            }
+        });
+
+        btnXetDuyet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LeaderWorkActivity.this, ConsiderJoinTeamActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        btnLoiNhuan_Nhom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LeaderWorkActivity.this, ProfitManageActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        btnXemTongQuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LeaderWorkActivity.this, OverviewActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -132,6 +166,10 @@ public class LeaderWorkActivity extends AppCompatActivity {
         btnXemThem  = findViewById(R.id.btnXemThem);
         btnBangLuongTheoThang = findViewById(R.id.btnBangLuongTheoThang);
         btnThongBao = findViewById(R.id.btnThongBao);
+        btnSettings_Nhom = findViewById(R.id.btnSettings_Nhom);
+        btnXetDuyet = findViewById(R.id.btnXetDuyet);
+        btnLoiNhuan_Nhom = findViewById(R.id.btnLoiNhuan_Nhom);
+        btnXemTongQuan = findViewById(R.id.textView13);
     }
 
     private View createCustomTab(String title, boolean isSelected) {

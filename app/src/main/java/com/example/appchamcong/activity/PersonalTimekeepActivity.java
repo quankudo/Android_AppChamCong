@@ -1,5 +1,6 @@
 package com.example.appchamcong.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -30,14 +31,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class PersonalTimekeepActivity extends AppCompatActivity {
-
-    private TextView monthYearTxt;
+    private static final int REQUEST_CODE = 1000;
+    private TextView monthYearTxt, btnXemThem_CaNhan, btnXemChiTiet_CaNhan, btnXemTongQuan;
     private RecyclerView recyclerView, recShift;
     private LocalDate localDate;
     private ArrayList<Shift> listShift;
-    private LinearLayout ungluong, tangca, phucap, trutien, loinhuan, thanhtoan, thongke, xemthem;
+    private LinearLayout ungluong, tangca, phucap, trutien, loinhuan, thanhtoan, thongke, xemthem, ln_xemthem_canhan;
     private Button btn_cham;
     ImageButton btnClose;
+
+    CalendarAdapter calendarAdapter;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +119,39 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
             }
         });
 
+        btnXemThem_CaNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(btnXemThem_CaNhan.getText().equals("Xem them")) {
+                    ln_xemthem_canhan.setVisibility(View.VISIBLE);
+                    btnXemThem_CaNhan.setText("Thu gon");
+                }
+                else {
+                    ln_xemthem_canhan.setVisibility(View.GONE);
+                    btnXemThem_CaNhan.setText("Xem them");
+                }
+            }
+        });
+
+        btnXemTongQuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, OverviewActivity.class);
+                intent.putExtra("TYPE", "Person");
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        btnXemChiTiet_CaNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PersonalTimekeepActivity.this, SalaryDetailsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,7 +183,7 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
     private void setMonthView() {
         monthYearTxt.setText(MonthYearFromDate(localDate));
         ArrayList<String> dayInMonth = dayInMonthArray(localDate);
-        CalendarAdapter calendarAdapter = new CalendarAdapter(dayInMonth);
+        calendarAdapter = new CalendarAdapter(dayInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),7);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(calendarAdapter);
@@ -192,5 +228,24 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         xemthem = findViewById(R.id.xemthem_gr);
         btn_cham = findViewById(R.id.btn_attendance);
         btnClose = findViewById(R.id.btnClose);
+        ln_xemthem_canhan = findViewById(R.id.ln_xemthem_canhan);
+        ln_xemthem_canhan.setVisibility(View.GONE);
+        btnXemThem_CaNhan = findViewById(R.id.btnXemThem_CaNhan);
+        btnXemChiTiet_CaNhan = findViewById(R.id.btnXemChiTiet_CaNhan);
+        btnXemTongQuan = findViewById(R.id.textView13);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            int position = data.getIntExtra("position", -1);
+            String result = data.getStringExtra("ChamCong");
+            // Cập nhật lại Adapter hoặc RecyclerView dựa trên dữ liệu trả về, nếu cần
+            if (position != -1) {
+                // Cập nhật item tại vị trí position trong adapter
+                calendarAdapter.updateData(position, result); // Ví dụ: Gọi phương thức trong adapter để cập nhật item
+            }
+        }
     }
 }

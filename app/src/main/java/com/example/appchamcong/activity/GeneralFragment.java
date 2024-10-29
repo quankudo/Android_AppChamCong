@@ -49,7 +49,7 @@ public class GeneralFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setMonthView() {
         ArrayList<String> dayInMonth = dayInMonthArray(localDate);
-        CalendarAdapter calendarAdapter = new CalendarAdapter(dayInMonth);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(dayInMonth, getActivity());
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(),7);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(calendarAdapter);
