@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.appchamcong.R;
 import com.example.appchamcong.adapter.TimekeepingOptionsAdapter;
@@ -23,6 +24,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
+    TimekeepingOptions to = new TimekeepingOptions();
+    List<TimekeepingOptions> list = to.addData();
+    TimekeepingOptionsAdapter adapter = new TimekeepingOptionsAdapter(list, getContext());
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,7 +42,8 @@ public class HomeFragment extends Fragment {
         });
 
         Button btnJoinTeam = view.findViewById(R.id.buttonJoinTeam);
-        return view;}
+        return view;
+    }
 
 
     private void openBottomSheetDialog() {
@@ -46,19 +52,7 @@ public class HomeFragment extends Fragment {
         bottomSheetDialog.setContentView(view);
         RecyclerView rcv = view.findViewById(R.id.rcvTimekeepingOptions);
         rcv.setLayoutManager(new LinearLayoutManager(getContext()));
-        List<TimekeepingOptions> list = new ArrayList<>();
-        TimekeepingOptionsAdapter adapter = new TimekeepingOptionsAdapter(list, getContext());
-        TimekeepingOptions to1 = new TimekeepingOptions(R.drawable.user_timepicking_form, "Chấm cho cá nhân","Bạn sẽ tự chấm công cho riêng cá nhân bạn");
-        list.add(to1);
 
-        TimekeepingOptions to2 = new TimekeepingOptions(R.drawable.people, "Chấm cho nhân viên","Với tư cách là chủ, bạn sẽ tự chấm công cho nhân viên của mình");
-        list.add(to2);
-
-        TimekeepingOptions to3 = new TimekeepingOptions(R.drawable.connect, "Nhân viên tự chấm","Bạn sẽ theo dõi toàn bộ quá trình chấm công của tất cả nhân viên");
-        list.add(to3);
-
-        TimekeepingOptions to4 = new TimekeepingOptions(R.drawable.scan, "Tham gia nhóm bằng QR code","Bạn sẽ tham gia vào một công việc được tạo từ người chủ của mình");
-        list.add(to4);
         Log.d("TimekeepingOptionsList", "List size: " + list.size());
         // Khởi tạo Adapter và đặt nó vào RecyclerView
         adapter = new TimekeepingOptionsAdapter(list, getContext());
@@ -74,9 +68,20 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), NewJobCreationProcess.class);
-                startActivity(intent);
+
+                TimekeepingOptions selectedOption = adapter.getSelectedOption();
+                if (selectedOption != null) {
+                    String selectedName = selectedOption.getName();
+                    String selectedDescription = selectedOption.getDescribe();
+                    intent.putExtra("Name", selectedName);
+                    intent.putExtra("Describe", selectedDescription);
+                    startActivity(intent);
+                }
+
             }
         });
+
+
 
     }
 }

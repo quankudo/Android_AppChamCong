@@ -5,24 +5,35 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.appchamcong.R;
-import com.example.appchamcong.adapter.HourlyTimekeepingStepsUsingWifiAdapter;
+import com.example.appchamcong.adapter.IndividualCheckIn;
+import com.example.appchamcong.adapter.SelfCheckIniAdapter;
 
 public class NewJobCreationProcess extends AppCompatActivity {
     private ViewPager2 viewPager;
-    private HourlyTimekeepingStepsUsingWifiAdapter adapter;
+    FragmentStateAdapter adapter;
+
     private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_job_creation_process);
-
         viewPager = findViewById(R.id.viewpager);
-        adapter = new HourlyTimekeepingStepsUsingWifiAdapter(this);
+
+        Intent intent = getIntent();
+        String nameSelected = intent.getStringExtra("Name");
+        adapter = new SelfCheckIniAdapter(this);
+        if(nameSelected.equals("Chấm cho cá nhân"))
+        {
+            adapter = new IndividualCheckIn(this);
+        }
+
         viewPager.setAdapter(adapter);
 
         TextView nextButton = findViewById(R.id.tvNext);
@@ -45,7 +56,11 @@ public class NewJobCreationProcess extends AppCompatActivity {
                 }
                 if(progressBarCurrent == 100){
                     Intent intent = new Intent(NewJobCreationProcess.this, QRCodeActivity.class);
-                    startActivity(intent);
+                    if(nameSelected.equals("Chấm cho cá nhân"))
+                    {
+                        intent = new Intent(NewJobCreationProcess.this, HomeDataFragment.class);
+                    }
+                        startActivity(intent);
                 }
             }
         });
@@ -68,6 +83,8 @@ public class NewJobCreationProcess extends AppCompatActivity {
                 }
             }
         });
+
+
 
     }
 }

@@ -41,17 +41,15 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <Button
-            android:id="@+id/btnNextTKPO"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tiếp tục"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
-            android:background="@drawable/custom_btn_grey"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="15dp"
-            >
-        </Button>
+    <Button
+        android:id="@+id/btnNextTKPO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custom_btn_blue"
+        android:text="Tiếp tục"
+        android:textAllCaps="false"
+        android:textColor="@color/white"></Button>
 </LinearLayout>

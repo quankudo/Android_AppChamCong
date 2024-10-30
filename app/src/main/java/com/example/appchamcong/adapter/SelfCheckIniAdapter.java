@@ -9,11 +9,11 @@ import com.example.appchamcong.Fragment.LayoutCreateJobStepFive;
 import com.example.appchamcong.Fragment.LayoutCreateJobStepFour;
 import com.example.appchamcong.Fragment.LayoutCreateJonStepScanWifi;
 import com.example.appchamcong.Fragment.LayoutCreateJobStepTwo;
-import com.example.appchamcong.Fragment.layoutCreatJobStepOne;
+import com.example.appchamcong.Fragment.LayoutCreatJobStepOne;
 
-public class HourlyTimekeepingStepsUsingWifiAdapter extends FragmentStateAdapter {
+public class SelfCheckIniAdapter extends FragmentStateAdapter {
 
-    public HourlyTimekeepingStepsUsingWifiAdapter(@NonNull FragmentActivity fragmentActivity) {
+    public SelfCheckIniAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
 
@@ -22,7 +22,7 @@ public class HourlyTimekeepingStepsUsingWifiAdapter extends FragmentStateAdapter
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new layoutCreatJobStepOne();
+                return new LayoutCreatJobStepOne();
             case 1:
                 return new LayoutCreateJobStepTwo();
             case 2:
@@ -33,7 +33,7 @@ public class HourlyTimekeepingStepsUsingWifiAdapter extends FragmentStateAdapter
                 return new LayoutCreateJobStepFive();
 
             default:
-                return new layoutCreatJobStepOne();
+                return new LayoutCreatJobStepOne();
         }
     }
 

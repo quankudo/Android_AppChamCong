@@ -1,5 +1,6 @@
 package com.example.appchamcong.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,19 +45,23 @@ public class TimekeepingOptionsAdapter extends RecyclerView.Adapter<TimekeepingO
         TimekeepingOptions tf = list.get(position);
         holder.tvName.setText(tf.getName());
         holder.tvDescribe.setText(tf.getDescribe());
+        holder.radio.setChecked(position == selectedPosition);
+
 
 
         holder.radio.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onClick(View v) {
                 selectedPosition = holder.getAdapterPosition();
-                holder.btn.setBackgroundResource(R.drawable.custom_btn_blue);
                 notifyDataSetChanged();
+
             }
         });
 
         // Xử lý sự kiện khi nhấn vào TextView
         holder.lnl.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onClick(View v) {
                 selectedPosition = holder.getAdapterPosition();
@@ -73,6 +79,13 @@ public class TimekeepingOptionsAdapter extends RecyclerView.Adapter<TimekeepingO
         return list.size();
     }
 
+    public TimekeepingOptions getSelectedOption() {
+        if (selectedPosition >= 0 && selectedPosition < list.size()) {
+            return list.get(selectedPosition);
+        }
+        return null;
+    }
+
     public class TimekeepingOptionsViewHolder extends RecyclerView.ViewHolder{
         Button btn;
         ImageView img;
@@ -87,6 +100,9 @@ public class TimekeepingOptionsAdapter extends RecyclerView.Adapter<TimekeepingO
             tvDescribe = itemView.findViewById(R.id.describeTimekeepingOptions);
             radio = itemView.findViewById(R.id.radioBtnTimekeepingOptions);
         }
+
+
+
     }
 
 }

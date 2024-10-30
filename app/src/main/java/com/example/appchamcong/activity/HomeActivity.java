@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
             bottomSheetDialog.dismiss();
         });
 
-        Button btnNext = view.findViewById(R.id.btnNext);
+        Button btnNext = view.findViewById(R.id.btnNextTKPO);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

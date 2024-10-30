@@ -39,6 +39,10 @@ import java.util.List;
 public class HomeDataFragment extends Fragment {
     private TabLayout tabLayout;
     private ImageButton btn_add_home;
+
+    TimekeepingOptions to = new TimekeepingOptions();
+    List<TimekeepingOptions> list = to.addData();
+    TimekeepingOptionsAdapter adapter = new TimekeepingOptionsAdapter(list, getContext());
     @SuppressLint({"MissingInflatedId"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -134,28 +138,14 @@ public class HomeDataFragment extends Fragment {
             bottomSheetDialog.setContentView(view);
             RecyclerView rcv = view.findViewById(R.id.rcvTimekeepingOptions);
             rcv.setLayoutManager(new LinearLayoutManager(getContext()));
-            List<TimekeepingOptions> list = new ArrayList<>();
-            TimekeepingOptionsAdapter adapter = new TimekeepingOptionsAdapter(list, getContext());
-            TimekeepingOptions to1 = new TimekeepingOptions(R.drawable.user_timepicking_form, "Chấm cho cá nhân","Bạn sẽ tự chấm công cho riêng cá nhân bạn");
-            list.add(to1);
 
-            TimekeepingOptions to2 = new TimekeepingOptions(R.drawable.people, "Chấm cho nhân viên","Với tư cách là chủ, bạn sẽ tự chấm công cho nhân viên của mình");
-            list.add(to2);
 
-            TimekeepingOptions to3 = new TimekeepingOptions(R.drawable.connect, "Nhân viên tự chấm","Bạn sẽ theo dõi toàn bộ quá trình chấm công của tất cả nhân viên");
-            list.add(to3);
-
-            TimekeepingOptions to4 = new TimekeepingOptions(R.drawable.scan, "Tham gia nhóm bằng QR code","Bạn sẽ tham gia vào một công việc được tạo từ người chủ của mình");
-            list.add(to4);
             Log.d("TimekeepingOptionsList", "List size: " + list.size());
             // Khởi tạo Adapter và đặt nó vào RecyclerView
             adapter = new TimekeepingOptionsAdapter(list, getContext());
             rcv.setAdapter(adapter);
 
-
-
             bottomSheetDialog.show();
-
 
 
             ImageView btnClose = view.findViewById(R.id.cancel_btn);
@@ -164,13 +154,20 @@ public class HomeDataFragment extends Fragment {
             });
 
             Button btnNext = view.findViewById(R.id.btnNextTKPO);
-            btnNext.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getContext(), NewJobCreationProcess.class);
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), NewJobCreationProcess.class);
+
+                TimekeepingOptions selectedOption = adapter.getSelectedOption();
+                if (selectedOption != null) {
+                    String selectedName = selectedOption.getName();
+                    String selectedDescription = selectedOption.getDescribe();
+                    intent.putExtra("Name", selectedName);
+                    intent.putExtra("Describe", selectedDescription);
                     startActivity(intent);
                 }
-            });
 
-        }
-    }
+            }
+        });
+    }}

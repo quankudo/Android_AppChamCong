@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class layoutCreatJobStepOne extends Fragment {
+public class LayoutCreatJobStepOne extends Fragment {
     private LinearLayout lnl1, lnl2;
     private RadioGroup radioGroup;
     private RecyclerView rcvTimekeepingForm,rcvAdvancedIntegration;
@@ -31,6 +31,7 @@ public class layoutCreatJobStepOne extends Fragment {
 
     private List<TimekeepingForm> listTF;
     private List<AdvancedIntegration> listAI;
+    private boolean shouldHide = false;
 
 
 
@@ -43,6 +44,10 @@ public class layoutCreatJobStepOne extends Fragment {
         View view = inflater.inflate(R.layout.fragment_layout_creat_job_step_one, container, false);
         lnl1 = view.findViewById(R.id.lnlHidden1);
         lnl2 = view.findViewById(R.id.lnlHidden2);
+
+        if (shouldHide) {
+            hidden();
+        }
 
         //HINH THUC CHAM CONG
         rcvTimekeepingForm =view.findViewById(R.id.rcvTimekeepingForm);
@@ -85,8 +90,12 @@ public class layoutCreatJobStepOne extends Fragment {
         return view;
     }
     public void hidden() {
-        lnl1.setVisibility(View.INVISIBLE);
-        lnl2.setVisibility(View.INVISIBLE);
+        if (lnl1 != null && lnl2 != null) {
+            lnl1.setVisibility(View.INVISIBLE);
+            lnl2.setVisibility(View.INVISIBLE);
+        }else {
+            shouldHide = true;  // Đánh dấu để ẩn sau khi onCreateView chạy
+        }
 
     }
 
