@@ -2,6 +2,8 @@ package com.example.appchamcong.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -12,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.domain.SalaryAdvance;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,6 +26,8 @@ public class AddApplySalaryActivity extends AppCompatActivity {
     TextView title, tvDate, btnClose, btnPre, btnNext;
     SimpleDateFormat sdf;
     Calendar cal;
+    EditText etSalary, note;
+    Button btn_save;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +75,20 @@ public class AddApplySalaryActivity extends AppCompatActivity {
             }
         });
 
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int price = Integer.parseInt(etSalary.getText().toString());
+                String date = tvDate.getText().toString();
+                String notes = note.getText().toString();
+                SalaryAdvanceActivity.list.add(new SalaryAdvance(price, date, notes));
+                SalaryAdvanceActivity.adapter.notifyDataSetChanged();
+                SalaryAdvanceActivity.Update();
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,5 +114,8 @@ public class AddApplySalaryActivity extends AppCompatActivity {
         btnPre = findViewById(R.id.btn_previous);
         btnNext = findViewById(R.id.btn_next);
         tvDate = findViewById(R.id.tv_date);
+        etSalary = findViewById(R.id.et_salary);
+        note = findViewById(R.id.editText);
+        btn_save = findViewById(R.id.btn_save);
     }
 }

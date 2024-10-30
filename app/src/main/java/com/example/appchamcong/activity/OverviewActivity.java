@@ -29,6 +29,8 @@ public class OverviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_overview);
+        type = getIntent().getStringExtra("TYPE");
+        if(type == null) type = "Group";
         initMapping();
         init();
         Staff salaryAdapter = new Staff(list);
@@ -39,9 +41,6 @@ public class OverviewActivity extends AppCompatActivity {
         recyclerView.setAdapter(salaryAdapter);
 
         initEvent();
-
-        type = getIntent().getStringExtra("TYPE");
-        if(type == null) type = "Group";
     }
 
     private void initEvent() {

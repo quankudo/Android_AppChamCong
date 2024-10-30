@@ -127,11 +127,13 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <LinearLayout
+        android:id="@+id/ln_empty"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         android:gravity="center"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView36">
@@ -141,6 +143,15 @@
             android:layout_height="200dp"
             android:src="@drawable/image_empty" />
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rec_UngLuong"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView36"/>
 
     <Button
         android:layout_width="match_parent"

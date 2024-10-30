@@ -3,6 +3,8 @@ package com.example.appchamcong.activity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,6 +16,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.domain.MinusMoney;
+import com.example.appchamcong.domain.SalaryAdvance;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,6 +31,8 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
     TextView tvDiMuon, btnNext, btnPre, tvDate;
     ArrayList<LinearLayout> listBtn;
     SimpleDateFormat sdf;
+    Button btn_luu;
+    EditText tv_price, tv_minutes, editText;
     Calendar cal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +95,21 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
             }
         });
 
+        btn_luu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                long price = Long.parseLong(tv_price.getText().toString());
+                int mn = Integer.parseInt(tv_minutes.getText().toString());
+                String date = tvDate.getText().toString();
+                String notes = editText.getText().toString();
+                DeductMoneyActivity.list.add(new MinusMoney(price, "Đi muộn", date, mn, notes));
+                DeductMoneyActivity.adapter.notifyDataSetChanged();
+                DeductMoneyActivity.Update();
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -116,7 +137,10 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         btnPre = findViewById(R.id.btnPre);
         tvDate = findViewById(R.id.tvDate);
-
+        btn_luu = findViewById(R.id.btn_luu);
+        tv_price = findViewById(R.id.tv_price);
+        tv_minutes = findViewById(R.id.tv_minutes);
+        editText = findViewById(R.id.editText);
         listBtn = new ArrayList<>(List.of(btnDiMuon, btnBaoHiem, btnKhac, btnKhongDat, btnNghiVang));
     }
 

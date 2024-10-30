@@ -14,13 +14,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.adapter.SalaryAdvanceAdapter;
+import com.example.appchamcong.domain.SalaryAdvance;
+
+import java.util.ArrayList;
 
 public class SalaryAdvanceActivity extends AppCompatActivity {
     TextView title;
     Button btnAdd;
     ImageButton btnClose;
+    public static LinearLayout ln_empty;
+    public static RecyclerView rec_UngLuong;
+    public static SalaryAdvanceAdapter adapter;
+    public static ArrayList<SalaryAdvance> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +41,16 @@ public class SalaryAdvanceActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        list = new ArrayList<>();
         initMapping();
         initData();
 
         initEvent();
+        Update();
+        adapter = new SalaryAdvanceAdapter(list, this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rec_UngLuong.setLayoutManager(linearLayoutManager);
+        rec_UngLuong.setAdapter(adapter);
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -69,9 +85,23 @@ public class SalaryAdvanceActivity extends AppCompatActivity {
         title.setText("Quản lý ứng lương");
     }
 
+    public synchronized static void Update() {
+        if(list.size() > 0) {
+            ln_empty.setVisibility(View.GONE);
+            rec_UngLuong.setVisibility(View.VISIBLE);
+
+        }
+        else {
+            ln_empty.setVisibility(View.VISIBLE);
+            rec_UngLuong.setVisibility(View.GONE);
+        }
+    }
+
     public void initMapping(){
         title = findViewById(R.id.title_header);
         btnAdd = findViewById(R.id.btn_add_ungluong);
         btnClose = findViewById(R.id.chevLeftClose);
+        ln_empty = findViewById(R.id.ln_empty);
+        rec_UngLuong = findViewById(R.id.rec_UngLuong);
     }
 }

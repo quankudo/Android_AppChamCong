@@ -164,6 +164,7 @@
             android:paddingVertical="5dp">
 
             <EditText
+                android:id="@+id/tv_price"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
@@ -200,6 +201,7 @@
             android:paddingVertical="5dp">
 
             <EditText
+                android:id="@+id/tv_minutes"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
@@ -299,6 +301,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_luu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_btn_blue"
@@ -308,5 +311,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
