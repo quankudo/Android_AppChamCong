@@ -28,10 +28,12 @@ public class NewJobCreationProcess extends AppCompatActivity {
 
         Intent intent = getIntent();
         String nameSelected = intent.getStringExtra("Name");
-        adapter = new SelfCheckIniAdapter(this);
         if(nameSelected.equals("Chấm cho cá nhân"))
         {
             adapter = new IndividualCheckIn(this);
+        }else{
+            adapter = new SelfCheckIniAdapter(this);
+
         }
 
         viewPager.setAdapter(adapter);
