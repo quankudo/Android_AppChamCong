@@ -36,17 +36,20 @@
             android:id="@+id/btnThongBao"
             android:padding="0dp"
             android:background="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_qr_code_24" />
+            android:src="@drawable/notifications_30" />
 
         <ImageButton
             android:id="@+id/btnSettings_Nhom"
             android:padding="0dp"
             android:background="@color/black"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_qr_code_24" />
+            android:src="@drawable/settings_30" />
     </LinearLayout>
 
     <ScrollView

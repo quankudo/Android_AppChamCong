@@ -31,7 +31,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/money_30"
+            android:src="@drawable/excel_24"
             android:background="@color/black"
             android:layout_gravity="center"/>
     </LinearLayout>
@@ -43,11 +43,10 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/money_30"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/left_arrow_24"
             android:layout_marginRight="20dp"
-            android:background="@color/black"
             android:layout_gravity="center"/>
 
         <TextView

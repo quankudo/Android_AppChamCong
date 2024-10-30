@@ -96,8 +96,8 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/email_30" />
@@ -140,8 +140,8 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/phone_30" />
@@ -183,8 +183,8 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/phone_30" />
@@ -276,6 +276,7 @@
         android:backgroundTint="@color/blue"
         android:layout_marginHorizontal="16dp"
         android:text="Lưu"
+        android:fontFamily="@font/lexend_deca_bold"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:padding="10dp"
