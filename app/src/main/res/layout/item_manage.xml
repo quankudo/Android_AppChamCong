@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/user_32"
             android:layout_gravity="center"/>
         <LinearLayout
@@ -129,13 +129,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:orientation="horizontal"
             android:background="@drawable/custom_btn_blue_30"
             android:layout_marginRight="10dp">
             
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/note_24"
                 android:background="@color/blue"
                 android:layout_marginLeft="10dp"
@@ -155,13 +156,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:orientation="horizontal"
             android:background="@drawable/custom_btn_yellow">
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/note_24"
+                android:src="@drawable/decentralization_24"
                 android:background="@color/yellow"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"/>

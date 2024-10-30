@@ -35,7 +35,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/upload_50"
+            android:src="@drawable/baseline_cloud_upload_24"
             android:backgroundTint="@color/black"
             android:layout_gravity="center"/>
     </LinearLayout>

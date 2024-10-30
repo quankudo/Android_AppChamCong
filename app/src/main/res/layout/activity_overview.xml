@@ -29,9 +29,9 @@
             android:layout_gravity="center"/>
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/excel"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/excel_24"
             android:layout_marginRight="15dp"
             android:layout_gravity="center"/>
     </LinearLayout>
