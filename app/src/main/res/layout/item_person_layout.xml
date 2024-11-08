@@ -16,7 +16,6 @@
         android:text="Làm game"
         android:textColor="@color/white"
         android:textSize="22dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="Nhận lương: "
         android:textColor="@color/gray"
-        android:textSize="18dp"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNameGr" />
 
@@ -46,17 +45,18 @@
         android:text="30/10/2024"
         android:layout_marginTop="5dp"
         android:textColor="@color/gray"
-        android:textSize="18dp"
+        android:textSize="16dp"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textNameGr" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/verified_user_30"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/verified_user_30"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView5"
@@ -65,8 +65,8 @@
         android:text="Đang diễn ra"
         android:textColor="@color/blue"
         android:layout_marginTop="5dp"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:textSize="16dp"
+
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -77,7 +77,7 @@
         android:layout_marginTop="5dp"
         android:text="Đã ứng tháng này: "
         android:textColor="@color/gray"
-        android:textSize="18dp"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 

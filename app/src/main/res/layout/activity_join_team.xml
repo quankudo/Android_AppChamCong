@@ -17,9 +17,9 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/chevron_left"
+            android:background="@drawable/chevron_left"
             android:id="@+id/btnClose"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/white"
             android:layout_gravity="center"
             android:padding="0dp"/>
 
@@ -35,8 +35,8 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_cloud_upload_24"
-            android:backgroundTint="@color/black"
+            android:background="@drawable/baseline_cloud_upload_24"
+            android:backgroundTint="@color/white"
             android:layout_gravity="center"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

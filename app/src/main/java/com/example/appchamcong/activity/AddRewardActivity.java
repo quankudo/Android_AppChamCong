@@ -2,6 +2,8 @@ package com.example.appchamcong.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,6 +15,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.domain.MinusMoney;
+import com.example.appchamcong.domain.Reward;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,10 +26,13 @@ import java.util.List;
 public class AddRewardActivity extends AppCompatActivity {
     TextView title;
     TextView btnClose, tvDate, btnPre, btnNext;
-    LinearLayout btnLeTet, btnDatCT, btnDiLai, btnAnUong, btnChuyenCan, btnKhac;
-    ArrayList<LinearLayout> listBtn;
+    TextView btnLeTet, btnDatCT, btnDiLai, btnAnUong, btnChuyenCan, btnKhac;
+    ArrayList<TextView> listBtn;
+    Button btn_luu;
+    EditText et_price, editText;
     SimpleDateFormat sdf;
     Calendar cal;
+    String reason = "Thưởng: dịp lễ, tết";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +59,27 @@ public class AddRewardActivity extends AppCompatActivity {
             }
         });
 
+
+        btn_luu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                long price = Long.parseLong(et_price.getText().toString());
+                String date = tvDate.getText().toString();
+                String notes = editText.getText().toString();
+                RewardActivity.listReward.add(new Reward(price, date, notes, reason));
+                RewardActivity.adapter.notifyDataSetChanged();
+                RewardActivity.Update();
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
+
         listBtn.forEach(item ->{
             item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     setBtnOnClick(item);
+                    setTVOnclick(item);
                 }
             });
         });
@@ -113,16 +136,22 @@ public class AddRewardActivity extends AppCompatActivity {
         btnNext = findViewById(R.id.btn_next);
         btnPre = findViewById(R.id.btn_pre);
         tvDate = findViewById(R.id.tvDate);
-
+        btn_luu = findViewById(R.id.btn_luu);
+        et_price = findViewById(R.id.et_price);
+        editText = findViewById(R.id.editText);
         listBtn = new ArrayList<>(List.of(btnAnUong, btnChuyenCan, btnKhac, btnLeTet, btnDiLai, btnDatCT));
     }
 
-    public void setBtnOnClick(LinearLayout btn){
+    public void setBtnOnClick(TextView btn){
         btn.setBackgroundResource(R.drawable.custom_btn_blue);
-        for (LinearLayout item: listBtn) {
+        for (TextView item: listBtn) {
             if(item.getId() != btn.getId()){
                 item.setBackgroundResource(R.drawable.border_outline_pink);
             }
         }
+    }
+
+    public void setTVOnclick(TextView tv) {
+        reason = tv.getText().toString();
     }
 }

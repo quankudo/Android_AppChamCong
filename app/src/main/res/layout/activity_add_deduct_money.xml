@@ -26,30 +26,28 @@
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include5" />
-    <LinearLayout
+    <TextView
         android:id="@+id/btnLeTet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Đi muộn"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_btn_blue"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="@+id/textView44"
-        app:layout_constraintTop_toBottomOf="@+id/textView44">
+        app:layout_constraintTop_toBottomOf="@+id/textView44"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Di muon"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
 
-    <LinearLayout
+    <TextView
         android:id="@+id/btnKoDat"
+        android:text="Không đạt chỉ tiêu"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -58,43 +56,29 @@
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnLeTet"
         app:layout_constraintStart_toEndOf="@+id/btnLeTet"
-        app:layout_constraintTop_toTopOf="@+id/btnLeTet">
+        app:layout_constraintTop_toTopOf="@+id/btnLeTet"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Khong dạt chỉ tiêu"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/btnDiLai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Nghỉ vắng"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_marginTop="8dp"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="@+id/btnLeTet"
-        app:layout_constraintTop_toBottomOf="@+id/btnLeTet">
+        app:layout_constraintTop_toBottomOf="@+id/btnLeTet"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nghi vang"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/btnBaoHiem"
+        android:text="Bảo hiểm"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -103,21 +87,13 @@
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnDiLai"
         app:layout_constraintStart_toEndOf="@+id/btnDiLai"
-        app:layout_constraintTop_toTopOf="@+id/btnDiLai">
+        app:layout_constraintTop_toTopOf="@+id/btnDiLai"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bao hiem"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/btnKhac"
+        android:text="Khác"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/border_outline_pink"
@@ -126,16 +102,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnBaoHiem"
         app:layout_constraintStart_toEndOf="@+id/btnBaoHiem"
-        app:layout_constraintTop_toTopOf="@+id/btnBaoHiem">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Khac"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="@+id/btnBaoHiem"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -149,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="So tien"
+            android:text="Số tiền"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -174,11 +141,11 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/icon_account" />
+                android:background="@drawable/money_30" />
         </LinearLayout>
 
         <TextView
@@ -186,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tong phut di muon"
+            android:text="Tổng  phút đi muộn"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -211,11 +178,11 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/icon_account" />
+                android:background="@drawable/baseline_timer" />
         </LinearLayout>
 
         <TextView
@@ -223,7 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Ngay"
+            android:text="Ngày"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

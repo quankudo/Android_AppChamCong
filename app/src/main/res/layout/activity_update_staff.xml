@@ -28,8 +28,7 @@
             android:layout_height="wrap_content"
             android:text="Tên nhân viên"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
 
         <LinearLayout
@@ -56,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/icon_account" />
+                android:background="@drawable/icon_account" />
         </LinearLayout>
     </LinearLayout>
 
@@ -72,8 +71,7 @@
             android:layout_height="wrap_content"
             android:text="Email"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,7 +98,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/email_30" />
+                android:background="@drawable/email_30" />
         </LinearLayout>
     </LinearLayout>
 
@@ -116,8 +114,7 @@
             android:layout_height="wrap_content"
             android:text="Số điện thoại"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -144,7 +141,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/phone_30" />
+                android:background="@drawable/phone_30" />
         </LinearLayout>
     </LinearLayout>
 
@@ -160,8 +157,7 @@
             android:layout_height="wrap_content"
             android:text="Hình thức chấm công"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -187,7 +183,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/phone_30" />
+                android:background="@drawable/phone_30" />
         </LinearLayout>
     </LinearLayout>
 
@@ -203,8 +199,7 @@
             android:layout_height="wrap_content"
             android:text="Tiền công theo ngày"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -246,8 +241,7 @@
             android:layout_height="wrap_content"
             android:text="Ghi chú"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -276,10 +270,10 @@
         android:backgroundTint="@color/blue"
         android:layout_marginHorizontal="16dp"
         android:text="Lưu"
-        android:fontFamily="@font/lexend_deca_bold"
+        android:background="@drawable/custom_btn_blue"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:padding="10dp"
        android:layout_marginTop="10dp" />
-
 </LinearLayout>

@@ -27,7 +27,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ten cong viec"
+            android:text="Tên công việc"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Loai"
+            android:text="Loại"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView18"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Cham cong theo gio"
+            android:text="Chấm công theo gió"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/textView19"
@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tien cong 1 gio"
+            android:text="Tiền công 1 giờ"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView20"
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Trang thai"
+            android:text="Trạng thái"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView22"
@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Ban chua cham cong"
+            android:text="Bạn chưa chấm công"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/textView23"
@@ -114,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Ngay cham cong"
+            android:text="Ngày chấm công"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView24"
@@ -134,7 +134,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ghi chu"
+            android:text="Ghi chú"
             android:textColor="@color/gray"
             android:textSize="16sp"
             android:layout_marginTop="10dp"
@@ -146,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Them ghi chu"
+            android:text="Thêm ghi chú"
             android:textColor="@color/blue"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/textView27"
@@ -167,7 +167,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:text="Tong thoi gian"
+        android:text="Tông thời gian"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
         android:layout_marginTop="15dp"/>
@@ -192,7 +192,7 @@
             android:background="#00000000"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:text="Chon thoi gian da lam viec"
+            android:text="Chọn thời gian đã làm việc"
             android:textSize="18sp" />
 
         <ImageView
@@ -200,7 +200,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="@color/white"
-            android:src="@drawable/icon_account" />
+            android:background="@drawable/baseline_timer" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -228,39 +228,46 @@
                 android:id="@+id/textView29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tinh trang nghi phep"
+                android:text="Tình trạng nghỉ phép"
                 android:textColor="@color/gray"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/custom_btn_pink"
-                android:paddingHorizontal="40dp"
-                android:text="Khong ly do"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/textView29"
-                app:layout_constraintTop_toBottomOf="@+id/textView29" />
-
-            <Button
-                android:id="@+id/btnCoLyDo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/custom_btn_purple"
-                android:paddingHorizontal="40dp"
-                android:text="Co ly do"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="18sp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+                app:layout_constraintTop_toBottomOf="@id/textView29">
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_btn_pink"
+                    android:paddingHorizontal="40dp"
+                    android:text="Không lý do"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/btnCoLyDo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_btn_purple"
+                    android:paddingHorizontal="40dp"
+                    android:text="Có lý do"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
@@ -270,7 +277,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_btn_blue"
             android:paddingHorizontal="30dp"
-            android:text="Cham cong"
+            android:text="Chấm công"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"

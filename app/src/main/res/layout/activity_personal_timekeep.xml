@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+
     android:background="@color/black"
     tools:context=".activity.PersonalTimekeepActivity">
 
@@ -15,6 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="8dp"
         android:orientation="horizontal">
 
         <ImageButton
@@ -55,13 +57,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
+                android:layout_marginHorizontal="10dp"
                 android:background="@drawable/bg_light">
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:text="Tong chua nhan"
+                    android:text="Tổng chưa nhận"
                     android:textColor="@color/gray"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +94,7 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Xem tong quan"
+                    android:text="Xem tổng quan"
                     android:textColor="@color/gray"
                     android:textSize="16sp"
                     android:layout_marginTop="10dp"
@@ -138,15 +141,15 @@
                             android:id="@+id/ungluong_gr"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_qr_code_24"
-                                android:background="@color/black"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/hand"
+                                android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Ung luong"
+                                android:text="Ứng lương"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"/>
                         </LinearLayout>
@@ -158,15 +161,15 @@
                             android:layout_marginTop="6dp"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_qr_code_24"
-                                android:background="@color/black"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/hand"
+                                android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loi nhuan"
+                                android:text="Lợi nhuận"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"/>
                         </LinearLayout>
@@ -184,15 +187,15 @@
                             android:id="@+id/tangca_gr"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
                                 android:src="@drawable/baseline_qr_code_24"
                                 android:background="@color/black"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Tang ca"
+                                android:text="Tăng ca"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"/>
                         </LinearLayout>
@@ -204,15 +207,15 @@
                             android:layout_marginTop="6dp"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
                                 android:src="@drawable/baseline_qr_code_24"
                                 android:background="@color/black"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Thanh toan"
+                                android:text="Thanh toán"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"/>
                         </LinearLayout>
@@ -230,15 +233,15 @@
                             android:id="@+id/phucap_gr"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
                                 android:src="@drawable/baseline_qr_code_24"
                                 android:background="@color/black"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Phu cap"
+                                android:text="Phụ cấp"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"/>
                         </LinearLayout>
@@ -250,15 +253,15 @@
                             android:layout_marginTop="6dp"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_qr_code_24"
-                                android:background="@color/black"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/baseline_query_stats"
+                                android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Thong ke"
+                                android:text="Thống kê"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"/>
                         </LinearLayout>
@@ -276,15 +279,15 @@
                             android:id="@+id/trutien_gr"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
                                 android:src="@drawable/baseline_qr_code_24"
                                 android:background="@color/black"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Tru tien"
+                                android:text="Trừ tiền"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"/>
                         </LinearLayout>
@@ -296,15 +299,15 @@
                             android:layout_marginTop="6dp"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_qr_code_24"
-                                android:background="@color/black"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/application"
+                                android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Xem them"
+                                android:text="Xem thêm"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"/>
                         </LinearLayout>
@@ -314,8 +317,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/bg_light"
+                android:layout_marginHorizontal="10dp"
                 android:paddingVertical="8dp"
                 android:orientation="vertical">
 
@@ -323,7 +327,7 @@
                     android:layout_width="match_parent"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
-                    android:text="Tien cong thang 09"
+                    android:text="Tiền công tháng 09"
                     android:textColor="@color/white"
                     android:layout_marginHorizontal="10dp"
                     android:textSize="20sp" />
@@ -349,7 +353,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Tong ngay cong"
+                            android:text="Tổng ngày công"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
@@ -375,14 +379,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Tien cong 1 ngay"
+                            android:text="Tiền Công 1 ngày"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="10,000d"
+                            android:text="10,000đ"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -401,7 +405,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Tong nghi co luong"
+                            android:text="Tổng nghỉ có lương"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
@@ -427,14 +431,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Tong tang ca"
+                            android:text="Tổng tăng ca"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0d"
+                            android:text="0đ"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -453,14 +457,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Tong thuong/phu cap"
+                            android:text="Tổng thưởng/phụ cấp"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0d"
+                            android:text="0đ"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -481,14 +485,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tong luong"
+                        android:text="Tổng lương"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0d"
+                        android:text="0đ"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -509,14 +513,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tong da ung"
+                        android:text="Tổng đã ứng"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0d"
+                        android:text="0đ"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -537,14 +541,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tong tien tru"
+                        android:text="Tổng tiền trừ"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0d"
+                        android:text="0đ"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -565,14 +569,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tong da thanh toan"
+                        android:text="Tổng đã thanh toán"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0d"
+                        android:text="0đ"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -592,14 +596,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tong chua nhan"
+                        android:text="Tổng chưa nhận"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0d"
+                        android:text="0đ"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -615,7 +619,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        android:text="Xem them"/>
+                        android:text="Xem thêm"/>
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -638,7 +642,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Thang 10/2024"
+                    android:text="Tháng 10/2024"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
@@ -646,7 +650,7 @@
                     android:id="@+id/btnXemChiTiet_CaNhan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="xem chi tiet"
+                    android:text="Xem chi tiết"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
                 <ImageView
@@ -737,9 +741,10 @@
                 android:background="@drawable/custom_border_dash"
                 android:padding="10dp">
                 <TextView
+                    android:id="@+id/tv_xemthongke"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Xem thong ke chi tiet theo tung ca"
+                    android:text="Xem thống kê chi tiết theo từng ca"
                     android:textSize="20sp"
                     android:textColor="@color/white"/>
                 <ImageView
@@ -770,13 +775,14 @@
             android:layout_height="wrap_content"
             android:background="@color/black"
             android:gravity="center"
+            android:paddingLeft="15dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Ban chua cham cong"
-                android:textStyle="bold"
+                android:text="Bạn chưa chấm công"
                 android:textColor="@color/white"
                 android:textSize="20sp"/>
             <Button

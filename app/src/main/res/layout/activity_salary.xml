@@ -29,6 +29,7 @@
             android:layout_gravity="center"/>
 
         <ImageButton
+            android:layout_marginEnd="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/excel_24"
@@ -43,9 +44,10 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/left_arrow_24"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/left_arrow_24"
+            android:backgroundTint="@color/white"
             android:layout_marginRight="20dp"
             android:layout_gravity="center"/>
 
@@ -76,10 +78,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thời gian"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="1"
-                android:textColor="@color/gray"
-                android:textStyle="bold" />
+                android:textColor="@color/gray" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -104,16 +105,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tổng ngày công"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="1"
-                android:textColor="@color/gray"
-                android:textStyle="bold" />
+                android:textColor="@color/gray" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1,0"
-                android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@color/white" />
 
@@ -133,17 +132,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tổng nghỉ có lương"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="1"
-                android:textColor="@color/gray"
-                android:textStyle="bold" />
+                android:textColor="@color/gray" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 đ"
                 android:textSize="20sp"
-                android:textStyle="bold"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -162,17 +159,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tổng tiền công"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="1"
-                android:textColor="@color/gray"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 đ"
                 android:textSize="20sp"
-                android:textStyle="bold"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -191,17 +186,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tổng tăng ca"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="1"
-                android:textColor="@color/gray"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 đ"
                 android:textSize="20sp"
-                android:textStyle="bold"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -220,17 +213,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tổng lương"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="1"
-                android:textColor="@color/gray"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 đ"
                 android:textSize="20sp"
-                android:textStyle="bold"
                 android:textColor="@color/blue" />
 
         </LinearLayout>
@@ -249,17 +240,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tổng đã ứng"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="1"
-                android:textColor="@color/gray"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 đ"
                 android:textSize="20sp"
-                android:textStyle="bold"
                 android:textColor="@color/red" />
 
         </LinearLayout>
@@ -278,17 +267,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tổng chưa thanh toán"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_weight="1"
-                android:textColor="@color/gray"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 đ"
                 android:textSize="20sp"
-                android:textStyle="bold"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -307,7 +294,6 @@
             android:text="Danh sách nhân viên "
             android:textSize="20sp"
             android:textColor="@color/gray"
-            android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"/>
 
@@ -317,7 +303,6 @@
             android:text="01"
             android:textSize="20sp"
             android:textColor="@color/gray"
-            android:textStyle="bold"
             android:layout_gravity="center" />
 
     </LinearLayout>

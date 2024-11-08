@@ -13,14 +13,15 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/bg_green"
+        android:backgroundTint="#009688"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:background="@drawable/qrcode_image" />
     </LinearLayout>
 

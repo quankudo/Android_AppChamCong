@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class PersonalTimekeepActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 1000;
-    private TextView monthYearTxt, btnXemThem_CaNhan, btnXemChiTiet_CaNhan, btnXemTongQuan;
+    private TextView monthYearTxt, btnXemThem_CaNhan, btnXemChiTiet_CaNhan, btnXemTongQuan, tv_xemthongke;
     private RecyclerView recyclerView, recShift;
     private LocalDate localDate;
     private ArrayList<Shift> listShift;
@@ -152,6 +152,15 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
             }
         });
 
+//        tv_xemthongke.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(PersonalTimekeepActivity.this, SalaryDetailsActivity.class);
+//                startActivity(intent);
+//                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+//            }
+//        });
+
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -233,6 +242,7 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         btnXemThem_CaNhan = findViewById(R.id.btnXemThem_CaNhan);
         btnXemChiTiet_CaNhan = findViewById(R.id.btnXemChiTiet_CaNhan);
         btnXemTongQuan = findViewById(R.id.textView13);
+        tv_xemthongke = findViewById(R.id.tv_xemthongke);
     }
 
     @Override

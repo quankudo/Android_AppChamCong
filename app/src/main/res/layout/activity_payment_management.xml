@@ -13,11 +13,11 @@
         layout="@layout/header_title_common" />
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/black"
-        android:src="@drawable/chevron_left_20"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/chevron_left_20"
         app:layout_constraintBottom_toBottomOf="@+id/textView28"
         app:layout_constraintEnd_toStartOf="@+id/textView28"
         app:layout_constraintTop_toTopOf="@+id/textView28" />
@@ -26,17 +26,17 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thang 09/2024"
+        android:text="Tháng 09/2024"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include8" />
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:src="@drawable/chevron_right_30"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/chevron_right_30"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@+id/textView28"
         app:layout_constraintTop_toTopOf="@+id/textView28"
@@ -103,7 +103,6 @@
             android:text="0 đ"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView35"
             app:layout_constraintEnd_toEndOf="@+id/textView34"
             app:layout_constraintTop_toTopOf="@+id/textView35" />
@@ -136,7 +135,6 @@
             android:text="0 đ"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textview36"
             app:layout_constraintEnd_toEndOf="@+id/textView37"
             app:layout_constraintTop_toTopOf="@+id/textview36" />
@@ -168,7 +166,6 @@
             android:text="0 đ"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/textView66"
             app:layout_constraintTop_toTopOf="@+id/textView67" />
 

@@ -39,7 +39,7 @@
         android:layout_marginTop="20dp"
         android:text="Lý do"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
@@ -84,12 +84,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/custom_line"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
         <TextView
+            android:id="@+id/textView85"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -103,11 +104,11 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:checked="false"
+            app:layout_constraintBottom_toBottomOf="@+id/textView35"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+            app:layout_constraintTop_toTopOf="@+id/textView35" />
 
         <TextView
             android:id="@+id/textView35"
@@ -125,18 +126,20 @@
             android:id="@+id/imageView18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/custom_line"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
         <RadioButton
+            android:id="@+id/radioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:checked="true"
+            app:layout_constraintBottom_toBottomOf="@+id/textView34"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/textView34" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -148,7 +151,7 @@
         android:layout_marginTop="60dp"
         android:text="Ngày"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
 
@@ -176,8 +179,9 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_marginRight="20dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/calendar_30"
+            android:layout_height="20dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/calendar_30"
             android:layout_gravity="center"/>
 
     </LinearLayout>
@@ -189,6 +193,8 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/custom_btn_blue"
         android:text="Tạo mới"
+        android:textSize="18sp"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

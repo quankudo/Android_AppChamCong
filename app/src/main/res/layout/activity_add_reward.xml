@@ -25,119 +25,88 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include3" />
 
-    <LinearLayout
+    <TextView
         android:id="@+id/btnLeTet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Thưởng dịp: lễ, tết"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_btn_blue"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="@+id/textView44"
-        app:layout_constraintTop_toBottomOf="@+id/textView44">
+        app:layout_constraintTop_toBottomOf="@+id/textView44"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thưởng dịp: lễ, tết"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/btnDatCT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Đạt chỉ tiêu"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_marginLeft="10dp"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnLeTet"
         app:layout_constraintStart_toEndOf="@+id/btnLeTet"
-        app:layout_constraintTop_toTopOf="@+id/btnLeTet">
+        app:layout_constraintTop_toTopOf="@+id/btnLeTet"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đạt chỉ tiêu"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/btnDiLai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Phụ cấp: đi lại"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_marginTop="8dp"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="@+id/btnLeTet"
-        app:layout_constraintTop_toBottomOf="@+id/btnLeTet">
+        app:layout_constraintTop_toBottomOf="@+id/btnLeTet"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phụ cấp: đi lại"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/btnAnUong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Phụ cấp: ăn uống"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_marginLeft="10dp"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnDiLai"
         app:layout_constraintStart_toEndOf="@+id/btnDiLai"
-        app:layout_constraintTop_toTopOf="@+id/btnDiLai">
+        app:layout_constraintTop_toTopOf="@+id/btnDiLai"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phụ cấp: ăn uống"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/btnChuyenCan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Chuyên cần"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:layout_marginTop="8dp"
         android:background="@drawable/border_outline_pink"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="@+id/btnDiLai"
-        app:layout_constraintTop_toBottomOf="@+id/btnDiLai">
+        app:layout_constraintTop_toBottomOf="@+id/btnDiLai"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chuyên cần"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="125dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:text="Khác"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
         android:id="@+id/btnKhac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -147,16 +116,7 @@
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnChuyenCan"
         app:layout_constraintStart_toEndOf="@+id/btnChuyenCan"
-        app:layout_constraintTop_toTopOf="@+id/btnChuyenCan">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Khác"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="normal" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="@+id/btnChuyenCan"/>
 
     <LinearLayout
         android:id="@+id/linearLayout10"
@@ -185,6 +145,7 @@
             android:paddingVertical="5dp">
 
             <EditText
+                android:id="@+id/et_price"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
@@ -194,11 +155,11 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/icon_account" />
+                android:background="@drawable/money_30" />
         </LinearLayout>
     </LinearLayout>
 
@@ -295,6 +256,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
     <Button
+        android:id="@+id/btn_luu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_btn_blue"

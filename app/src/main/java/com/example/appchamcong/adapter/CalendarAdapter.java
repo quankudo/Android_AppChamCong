@@ -19,7 +19,9 @@ import com.example.appchamcong.activity.GeneralFragment;
 import com.example.appchamcong.activity.PersonalTimekeepActivity;
 import com.example.appchamcong.activity.TimekDetailsActivity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
     private ArrayList<String> days;
@@ -85,6 +87,26 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
                 public void onClick(View view) {
                 }
             });
+        }
+        if (days.get(position) != null && !days.get(position).isEmpty()) {
+            try {
+                int dayAtPosition = Integer.parseInt(days.get(position));
+                int currentDayOfMonth = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
+                if (dayAtPosition > currentDayOfMonth) {
+                    holder.dayOfMonth.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.custom_btn_black));
+                }
+                holder.dayOfMonth.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    }
+                });
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                holder.dayOfMonth.setBackground(null);
+            }
+        } else {
+            holder.dayOfMonth.setBackground(null);
         }
         String numberPart = days.get(position).replaceAll("[^0-9]", "");
         holder.dayOfMonth.setText(numberPart);

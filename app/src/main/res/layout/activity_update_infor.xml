@@ -30,8 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="Họ và tên"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,18 +45,19 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
+                    android:paddingHorizontal="10dp"
                     android:background="#00000000"
                     android:hint="Nhập họ tên"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/white"
-                    android:src="@drawable/icon_account" />
+                    android:background="@drawable/icon_account" />
             </LinearLayout>
         </LinearLayout>
 
@@ -73,8 +73,7 @@
                 android:layout_height="wrap_content"
                 android:text="Số điện thoại"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -92,16 +91,17 @@
                     android:background="#00000000"
                     android:hint="Nhập số điện thoại"
                     android:inputType="phone"
+                    android:paddingHorizontal="10dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/white"
-                    android:src="@drawable/phone_30" />
+                    android:background="@drawable/phone_30" />
             </LinearLayout>
         </LinearLayout>
 
@@ -126,8 +126,7 @@
                 android:layout_height="wrap_content"
                 android:text="Email"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -144,17 +143,18 @@
                     android:layout_weight="1"
                     android:background="#00000000"
                     android:hint="Nhập email"
+                    android:paddingHorizontal="10dp"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/white"
-                    android:src="@drawable/email_30" />
+                    android:background="@drawable/email_30" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -167,9 +167,13 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/blue"
         android:text="Lưu"
+        android:background="@drawable/custom_btn_blue"
+        android:id="@+id/btn_luu"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:padding="10dp"
+        android:textSize="18sp"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

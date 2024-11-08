@@ -52,11 +52,11 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/icon_account" />
+                android:background="@drawable/money_30"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -1,7 +1,9 @@
 package com.example.appchamcong.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import com.example.appchamcong.R;
 public class UpdateInfor extends AppCompatActivity {
     TextView title;
     ImageButton btnClose;
+    Button btn_luu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,17 @@ public class UpdateInfor extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
+
+        btn_luu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("update", "SUCCESS");
+                setResult(1001, intent);
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });
     }
 
     public void initData(){
@@ -49,5 +63,6 @@ public class UpdateInfor extends AppCompatActivity {
     public void initMapping(){
         title = findViewById(R.id.title_header);
         btnClose = findViewById(R.id.chevLeftClose);
+        btn_luu = findViewById(R.id.btn_luu);
     }
 }

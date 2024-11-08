@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="15dp"
-    android:background="@drawable/bg_light">
+    android:background="@android:color/transparent">
 
     <TextView
         android:id="@+id/date_salaryDetails"
@@ -14,7 +14,7 @@
         android:text="CHU NHAT, 29/09/2024"
         android:textAllCaps="true"
         android:textColor="@color/gray"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

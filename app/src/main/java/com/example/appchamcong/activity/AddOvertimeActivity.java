@@ -31,10 +31,11 @@ import java.util.Calendar;
 import java.util.List;
 
 public class AddOvertimeActivity extends AppCompatActivity {
+    int type = 1;
     TextView title;
     TextView btnClose, btnPre, btnNext, tvDate;
     ArrayList<String> tangcaList, gioTcaList;
-    LinearLayout btnHeSo, btnGioTCa, btnTangCa, btnNhapTien;
+    LinearLayout btnHeSo, btnGioTCa, btnTangCa, btnNhapTien, ln_Type1, ln_type2;
     SimpleDateFormat sdf;
     Calendar cal;
     @Override
@@ -82,6 +83,9 @@ public class AddOvertimeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 btnTangCa.setBackgroundResource(R.drawable.custom_btn_blue);
                 btnNhapTien.setBackgroundResource(R.drawable.border_outline_pink);
+                type = 1;
+                ln_Type1.setVisibility(View.VISIBLE);
+                ln_type2.setVisibility(View.GONE);
             }
         });
 
@@ -90,6 +94,9 @@ public class AddOvertimeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 btnNhapTien.setBackgroundResource(R.drawable.custom_btn_blue);
                 btnTangCa.setBackgroundResource(R.drawable.border_outline_pink);
+                type = 2;
+                ln_Type1.setVisibility(View.GONE);
+                ln_type2.setVisibility(View.VISIBLE);
             }
         });
 
@@ -160,6 +167,8 @@ public class AddOvertimeActivity extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         btnPre = findViewById(R.id.btnPre);
         tvDate = findViewById(R.id.tvDate);
+        ln_Type1 = findViewById(R.id.ln_type1);
+        ln_type2 = findViewById(R.id.ln_type2);
     }
 
     public void show(ArrayList list, String title){

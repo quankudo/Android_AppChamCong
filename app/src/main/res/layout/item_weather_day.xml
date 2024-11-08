@@ -12,9 +12,8 @@
         android:text="Thứ 2"
         android:id="@+id/day"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_weight="0.4"
-        android:textStyle="bold" />
+        android:textSize="18sp"
+        android:layout_weight="0.4" />
 
     <ImageView
         android:id="@+id/icon1"
@@ -32,8 +31,7 @@
         android:layout_weight="0.1"
         android:id="@+id/fromTemp"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="18sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,8 +39,7 @@
         android:id="@+id/toTemp"
         android:text="32°"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="18sp" />
 
 
 </LinearLayout>

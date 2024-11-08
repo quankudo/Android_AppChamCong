@@ -43,7 +43,6 @@
         android:layout_width="409dp"
         android:layout_height="0dp"
         android:background="#212121"
-
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -96,7 +95,7 @@
                             android:layout_width="25dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="16dp"
-                            android:src="@drawable/user_timepicking_form"></ImageView>
+                            android:src="@drawable/user_timepicking_form"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"

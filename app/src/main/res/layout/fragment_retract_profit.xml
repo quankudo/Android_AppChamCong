@@ -66,18 +66,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/btn_add_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"
-            android:gravity="center"
-            android:background="@drawable/custom_btn_blue"
-            android:paddingHorizontal="8dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
+            android:contentDescription="Icon add"
+            android:src="@drawable/add_30"
+            app:layout_constraintBottom_toBottomOf="@+id/textView73"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/textView73" />
 
         <ImageView
             android:layout_width="100dp"

@@ -49,6 +49,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/custom_btn_blue"
         android:text="Xong"
+        android:textAllCaps="false"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

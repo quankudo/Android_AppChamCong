@@ -12,11 +12,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginLeft="16dp"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
         android:layout_marginVertical="10dp"
         android:textColor="@color/gray"
-        android:textStyle="bold"
         android:text="Hiển thị"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,11 +25,12 @@
         android:paddingVertical="5dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
+        android:gravity="center"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginVertical="10dp"
             android:textColor="@color/white"
             android:layout_weight="1"
@@ -40,7 +40,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:layout_gravity="center"
             android:textColor="@color/white"
             android:thumbTint="@color/white"
             android:trackTint="@color/blue"/>
@@ -48,11 +47,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginLeft="16dp"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
         android:layout_marginVertical="10dp"
         android:textColor="@color/gray"
-        android:textStyle="bold"
         android:text="Thông báo"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,13 +58,14 @@
         android:background="@drawable/bg_light"
         android:paddingHorizontal="10dp"
         android:paddingVertical="5dp"
+        android:gravity="center"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginVertical="10dp"
             android:textColor="@color/white"
             android:layout_weight="1"
@@ -75,7 +74,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:layout_gravity="center"
             android:textColor="@color/white"
             android:thumbTint="@color/white"
             android:trackTint="@color/blue"/>
@@ -83,11 +81,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginLeft="16dp"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
         android:layout_marginVertical="10dp"
         android:textColor="@color/gray"
-        android:textStyle="bold"
         android:text="Bảo mật"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,12 +92,13 @@
         android:background="@drawable/bg_light"
         android:paddingHorizontal="10dp"
         android:paddingVertical="5dp"
+        android:gravity="center"
         android:layout_marginHorizontal="16dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginVertical="10dp"
             android:textColor="@color/white"
             android:layout_weight="1"
@@ -110,7 +108,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:layout_gravity="center"
             android:textColor="@color/white"
             android:thumbTint="@color/white"
             android:trackTint="@color/blue"/>

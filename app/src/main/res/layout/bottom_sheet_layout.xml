@@ -23,15 +23,14 @@
                 android:layout_weight="13"
                 android:text="Bạn muốn chấm công cho?"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:textSize="20sp"/>
 
             <ImageView
                 android:id="@+id/cancel_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_weight="0"
-                android:src="@drawable/close_50"></ImageView>
+                android:src="@drawable/close_50"/>
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvTimekeepingOptions"

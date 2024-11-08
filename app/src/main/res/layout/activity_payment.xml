@@ -57,7 +57,7 @@
         android:layout_marginTop="20dp"
         android:text="Số tiền thanh toán"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
@@ -81,7 +81,7 @@
             android:layout_weight="1"
             android:text="80,000"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -219,9 +219,9 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/custom_btn_blue"
         android:text="Thanh toán"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />

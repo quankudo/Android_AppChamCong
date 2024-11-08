@@ -22,7 +22,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ten cong viec"
+            android:text="Tên công việc"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Loai"
+            android:text="Loại"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView18"
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Cham cong theo ngay"
+            android:text="Chấm công theo ngày"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/textView19"
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tien cong 1 ngay"
+            android:text="Tiền công 1 ngày"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView20"
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Trang thai"
+            android:text="Trạng thái"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView22"
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Ban chua cham cong"
+            android:text="Bạn chưa chấm công"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/textView23"
@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Ngay cham cong"
+            android:text="Ngày chấm công"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView24"
@@ -129,7 +129,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ghi chu"
+            android:text="Ghi chú"
             android:textColor="@color/gray"
             android:textSize="16sp"
             android:layout_marginTop="10dp"
@@ -141,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Them ghi chu"
+            android:text="Thêm ghi chú"
             android:textColor="@color/blue"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/textView27"
@@ -168,38 +168,47 @@
             android:id="@+id/textView29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tinh trang nghi phep"
+            android:text="Tình trạng nghỉ phép"
             android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/custom_btn_pink"
-            android:paddingHorizontal="40dp"
-            android:text="Khong ly do"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/textView29"
-            app:layout_constraintTop_toBottomOf="@+id/textView29" />
-        <Button
-            android:id="@+id/btnCoLyDo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/custom_btn_purple"
-            android:paddingHorizontal="40dp"
-            android:text="Co ly do"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView29">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_btn_pink"
+                android:paddingHorizontal="10dp"
+                android:text="Không lý do"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnCoLyDo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_btn_purple"
+                android:paddingHorizontal="10dp"
+                android:text="Có lý do"
+                android:layout_marginStart="15dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -209,39 +218,46 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thay doi trang thai cham cong"
+            android:text="Thay đổi trạng thái theo chấm công"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_ChamCongHalf"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btn_ChamCongHalf"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_btn_yellow"
-            android:paddingHorizontal="30dp"
-            android:text="Cham 1/2 cong"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <Button
+                android:id="@+id/btn_ChamCongHalf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_btn_yellow"
+                android:paddingHorizontal="30dp"
+                android:text="Chấm 1/2 công"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/btnChamCong"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/custom_btn_blue"
-            android:paddingHorizontal="30dp"
-            android:text="Cham cong"
-            android:textAllCaps="false"
-
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <Button
+                android:id="@+id/btnChamCong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_btn_blue"
+                android:paddingHorizontal="30dp"
+                android:text="Chấm công"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"/>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

@@ -4,23 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:background="@drawable/bg_light">
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="10dp"
+    android:background="@color/black">
 
     <LinearLayout
         android:id="@+id/linearLayout20"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@color/green"
+        android:backgroundTint="@color/green"
+        android:background="@drawable/custom_btn_blue"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/icon_sdg"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/user_32" />
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/icon_account" />
     </LinearLayout>
 
     <TextView
@@ -30,7 +32,7 @@
         android:layout_marginStart="15dp"
         android:text="Ung luong"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/linearLayout20"
         app:layout_constraintTop_toTopOf="@+id/linearLayout20" />
 

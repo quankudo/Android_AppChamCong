@@ -11,8 +11,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:id="@+id/chevLeftClose"
             android:backgroundTint="@color/black"
@@ -27,6 +27,5 @@
             android:layout_gravity="center"
             android:text="Chăm sóc khách hàng"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
     </LinearLayout>

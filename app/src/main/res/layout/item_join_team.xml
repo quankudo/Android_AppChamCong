@@ -85,13 +85,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Từ chối"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_green"
             android:layout_marginRight="10dp"
+            android:textColor="@color/white"
             android:backgroundTint="#2A4887"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đồng ý"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_green"
             android:backgroundTint="#4AC14F"/>
 
     </LinearLayout>

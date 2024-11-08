@@ -3,7 +3,8 @@
     android:layout_width="410dp"
     android:layout_height="wrap_content"
     android:background="@color/green"
-    android:padding="15dp"
+    android:paddingHorizontal="15dp"
+    android:paddingVertical="8dp"
     android:gravity="center"
     android:id="@+id/layout_toast_successful"
     android:orientation="horizontal">
@@ -19,7 +20,6 @@
     <RelativeLayout
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:background="@color/white"
         >
         <ImageView
             android:layout_centerInParent="true"

@@ -27,13 +27,15 @@ import java.util.List;
 public class AddDeductMoneyActivity extends AppCompatActivity {
     TextView title;
     TextView btnClose;
-    LinearLayout lnDiMuon, btnDiMuon, btnKhongDat, btnNghiVang, btnBaoHiem, btnKhac;
+    LinearLayout lnDiMuon;
+    TextView btnDiMuon, btnKhongDat, btnNghiVang, btnBaoHiem, btnKhac;
     TextView tvDiMuon, btnNext, btnPre, tvDate;
-    ArrayList<LinearLayout> listBtn;
+    ArrayList<TextView> listBtn;
     SimpleDateFormat sdf;
     Button btn_luu;
     EditText tv_price, tv_minutes, editText;
     Calendar cal;
+    String reason = "Di muon";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,7 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     setBtnOnClick(item);
+                    setTVOnclick(item);
                 }
             });
         });
@@ -95,14 +98,17 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
             }
         });
 
+
         btn_luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 long price = Long.parseLong(tv_price.getText().toString());
+                if(tv_minutes.getText().toString().equals("")) //truong hop khong phai ly do la di muon thi khong co attribute: phut.
+                    tv_minutes.setText("1");
                 int mn = Integer.parseInt(tv_minutes.getText().toString());
                 String date = tvDate.getText().toString();
                 String notes = editText.getText().toString();
-                DeductMoneyActivity.list.add(new MinusMoney(price, "Đi muộn", date, mn, notes));
+                DeductMoneyActivity.list.add(new MinusMoney(price, reason, date, mn, notes));
                 DeductMoneyActivity.adapter.notifyDataSetChanged();
                 DeductMoneyActivity.Update();
                 finish();
@@ -145,9 +151,9 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    public void setBtnOnClick(LinearLayout btn){
+    public void setBtnOnClick(TextView btn){
         btn.setBackgroundResource(R.drawable.custom_btn_blue);
-        for (LinearLayout item: listBtn) {
+        for (TextView item: listBtn) {
             if(item.getId() != btn.getId()){
                 item.setBackgroundResource(R.drawable.border_outline_pink);
             }
@@ -160,5 +166,9 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
             tvDiMuon.setVisibility(View.GONE);
             lnDiMuon.setVisibility(View.GONE);
         }
+    }
+
+    public void setTVOnclick(TextView tv) {
+        reason = tv.getText().toString();
     }
 }
