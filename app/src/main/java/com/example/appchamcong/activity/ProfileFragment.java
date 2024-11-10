@@ -11,6 +11,10 @@ import android.os.Bundle;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.Gravity;
@@ -92,6 +96,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        tv_update = v.findViewById(R.id.tv_updates);
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -102,12 +107,13 @@ public class ProfileFragment extends Fragment {
                             if(returnedData.equals("SUCCESS")){
                                 ln_update = v.findViewById(R.id.ln_update);
                                 ln_update.setBackgroundColor(Color.parseColor("#139E42"));
+                                tv_update.setText("Tai khoan da duoc xac thuc");
                             }
                         }
                     }
                 }
         );
-        tv_update = v.findViewById(R.id.tv_updates);
+
         tv_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -23,5 +23,7 @@
         app:itemTextColor="@color/custom_color_navigation"
         app:itemIconTint="@color/custom_color_navigation"
         app:menu="@menu/bottom_menu"
-        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
+        app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

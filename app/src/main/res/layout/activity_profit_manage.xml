@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,30 +8,29 @@
     android:background="@color/black"
     tools:context=".activity.ProfitManageActivity">
 
-    <include
+    <LinearLayout
         android:id="@+id/include10"
-        layout="@layout/header_title_common"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <include
+            layout="@layout/header_title_common"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/white"
-        android:background="@drawable/baseline_qr_code_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/include10"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="110dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/baseline_qr_code_24" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include10">
+        android:layout_height="match_parent"
+        android:layout_below="@id/include10">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,6 +133,7 @@
 
                 <TextView
                     android:id="@+id/textView72"
+                    android:layout_marginStart="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -144,9 +144,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
 
                 <Switch
+                    android:id="@+id/switchWifi1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:thumbTint="@color/white"
+                    android:trackTint="@color/blue"
                     app:layout_constraintBottom_toBottomOf="@+id/textView72"
                     app:layout_constraintStart_toEndOf="@+id/textView72"
                     app:layout_constraintTop_toTopOf="@+id/textView72" />
@@ -177,4 +181,4 @@
                 app:layout_constraintTop_toBottomOf="@+id/tabLayout_profit" />
         </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

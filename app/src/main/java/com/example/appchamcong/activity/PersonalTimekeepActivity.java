@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -24,6 +25,7 @@ import com.example.appchamcong.R;
 import com.example.appchamcong.adapter.CalendarAdapter;
 import com.example.appchamcong.adapter.ShiftAdapter;
 import com.example.appchamcong.domain.Shift;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -38,7 +40,7 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
     private ArrayList<Shift> listShift;
     private LinearLayout ungluong, tangca, phucap, trutien, loinhuan, thanhtoan, thongke, xemthem, ln_xemthem_canhan;
     private Button btn_cham;
-    ImageButton btnClose;
+    ImageButton btnClose, setting_person;
 
     CalendarAdapter calendarAdapter;
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -47,6 +49,11 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_personal_timekeep);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
         initWidget();
         initEvent();
         localDate = LocalDate.now();
@@ -122,13 +129,13 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         btnXemThem_CaNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btnXemThem_CaNhan.getText().equals("Xem them")) {
+                if(btnXemThem_CaNhan.getText().equals("Xem thêm")) {
                     ln_xemthem_canhan.setVisibility(View.VISIBLE);
                     btnXemThem_CaNhan.setText("Thu gon");
                 }
                 else {
                     ln_xemthem_canhan.setVisibility(View.GONE);
-                    btnXemThem_CaNhan.setText("Xem them");
+                    btnXemThem_CaNhan.setText("Xem thêm");
                 }
             }
         });
@@ -161,6 +168,13 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
 //            }
 //        });
 
+        setting_person.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openBottomSheetDialog();
+            }
+        });
+
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -178,14 +192,14 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
 
     private void initListShift() {
         listShift = new ArrayList<>();
-        Shift shift1 = new Shift(R.color.red, "Ca toi: ", 0); listShift.add(shift1);
-        Shift shift2 = new Shift(R.color.yellow, "Ca sang: ", 0); listShift.add(shift2);
-        Shift shift3 = new Shift(R.color.blue, "Nhieu ca: ", 0); listShift.add(shift3);
-        Shift shift4 = new Shift(R.color.white, "Tang ca: ", 0); listShift.add(shift4);
-        Shift shift5 = new Shift(R.color.gray, "Chua cham: ", 0); listShift.add(shift5);
-        Shift shift6 = new Shift(R.color.pink, "Nghi co ly do: ", 0); listShift.add(shift6);
-        Shift shift7 = new Shift(R.color.yellow, "Nghi khong co ly do: ", 0); listShift.add(shift7);
-        Shift shift8 = new Shift(R.color.red, "Nghi co luong: ", 0); listShift.add(shift8);
+        Shift shift1 = new Shift(ContextCompat.getColor(this, R.color.red), "Ca toi: ", 0); listShift.add(shift1);
+        Shift shift2 = new Shift(ContextCompat.getColor(this, R.color.yellow), "Ca sang: ", 0); listShift.add(shift2);
+        Shift shift3 = new Shift(ContextCompat.getColor(this, R.color.blue), "Nhieu ca: ", 0); listShift.add(shift3);
+        Shift shift4 = new Shift(ContextCompat.getColor(this, R.color.white), "Tang ca: ", 0); listShift.add(shift4);
+        Shift shift5 = new Shift(ContextCompat.getColor(this, R.color.green), "Chua cham: ", 0); listShift.add(shift5);
+        Shift shift6 = new Shift(ContextCompat.getColor(this, R.color.gray), "Nghi co ly do: ", 0); listShift.add(shift6);
+        Shift shift7 = new Shift(ContextCompat.getColor(this, R.color.pink), "Nghi khong co ly do: ", 0); listShift.add(shift7);
+        Shift shift8 = new Shift(ContextCompat.getColor(this, R.color.green), "Nghi co luong: ", 0); listShift.add(shift8);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -243,6 +257,7 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         btnXemChiTiet_CaNhan = findViewById(R.id.btnXemChiTiet_CaNhan);
         btnXemTongQuan = findViewById(R.id.textView13);
         tv_xemthongke = findViewById(R.id.tv_xemthongke);
+        setting_person = findViewById(R.id.setting_person);
     }
 
     @Override
@@ -257,5 +272,12 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
                 calendarAdapter.updateData(position, result); // Ví dụ: Gọi phương thức trong adapter để cập nhật item
             }
         }
+    }
+
+    private void openBottomSheetDialog() {
+        View view = getLayoutInflater().inflate(R.layout.bottom_sheet_setting, null);
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(view);
+        bottomSheetDialog.show();
     }
 }

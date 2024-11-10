@@ -11,14 +11,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:id="@+id/chevLeftClose"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/white"
             android:contentDescription="finger"
             android:padding="0dp"
-            android:src="@drawable/chevron_left" />
+            android:background="@drawable/chevron_left" />
 
         <TextView
             android:id="@+id/title_header"

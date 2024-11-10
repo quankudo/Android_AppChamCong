@@ -20,11 +20,11 @@
             android:text="Đã chấm công 1/1"
             android:layout_weight="1"
             android:textColor="@color/white"
-            android:textSize="22sp"/>
+            android:textSize="20sp"/>
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/money_30"
             android:background="@color/black"/>
     </LinearLayout>
@@ -47,37 +47,38 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textView86"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="-22dp"
             android:text="Nguyễn Phước Kỳ"
             android:textColor="@color/blue"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
             app:layout_constraintStart_toEndOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="22dp"
+            android:autoSizeMaxTextSize="5dp"
+            android:layout_marginTop="5dp"
             android:text="Nhân viên"
             android:textColor="@color/blue"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView9"
             app:layout_constraintStart_toEndOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+            app:layout_constraintTop_toBottomOf="@+id/textView86" />
 
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/calendar_30"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/calendar_30"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
@@ -95,16 +96,18 @@
 
         <ImageView
             android:id="@+id/imageView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:src="@drawable/calendar_30"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/calendar_30"
+            android:backgroundTint="@color/white"
+            android:layout_marginEnd="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-            app:layout_constraintStart_toEndOf="@+id/textView26"
+            app:layout_constraintEnd_toStartOf="@+id/textView87"
             app:layout_constraintTop_toTopOf="@+id/imageView10"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
+            android:id="@+id/textView87"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -117,11 +120,12 @@
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/calendar_30"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/calendar_30"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 

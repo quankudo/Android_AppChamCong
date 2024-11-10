@@ -29,6 +29,11 @@ public class NotifyManageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_notify_manage);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
         init();
         RecyclerView recyclerView = findViewById(R.id.manage_Notify_rec);
         ManageNotifyAdapter manageNotifyAdapter = new ManageNotifyAdapter(list);

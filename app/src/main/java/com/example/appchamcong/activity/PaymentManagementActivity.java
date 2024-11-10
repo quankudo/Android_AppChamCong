@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -26,9 +28,10 @@ import java.util.ArrayList;
 public class PaymentManagementActivity extends AppCompatActivity {
     ArrayList<PaymentHistory> list;
     RecyclerView recyclerView;
-    TextView title;
+    TextView title, btn_xemthem;
     Button btnThanhtoan, btnxemct;
     ImageButton btnClose;
+    ConstraintLayout ln_xemthem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +62,9 @@ public class PaymentManagementActivity extends AppCompatActivity {
         btnThanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(PaymentManagementActivity.this, PaymentActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
         });
 
@@ -69,6 +74,20 @@ public class PaymentManagementActivity extends AppCompatActivity {
                 Intent intent = new Intent(PaymentManagementActivity.this, PaymentDetailsActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        btn_xemthem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(btn_xemthem.getText().equals("Xem thêm")) {
+                    ln_xemthem.setVisibility(View.VISIBLE);
+                    btn_xemthem.setText("Thu gon");
+                }
+                else {
+                    ln_xemthem.setVisibility(View.GONE);
+                    btn_xemthem.setText("Xem thêm");
+                }
             }
         });
 
@@ -91,11 +110,12 @@ public class PaymentManagementActivity extends AppCompatActivity {
     }
 
     public void initMapping(){
-
         title = findViewById(R.id.title_header);
         recyclerView = findViewById(R.id.rcv_lstt);
         btnThanhtoan = findViewById(R.id.btn_thanhtoan);
         btnxemct = findViewById(R.id.btn_tt_xemct);
         btnClose = findViewById(R.id.chevLeftClose);
+        ln_xemthem = findViewById(R.id.ln_xemthem);
+        btn_xemthem = findViewById(R.id.btn_xemthems);
     }
 }

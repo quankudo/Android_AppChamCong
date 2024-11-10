@@ -3,43 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/black"
+    android:gravity="center"
+    android:padding="5dp"
     android:orientation="horizontal">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:text="Thứ 2"
         android:id="@+id/day"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:layout_weight="0.4" />
+        android:layout_weight="4" />
 
-    <ImageView
-        android:id="@+id/icon1"
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.3"
-        android:src="@drawable/storm"
-        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="4">
+        <ImageView
+            android:id="@+id/icon1"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:src="@drawable/storm"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:text="27°"
-        android:layout_weight="0.1"
+        android:layout_weight="2"
         android:id="@+id/fromTemp"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_weight="1"
         android:id="@+id/toTemp"
+        android:textAlignment="textEnd"
         android:text="32°"
         android:textColor="@color/white"
         android:textSize="18sp" />
-
-
 </LinearLayout>
