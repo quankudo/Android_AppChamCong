@@ -125,10 +125,16 @@
             android:name=".activity.TimekDetailsActivity"
             android:exported="false"/>
         <activity
+            android:name=".activity.NewJobCreationProcess"
+            android:exported="false"/>
+        <activity
             android:name=".activity.TimeKDetailsGroupActivity"
             android:exported="false"/>
         <activity
             android:name=".activity.UpdateStaffActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activity.HomeDataFragment"
             android:exported="false"/>
         <activity
             android:name=".activity.PaymentActivity"
