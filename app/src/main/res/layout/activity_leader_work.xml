@@ -66,6 +66,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="vertical">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -158,7 +159,8 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:padding="5dp"
-                                    android:src="@drawable/hand" />
+                                    android:background="@drawable/bg_light"
+                                    android:src="@drawable/loi_nhuan" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -185,7 +187,8 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:padding="5dp"
-                                    android:src="@drawable/group_chat" />
+                                    android:background="@drawable/bg_light"
+                                    android:src="@drawable/nhan_vien" />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -211,7 +214,8 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:padding="5dp"
-                                    android:src="@drawable/review" />
+                                    android:background="@drawable/bg_light"
+                                    android:src="@drawable/xet_duyet" />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -237,7 +241,8 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:padding="5dp"
-                                    android:src="@drawable/application" />
+                                    android:background="@drawable/bg_light"
+                                    android:src="@drawable/xem_them" />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"

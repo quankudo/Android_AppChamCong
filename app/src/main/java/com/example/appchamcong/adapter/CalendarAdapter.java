@@ -95,18 +95,15 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
 
                 if (dayAtPosition > currentDayOfMonth) {
                     holder.dayOfMonth.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.custom_btn_black));
+                    holder.dayOfMonth.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                        }
+                    });
                 }
-                holder.dayOfMonth.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                holder.dayOfMonth.setBackground(null);
             }
-        } else {
-            holder.dayOfMonth.setBackground(null);
         }
         String numberPart = days.get(position).replaceAll("[^0-9]", "");
         holder.dayOfMonth.setText(numberPart);

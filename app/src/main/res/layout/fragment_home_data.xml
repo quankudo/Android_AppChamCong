@@ -47,7 +47,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="220dp"
         android:layout_height="48dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
@@ -59,7 +59,7 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
-            android:layout_width="220dp"
+            android:layout_width="match_parent"
             android:paddingHorizontal="5dp"
             android:paddingVertical="3dp"
             android:layout_height="wrap_content"

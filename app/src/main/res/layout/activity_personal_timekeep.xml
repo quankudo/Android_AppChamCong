@@ -140,12 +140,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="5dp"
                             android:id="@+id/ungluong_gr"
                             android:orientation="vertical">
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/hand"
+                                android:src="@drawable/ung_luong"
                                 android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
@@ -165,7 +166,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/hand"
+                                android:src="@drawable/loi_nhuan"
                                 android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
@@ -186,13 +187,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="5dp"
                             android:id="@+id/tangca_gr"
                             android:orientation="vertical">
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/baseline_qr_code_24"
-                                android:background="@color/black"
+                                android:background="@drawable/bg_light"
+                                android:src="@drawable/tang_ca"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -211,8 +213,8 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/baseline_qr_code_24"
-                                android:background="@color/black"
+                                android:src="@drawable/thanh_toan"
+                                android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -232,13 +234,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="5dp"
                             android:id="@+id/phucap_gr"
                             android:orientation="vertical">
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/baseline_qr_code_24"
-                                android:background="@color/black"
+                                android:src="@drawable/phu_cap"
+                                android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -257,7 +260,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/baseline_query_stats"
+                                android:src="@drawable/thong_ke"
                                 android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
@@ -278,13 +281,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="5dp"
                             android:id="@+id/trutien_gr"
                             android:orientation="vertical">
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/baseline_qr_code_24"
-                                android:background="@color/black"
+                                android:src="@drawable/tru_tien"
+                                android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -303,7 +307,7 @@
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/application"
+                                android:src="@drawable/xem_them"
                                 android:background="@drawable/bg_light"
                                 android:padding="5dp"/>
                             <TextView
