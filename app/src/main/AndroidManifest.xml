@@ -13,6 +13,15 @@
         android:theme="@style/Theme.AppChamCong"
         tools:targetApi="31">
         <activity
+            android:name=".activity.MemberActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.PersonalTimekeepActivity"
             android:exported="false" />
         <activity
@@ -30,7 +39,7 @@
         <activity
             android:name=".activity.SecurityCodeActivity"
             android:exported="false" />
-        <activity android:name=".activity.LeaderWorkActivity"/>
+        <activity android:name=".activity.LeaderWorkActivity" />
         <activity
             android:name=".activity.CustomerCareActivity"
             android:exported="false" />
@@ -57,96 +66,97 @@
         </activity>
         <activity
             android:name=".activity.AddApplySalaryActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.AddDeductMoneyActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.AddOvertimeActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.AddRewardActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.AuthorityActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.ConsiderJoinTeamActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.CreateJob"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.CreateOnLeave"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.DeductMoneyActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.OverviewActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.OvertimeActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.PaymentDetailsActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.PaymentManagementActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.ProfitManageActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.QRCodeOfMe"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.RewardActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.SalaryAdvanceActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.SalaryDetailsActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.StatisticalRewardActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.StatisticalDeductMoneyActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.SubNotification"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.SubCreateJobStepFiveEditNameGroupOwner"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.TimekDetailsActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.NewJobCreationProcess"
             android:exported="false"/>
         <activity
             android:name=".activity.TimeKDetailsGroupActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.UpdateStaffActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.HomeDataFragment"
             android:exported="false"/>
         <activity
             android:name=".activity.PaymentActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.SubJoinTeam"
-            android:exported="false"/>
-        <activity android:name=".activity.UpdateInfor"
-            android:exported="false"/>
+            android:exported="false" />
+        <activity
+            android:name=".activity.UpdateInfor"
+            android:exported="false" />
     </application>
 
 </manifest>

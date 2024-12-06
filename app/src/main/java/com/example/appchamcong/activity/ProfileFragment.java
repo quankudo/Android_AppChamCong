@@ -31,7 +31,7 @@ import com.example.appchamcong.R;
 public class ProfileFragment extends Fragment {
     LinearLayout thoit, tb, btnSaoChepMa, infoAccount, hotrokythuat, ln_update;
     ImageButton btnQRCode;
-    TextView tv_update, btnSettings;
+    TextView tv_update, btnSettings, contact;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -129,6 +129,16 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), SettingActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+        contact = v.findViewById(R.id.contact);
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MemberActivity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }

@@ -302,6 +302,7 @@
                 android:backgroundTint="@color/white"
                 android:background="@drawable/baseline_quiz"/>
             <TextView
+                android:id="@+id/contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"

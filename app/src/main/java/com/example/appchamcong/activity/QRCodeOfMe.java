@@ -1,5 +1,6 @@
 package com.example.appchamcong.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,7 +22,7 @@ import com.example.appchamcong.R;
 public class QRCodeOfMe extends AppCompatActivity {
     TextView title, tieuDeMa, noidungMa;
     ImageButton btnClose;
-    LinearLayout btnSaoChepMaNhom;
+    LinearLayout btnSaoChepMaNhom, btn_share;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,30 @@ public class QRCodeOfMe extends AppCompatActivity {
                 toast.show();
             }
         });
+
+        btn_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain"); // hoặc "image/*" nếu muốn chia sẻ hình ảnh
+
+                // Nội dung cần chia sẻ
+                String shareMessage = "Đây là nội dung muốn chia sẻ!";
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+
+//                Uri imageUri = Uri.parse("file://path/to/your/image.jpg"); // Đường dẫn đến hình ảnh
+//                shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+//                shareIntent.setType("image/*");
+
+                // Tạo bộ chọn ứng dụng chia sẻ
+                Intent chooser = Intent.createChooser(shareIntent, "Chia sẻ qua");
+
+                // Kiểm tra nếu có ứng dụng hỗ trợ chia sẻ
+                if (shareIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(chooser);
+                }
+            }
+        });
     }
 
     public void initData(){
@@ -73,5 +98,6 @@ public class QRCodeOfMe extends AppCompatActivity {
         tieuDeMa = findViewById(R.id.textView9);
         noidungMa = findViewById(R.id.textView10);
         btnSaoChepMaNhom = findViewById(R.id.btnSaoChepMaNhom);
+        btn_share = findViewById(R.id.btn_share);
     }
 }
