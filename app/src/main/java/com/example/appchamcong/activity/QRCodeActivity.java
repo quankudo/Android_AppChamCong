@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,8 +20,9 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.appchamcong.R;
 
 public class QRCodeActivity extends AppCompatActivity {
-    TextView title;
+    TextView title, QRText;
     ImageButton btnClose;
+    ImageView QRImage;
     LinearLayout btnSaoChepMaNhom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,12 @@ public class QRCodeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        QRText = findViewById(R.id.textView10);
+        QRImage = findViewById(R.id.imageView5);
+
+
+
         initMapping();
         initData();
         initEvent();

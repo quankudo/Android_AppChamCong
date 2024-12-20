@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppChamCong"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ScanQRCodeActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.MemberActivity"
             android:exported="false" />
         <activity
@@ -135,7 +138,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.NewJobCreationProcess"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.TimeKDetailsGroupActivity"
             android:exported="false" />
@@ -144,7 +147,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.HomeDataFragment"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.PaymentActivity"
             android:exported="false" />

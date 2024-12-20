@@ -32,6 +32,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LeaderWorkActivity extends AppCompatActivity {
@@ -51,6 +52,11 @@ public class LeaderWorkActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Intent intent = getIntent();
+        String groupName = intent.getStringExtra("groupName");
+        String groupDate = intent.getStringExtra("groupDate");
+        int groupId = intent.getIntExtra("groupId", 1);
 
         tabLayout = findViewById(R.id.tabLayoutLeader);
         TabLayout.Tab tabPersonal = tabLayout.newTab();
@@ -132,6 +138,7 @@ public class LeaderWorkActivity extends AppCompatActivity {
         btnXetDuyet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(LeaderWorkActivity.this, ConsiderJoinTeamActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);

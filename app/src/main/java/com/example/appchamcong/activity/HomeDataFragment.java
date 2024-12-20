@@ -14,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,20 +31,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.Utils.ApiResponse;
+import com.example.appchamcong.Utils.Resource;
+import com.example.appchamcong.ViewModel.UserViewModel;
 import com.example.appchamcong.activity.GroupFragment;
 import com.example.appchamcong.activity.PersonFragment;
 import com.example.appchamcong.adapter.TimekeepingOptionsAdapter;
+import com.example.appchamcong.domain.MyInfo;
 import com.example.appchamcong.domain.TimekeepingOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class HomeDataFragment extends Fragment {
     private TabLayout tabLayout;
     private ImageButton btn_add_home;
-
+    private UserViewModel userViewModel;
+    private TextView Name, Today;
     TimekeepingOptions to = new TimekeepingOptions();
     List<TimekeepingOptions> list = to.addData();
     TimekeepingOptionsAdapter adapter = new TimekeepingOptionsAdapter(list, getContext());
@@ -54,6 +63,14 @@ public class HomeDataFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home_data, container, false);
         replaceFragment(new PersonFragment());
         btn_add_home = (ImageButton)v.findViewById(R.id.btn_add_home);
+        Name = v.findViewById(R.id.textView);
+        Today = v.findViewById(R.id.textView2);
+
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH) + 1; // Tháng bắt đầu từ 0 nên cần +1
+        int year = calendar.get(Calendar.YEAR);
+        Today.setText("Dương lịch: " + day + "/" + month + "/" + year);
 
         btn_add_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +78,12 @@ public class HomeDataFragment extends Fragment {
                 show();
             }
         });
+
+        userViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()))
+                .get(UserViewModel.class);
+
+        LoadData();
 
         tabLayout = v.findViewById(R.id.tabLayout);
         TabLayout.Tab tabPersonal = tabLayout.newTab();
@@ -93,6 +116,27 @@ public class HomeDataFragment extends Fragment {
         });
 
         return v;
+    }
+
+    private void LoadData(){
+        userViewModel.getMyInfo().observe(getActivity(), new Observer<Resource<ApiResponse<MyInfo>>>() {
+            @Override
+            public void onChanged(Resource<ApiResponse<MyInfo>> apiResponseResource) {
+                switch (apiResponseResource.status) {
+                    case LOADING:
+                        // Hiển thị trạng thái loading
+                        Log.d("jwt", "Loading");
+                        break;
+                    case SUCCESS:
+                        Name.setText(apiResponseResource.data.getData().getHovaten());
+                        break;
+                    case ERROR:
+                        // Hiển thị thông báo lỗi
+                        Log.d("jwt", "Error" + apiResponseResource.message + "login");
+                        break;
+                }
+            }
+        });
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -157,7 +201,7 @@ public class HomeDataFragment extends Fragment {
             });
 
             Button btnNext = view.findViewById(R.id.btnNextTKPO);
-        btnNext.setOnClickListener(new View.OnClickListener() {
+            btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), NewJobCreationProcess.class);

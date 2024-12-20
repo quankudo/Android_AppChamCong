@@ -18,13 +18,15 @@ import com.example.appchamcong.R;
 import com.example.appchamcong.activity.LeaderWorkActivity;
 import com.example.appchamcong.activity.PersonalTimekeepActivity;
 import com.example.appchamcong.domain.GroupTimeKeeping;
+import com.example.appchamcong.domain.Person_Timekeeping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder> {
-    ArrayList<GroupTimeKeeping> list;
+    List<Person_Timekeeping> list;
     Context context;
-    public GroupAdapter(ArrayList<GroupTimeKeeping> list, Context context) {
+    public GroupAdapter(List<Person_Timekeeping> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -38,18 +40,24 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull GroupAdapter.ViewHolder holder, int position) {
-        holder.name.setText(list.get(position).getName());
-        holder.count.setText("Nhân viên: "+list.get(position).getCount());
-        holder.type.setText(list.get(position).getType());
-        holder.date.setText(list.get(position).getDate());
-        holder.icon.setImageResource(list.get(position).getIcon());
+        holder.name.setText(list.get(position).getWorkName());
+        holder.count.setText("Nhân viên: "+list.get(position).getAccountEmployee());
+        holder.type.setText(list.get(position).getHtcc());
+        holder.date.setText(list.get(position).getDateSalary());
+        if("WIFI".equals(list.get(position).getHtcc())){
+            holder.icon.setImageResource(R.drawable.wifi_signal);
+        }
+        else{
+            holder.icon.setImageResource(R.drawable.location_on_30);
+        }
         final int index = position;
         holder.group.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, LeaderWorkActivity.class);
-                intent.putExtra("personName", list.get(index).getName());
-                intent.putExtra("personDate", list.get(index).getDate());
+                intent.putExtra("groupName", list.get(index).getWorkName());
+                intent.putExtra("groupDate", list.get(index).getDateSalary());
+                intent.putExtra("groupId", list.get(index).getId());
                 context.startActivity(intent);
                 if (context instanceof Activity) {
                     ((Activity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);

@@ -1,30 +1,76 @@
 package com.example.appchamcong.domain;
 
 public class Person_Timekeeping {
-    private String name;
-    private String date;
-
-    public Person_Timekeeping(String name, String date) {
-        this.name = name;
-        this.date = date;
-    }
+    public int Id;
+    public String workName;
+    public String dateSalary;
+    public String method;
+    public int accountEmployee;
+    public String htcc;
 
     public Person_Timekeeping() {
     }
 
-    public String getName() {
-        return name;
+    public Person_Timekeeping(int id, String workName, String dateSalary, String method, int accountEmployee, String htcc) {
+        Id = id;
+        this.workName = workName;
+        this.dateSalary = dateSalary;
+        this.method = method;
+        this.accountEmployee = accountEmployee;
+        this.htcc = htcc;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Person_Timekeeping(int id, String workName, String dateSalary) {
+        Id = id;
+        this.workName = workName;
+        this.dateSalary = dateSalary;
     }
 
-    public String getDate() {
-        return date;
+    public int getId() {
+        return Id;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public String getWorkName() {
+        return workName;
+    }
+
+    public void setWorkName(String workName) {
+        this.workName = workName;
+    }
+
+    public String getDateSalary() {
+        return dateSalary;
+    }
+
+    public void setDateSalary(String dateSalary) {
+        this.dateSalary = dateSalary;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public int getAccountEmployee() {
+        return accountEmployee;
+    }
+
+    public void setAccountEmployee(int accountEmployee) {
+        this.accountEmployee = accountEmployee;
+    }
+
+    public String getHtcc() {
+        return htcc;
+    }
+
+    public void setHtcc(String htcc) {
+        this.htcc = htcc;
     }
 }

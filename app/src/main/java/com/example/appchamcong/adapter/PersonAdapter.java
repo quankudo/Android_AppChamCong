@@ -18,11 +18,12 @@ import com.example.appchamcong.activity.PersonalTimekeepActivity;
 import com.example.appchamcong.domain.Person_Timekeeping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder> {
-    ArrayList<Person_Timekeeping> list;
+    List<Person_Timekeeping> list;
     Context context;
-    public PersonAdapter(ArrayList<Person_Timekeeping> list, Context context) {
+    public PersonAdapter(List<Person_Timekeeping> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -36,15 +37,16 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull PersonAdapter.ViewHolder holder, int position) {
-        holder.name.setText(list.get(position).getName());
-        holder.date.setText(list.get(position).getDate());
+        holder.name.setText(list.get(position).getWorkName());
+        holder.date.setText(list.get(position).getDateSalary());
         final int index = position;
         holder.group.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PersonalTimekeepActivity.class);
-                intent.putExtra("personName", list.get(index).getName());
-                intent.putExtra("personDate", list.get(index).getDate());
+                intent.putExtra("personName", list.get(index).getWorkName());
+                intent.putExtra("personDate", list.get(index).getDateSalary());
+                intent.putExtra("personId", list.get(index).getId());
                 context.startActivity(intent);
                 if (context instanceof Activity) {
                     ((Activity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);

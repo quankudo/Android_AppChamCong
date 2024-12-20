@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chia sẻ ngay"
-        android:textSize="20dp"
+        android:textSize="18sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:paddingHorizontal="20dp"
