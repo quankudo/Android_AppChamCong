@@ -29,6 +29,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.appchamcong.R;
 import com.example.appchamcong.Utils.ApiResponse;
@@ -83,7 +84,24 @@ public class HomeDataFragment extends Fragment {
                 ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()))
                 .get(UserViewModel.class);
 
-        LoadData();
+        userViewModel.getMyInfo().observe(getActivity(), new Observer<Resource<ApiResponse<MyInfo>>>() {
+            @Override
+            public void onChanged(Resource<ApiResponse<MyInfo>> apiResponseResource) {
+                switch (apiResponseResource.status) {
+                    case LOADING:
+                        // Hiển thị trạng thái loading
+                        Toast.makeText(getActivity(), "Loading", Toast.LENGTH_SHORT).show();
+                        break;
+                    case SUCCESS:
+                        Name.setText(apiResponseResource.data.getData().getHovaten());
+                        break;
+                    case ERROR:
+                        // Hiển thị thông báo lỗi
+                        Toast.makeText(getActivity(), "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
 
         tabLayout = v.findViewById(R.id.tabLayout);
         TabLayout.Tab tabPersonal = tabLayout.newTab();
@@ -116,27 +134,6 @@ public class HomeDataFragment extends Fragment {
         });
 
         return v;
-    }
-
-    private void LoadData(){
-        userViewModel.getMyInfo().observe(getActivity(), new Observer<Resource<ApiResponse<MyInfo>>>() {
-            @Override
-            public void onChanged(Resource<ApiResponse<MyInfo>> apiResponseResource) {
-                switch (apiResponseResource.status) {
-                    case LOADING:
-                        // Hiển thị trạng thái loading
-                        Log.d("jwt", "Loading");
-                        break;
-                    case SUCCESS:
-                        Name.setText(apiResponseResource.data.getData().getHovaten());
-                        break;
-                    case ERROR:
-                        // Hiển thị thông báo lỗi
-                        Log.d("jwt", "Error" + apiResponseResource.message + "login");
-                        break;
-                }
-            }
-        });
     }
 
     private void replaceFragment(Fragment fragment) {

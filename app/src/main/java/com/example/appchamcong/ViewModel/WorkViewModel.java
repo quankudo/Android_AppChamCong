@@ -13,6 +13,7 @@ import com.example.appchamcong.Utils.ApiResponse;
 import com.example.appchamcong.Utils.Resource;
 import com.example.appchamcong.domain.MyInfo;
 import com.example.appchamcong.domain.Person_Timekeeping;
+import com.example.appchamcong.domain.Timekeeping;
 
 import java.util.List;
 
@@ -30,6 +31,10 @@ public class WorkViewModel extends AndroidViewModel {
 
     public LiveData<Resource<ApiResponse<List<Person_Timekeeping>>>> getWorkGroup(){
         return workRepository.getWorkGroup();
+    }
+
+    public LiveData<Resource<ApiResponse<List<Timekeeping>>>> getEmployeeTimekeeping(int id){
+        return workRepository.getEmployeeTimekeeping(id);
     }
 
     public LiveData<Resource<ApiResponse<String>>> AddMember(String code){

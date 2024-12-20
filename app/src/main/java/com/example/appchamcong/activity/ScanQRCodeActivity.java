@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,13 +16,20 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.Utils.ApiResponse;
+import com.example.appchamcong.Utils.Resource;
+import com.example.appchamcong.ViewModel.WorkViewModel;
+import com.example.appchamcong.adapter.GroupAdapter;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class ScanQRCodeActivity extends AppCompatActivity {
-
+    private WorkViewModel workViewModel;
     EditText input1, input2, input3, input4, input5;
     private static final int CAMERA_REQUEST_CODE = 100;
 
@@ -38,6 +46,10 @@ public class ScanQRCodeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        workViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                .get(WorkViewModel.class);
 
         initMapping();
 
@@ -120,11 +132,32 @@ public class ScanQRCodeActivity extends AppCompatActivity {
             input4.setText(String.valueOf(scannedData.charAt(3)));
             input5.setText(String.valueOf(scannedData.charAt(4)));
 
-            // Kiểm tra mã QR và điều hướng đến RegisterActivity nếu cần
-            if ("C7B25".equals(scannedData)) {
-                Intent intent = new Intent(ScanQRCodeActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
+//            if ("C7B25".equals(scannedData)) {
+//                Intent intent = new Intent(ScanQRCodeActivity.this, RegisterActivity.class);
+//                startActivity(intent);
+//            }
+
+            workViewModel.AddMember(scannedData).observe(this, new Observer<Resource<ApiResponse<String>>>() {
+                @Override
+                public void onChanged(Resource<ApiResponse<String>> apiResponseResource) {
+                    switch (apiResponseResource.status) {
+                        case LOADING:
+                            // Hiển thị trạng thái loading
+                            Log.d("jwt", "Loading");
+                            break;
+                        case SUCCESS:
+                            Intent intent = new Intent(ScanQRCodeActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+                            break;
+                        case ERROR:
+                            // Hiển thị thông báo lỗi
+                            Log.d("jwt", "Error" + apiResponseResource.message);
+                            break;
+                    }
+                }
+            });
+
         } else {
             // Nếu mã QR không hợp lệ hoặc quá ngắn
             Toast.makeText(this, "Dữ liệu mã QR không hợp lệ.", Toast.LENGTH_SHORT).show();

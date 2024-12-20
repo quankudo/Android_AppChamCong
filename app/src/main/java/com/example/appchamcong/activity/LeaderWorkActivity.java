@@ -73,7 +73,7 @@ public class LeaderWorkActivity extends AppCompatActivity {
                 updateTab(tab, true);
                 int position = tab.getPosition();
                 if (position == 0) {
-                    replaceFragment(new TimekeepingFragment());
+                    replaceFragment(new TimekeepingFragment(groupId));
                 } else {
                     replaceFragment(new GeneralFragment());
                 }

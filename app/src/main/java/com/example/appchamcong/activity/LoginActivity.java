@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         if(new JwtUtils(LoginActivity.this).getToken()!=null){
-            Intent intent = new Intent(LoginActivity.this, HomeDataFragment.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
 
@@ -55,17 +56,17 @@ public class LoginActivity extends AppCompatActivity {
                 switch (resource.status) {
                     case LOADING:
                         // Hiển thị trạng thái loading
-                        Log.d("jwt", "Loading");
+                        Toast.makeText(LoginActivity.this, "Loading", Toast.LENGTH_SHORT).show();
                         break;
                     case SUCCESS:
                         new JwtUtils(LoginActivity.this).saveToken(resource.data);
                         ApiClient.getClient(LoginActivity.this);
-                        Intent intent = new Intent(LoginActivity.this, HomeDataFragment.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         break;
                     case ERROR:
                         // Hiển thị thông báo lỗi
-                        Log.d("jwt", "Error" + resource.message + "login");
+                        Toast.makeText(LoginActivity.this, "Error" + resource.message, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

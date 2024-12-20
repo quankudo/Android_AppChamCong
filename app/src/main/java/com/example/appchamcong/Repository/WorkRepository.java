@@ -9,6 +9,7 @@ import com.example.appchamcong.Api.ApiService;
 import com.example.appchamcong.Utils.ApiResponse;
 import com.example.appchamcong.Utils.Resource;
 import com.example.appchamcong.domain.Person_Timekeeping;
+import com.example.appchamcong.domain.Timekeeping;
 
 import java.util.List;
 
@@ -64,6 +65,28 @@ public class WorkRepository {
 
             @Override
             public void onFailure(Call<ApiResponse<List<Person_Timekeeping>>> call, Throwable t) {
+                work.postValue(Resource.error("Failed to fetch data: " + t.getMessage()));
+            }
+        });
+        return work;
+    }
+
+    public MutableLiveData<Resource<ApiResponse<List<Timekeeping>>>> getEmployeeTimekeeping(int id) {
+        MutableLiveData<Resource<ApiResponse<List<Timekeeping>>>> work = new MutableLiveData<>();
+        work.setValue(Resource.loading());
+
+        apiService.getEmployeeTimekeeping(id).enqueue(new Callback<ApiResponse<List<Timekeeping>>>() {
+            @Override
+            public void onResponse(Call<ApiResponse<List<Timekeeping>>> call, Response<ApiResponse<List<Timekeeping>>> response) {
+                if (response.isSuccessful()) {
+                    work.postValue(Resource.success(response.body()));
+                } else {
+                    work.postValue(Resource.error("Error: " + response.message()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<List<Timekeeping>>> call, Throwable t) {
                 work.postValue(Resource.error("Failed to fetch data: " + t.getMessage()));
             }
         });

@@ -3,6 +3,7 @@ package com.example.appchamcong.Api;
 import com.example.appchamcong.Utils.ApiResponse;
 import com.example.appchamcong.domain.MyInfo;
 import com.example.appchamcong.domain.Person_Timekeeping;
+import com.example.appchamcong.domain.Timekeeping;
 import com.example.appchamcong.domain.User;
 
 import java.util.List;
@@ -33,4 +34,7 @@ public interface ApiService {
 
     @POST("Work/AddMember")
     Call<ApiResponse<String>> AddMember(@Query("code") String code);
+
+    @GET("Work/getEmployee/{id}")
+    Call<ApiResponse<List<Timekeeping>>> getEmployeeTimekeeping(@Path("id") int id); //id cong viec
 }

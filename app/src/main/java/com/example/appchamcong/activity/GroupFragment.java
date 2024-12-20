@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.appchamcong.R;
 import com.example.appchamcong.Utils.ApiResponse;
@@ -51,7 +52,7 @@ public class GroupFragment extends Fragment {
                 switch (apiResponseResource.status) {
                     case LOADING:
                         // Hiển thị trạng thái loading
-                        Log.d("jwt", "Loading");
+                        Toast.makeText(getActivity(), "Loading", Toast.LENGTH_SHORT).show();
                         break;
                     case SUCCESS:
                         groupAdapter = new GroupAdapter(apiResponseResource.data.getData(), getActivity());
@@ -60,7 +61,7 @@ public class GroupFragment extends Fragment {
                         break;
                     case ERROR:
                         // Hiển thị thông báo lỗi
-                        Log.d("jwt", "Error" + apiResponseResource.message);
+                        Toast.makeText(getActivity(), "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
