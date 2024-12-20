@@ -1,6 +1,8 @@
 package com.example.appchamcong.Fragment;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,60 +17,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.example.appchamcong.R;
 import com.example.appchamcong.activity.SubCreateJobStepFiveEditNameGroupOwner;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link LayoutCreateJobStepFive#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class LayoutCreateJobStepFive extends Fragment {
     private ActivityResultLauncher<Intent> editGroupNameLauncher;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public LayoutCreateJobStepFive() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LayoutCreateJobStepFive.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static LayoutCreateJobStepFive newInstance(String param1, String param2) {
-        LayoutCreateJobStepFive fragment = new LayoutCreateJobStepFive();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private  TextView edtSelectDate, edtSelectHours;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -98,6 +65,53 @@ public class LayoutCreateJobStepFive extends Fragment {
             }
         });
 
+        edtSelectDate = view.findViewById(R.id.edtstarDate);
+        edtSelectDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SelectDate();
+            }
+        });
+
+        edtSelectHours = view.findViewById(R.id.edtreminderTime);
+        edtSelectHours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SelectHours();
+            }
+        });
         return view;
+    }
+
+    public void SelectDate(){
+        final Calendar calendar = Calendar.getInstance();
+        int date = calendar.get(Calendar.DATE);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(year,month, dayOfMonth);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                edtSelectDate.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        }, year, month, date);
+        datePickerDialog.show();
+    }
+
+    public void SelectHours(){
+        final Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+                        calendar.set(0,0,0,hourOfDay, minute);
+                        edtSelectHours.setText(simpleDateFormat.format(calendar.getTime()));
+                    }
+                }, hour, minute, true);
+    timePickerDialog.show();
     }
     }

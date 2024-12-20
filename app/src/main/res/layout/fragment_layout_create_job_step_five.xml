@@ -113,12 +113,13 @@
         android:paddingVertical="5dp"
         >
 
-        <EditText
+        <TextView
             android:id="@+id/edtstarDate"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:background="#00000000"
+            android:gravity="center_vertical"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="18sp" />
@@ -150,7 +151,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ngày bắt đầu công việc "
+            android:text="Thời gian nhắc nhở chấm công "
             android:textColor="@color/white"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="112dp" />
@@ -176,11 +177,12 @@
         android:paddingVertical="5dp"
         >
 
-        <EditText
+        <TextView
             android:id="@+id/edtreminderTime"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:background="#00000000"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
