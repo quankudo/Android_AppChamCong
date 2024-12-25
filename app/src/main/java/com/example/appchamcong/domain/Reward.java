@@ -1,51 +1,80 @@
 package com.example.appchamcong.domain;
 
 
+import java.util.Date;
+
 public class Reward {
-    private long price;
-    private String time;
-    private String note;
-    private String reason;
+    private int idpc;
+    private int idctcv;
+    private int idloaipc;
+    private double sotien;
+    private Date ngaytao;
+    private String ghichu;
+    private String loai;
 
-    public Reward(long price, String time, String note, String reason) {
-        this.price = price;
-        this.time = time;
-        this.note = note;
-        this.reason = reason;
+    public Reward(int idpc, int idctcv, int idloaipc, double sotien, Date ngaytao, String ghichu, String loai) {
+        this.idpc = idpc;
+        this.idctcv = idctcv;
+        this.idloaipc = idloaipc;
+        this.sotien = sotien;
+        this.ngaytao = ngaytao;
+        this.ghichu = ghichu;
+        this.loai = loai;
     }
 
-    public Reward() {
+    public int getIdpc() {
+        return idpc;
     }
 
-    public String getReason() {
-        return reason;
+    public void setIdpc(int idpc) {
+        this.idpc = idpc;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public int getIdctcv() {
+        return idctcv;
     }
 
-    public String getNote() {
-        return note;
+    public void setIdctcv(int idctcv) {
+        this.idctcv = idctcv;
     }
 
-    public void setNote(String note) {
-        this.note = note;
+    public int getIdloaipc() {
+        return idloaipc;
     }
 
-    public long getPrice() {
-        return price;
+    public void setIdloaipc(int idloaipc) {
+        this.idloaipc = idloaipc;
     }
 
-    public void setPrice(long price) {
-        this.price = price;
+    public double getSotien() {
+        return sotien;
     }
 
-    public String getTime() {
-        return time;
+    public void setSotien(double sotien) {
+        this.sotien = sotien;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public Date getNgaytao() {
+        return ngaytao;
+    }
+
+    public void setNgaytao(Date ngaytao) {
+        this.ngaytao = ngaytao;
+    }
+
+    public String getGhichu() {
+        return ghichu;
+    }
+
+    public void setGhichu(String ghichu) {
+        this.ghichu = ghichu;
+    }
+
+    public String getLoai() {
+        return loai;
+    }
+
+    public void setLoai(String loai) {
+        this.loai = loai;
     }
 }

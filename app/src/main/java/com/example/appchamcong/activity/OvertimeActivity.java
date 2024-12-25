@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -14,14 +15,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.Utils.ApiResponse;
+import com.example.appchamcong.Utils.Resource;
+import com.example.appchamcong.ViewModel.OverTimeViewModel;
+import com.example.appchamcong.ViewModel.RewardViewModel;
+import com.example.appchamcong.adapter.OverTimeAdapter;
+import com.example.appchamcong.adapter.RewardAdapter;
+import com.example.appchamcong.domain.OverTime;
+import com.example.appchamcong.domain.Reward;
+
+import java.util.List;
 
 public class OvertimeActivity extends AppCompatActivity {
     TextView title;
     Button btnAdd;
     ImageButton btnClose;
-    int EmployeeId;
+    public  static RecyclerView rec_TangCa;
+    public  static OverTimeAdapter adapter;
+    public static LinearLayout ln_emptys;
+    public static List<OverTime> listOverTime;
+    public  static OverTimeViewModel overTimeViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +52,6 @@ public class OvertimeActivity extends AppCompatActivity {
             return insets;
         });
 
-        Intent intent = getIntent();
-        intent.getIntExtra("EmployeeId", 0);
         initMapping();
         initData();
         initEvent();
@@ -47,6 +64,33 @@ public class OvertimeActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
+
+        overTimeViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                .get(OverTimeViewModel.class);
+
+        overTimeViewModel.getOverTime(1).observe(OvertimeActivity.this, new Observer<Resource<ApiResponse<List<OverTime>>>>() {
+            @Override
+            public void onChanged(Resource<ApiResponse<List<OverTime>>> apiResponseResource) {
+                switch (apiResponseResource.status){
+                    case LOADING:
+                        Toast.makeText(OvertimeActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                        break;
+                    case SUCCESS:
+                        listOverTime = apiResponseResource.data.getData();
+                        Update();
+                        adapter = new OverTimeAdapter(listOverTime, OvertimeActivity.this);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(OvertimeActivity.this);
+                        rec_TangCa.setLayoutManager(linearLayoutManager);
+                        rec_TangCa.setAdapter(adapter);
+                        break;
+                    case ERROR:
+                        Toast.makeText(OvertimeActivity.this, "Error: " + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
     }
 
     private void initEvent() {
@@ -54,9 +98,6 @@ public class OvertimeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OvertimeActivity.this, AddOvertimeActivity.class);
-                if(EmployeeId!=0){
-                    intent.putExtra("EmployeeId", EmployeeId);
-                }
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
@@ -71,6 +112,16 @@ public class OvertimeActivity extends AppCompatActivity {
         });
     }
 
+    public  synchronized static void Update() {
+        if (listOverTime.size() > 0) {
+            ln_emptys.setVisibility(View.GONE);
+            rec_TangCa.setVisibility(View.VISIBLE);
+        } else {
+            ln_emptys.setVisibility(View.VISIBLE);
+            rec_TangCa.setVisibility(View.GONE);
+        }
+
+    }
     public void initData(){
         title.setText("Quản lý tăng ca");
     }
@@ -79,5 +130,7 @@ public class OvertimeActivity extends AppCompatActivity {
         title = findViewById(R.id.title_header);
         btnAdd = findViewById(R.id.btn_add_ca);
         btnClose = findViewById(R.id.chevLeftClose);
+        rec_TangCa = findViewById(R.id.rec_TangCa);
+        ln_emptys = findViewById(R.id.ln_emptys);
     }
 }

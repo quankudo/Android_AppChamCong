@@ -49,6 +49,7 @@ public class AddRewardActivity extends AppCompatActivity {
         initData();
         initEvent();
 
+
     }
     private void initEvent() {
         btnClose.setOnClickListener(new View.OnClickListener() {
@@ -63,14 +64,14 @@ public class AddRewardActivity extends AppCompatActivity {
         btn_luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                long price = Long.parseLong(et_price.getText().toString());
-                String date = tvDate.getText().toString();
-                String notes = editText.getText().toString();
-                RewardActivity.listReward.add(new Reward(price, date, notes, reason));
-                RewardActivity.adapter.notifyDataSetChanged();
-                RewardActivity.Update();
-                finish();
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                long price = Long.parseLong(et_price.getText().toString());
+//                String date = tvDate.getText().toString();
+//                String notes = editText.getText().toString();
+//                RewardActivity.listReward.add(new Reward(price, date, notes, reason));
+//                RewardActivity.adapter.notifyDataSetChanged();
+//                RewardActivity.Update();
+//                finish();
+//                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
 

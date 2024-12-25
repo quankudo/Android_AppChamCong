@@ -1,9 +1,14 @@
 package com.example.appchamcong.Api;
 
 import com.example.appchamcong.Utils.ApiResponse;
+import com.example.appchamcong.domain.AddDeduct;
+import com.example.appchamcong.domain.Deduct;
 import com.example.appchamcong.domain.JoinTeam;
 import com.example.appchamcong.domain.MyInfo;
+import com.example.appchamcong.domain.OverTime;
 import com.example.appchamcong.domain.Person_Timekeeping;
+import com.example.appchamcong.domain.Reward;
+import com.example.appchamcong.domain.SalaryAdvance;
 import com.example.appchamcong.domain.TimeKeepResponse;
 import com.example.appchamcong.domain.TimeKeepingDetails;
 import com.example.appchamcong.domain.Timekeeping;
@@ -11,6 +16,7 @@ import com.example.appchamcong.domain.TimekeepingReq;
 import com.example.appchamcong.domain.User;
 import com.example.appchamcong.domain.WorkDetails;
 
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -79,4 +85,19 @@ public interface ApiService {
 
     @GET("Timekeeping/detailsByOwner")
     Call<ApiResponse<TimeKeepingDetails>> getTimeKeepingDetailsByOwner(@Query("idNhom") int idNhom, @Query("idNhanVien") int idNhanVien);
+
+    @GET("Deduct/getDeDuctbyod{id}")
+    Call <ApiResponse<List<Deduct>>> GetDeduct(@Path("id") int id);
+
+    @GET("overTime/getDeDuctbyod{id}")
+    Call <ApiResponse<List<OverTime>>> GetOverTime(@Path("id") int id);
+
+    @GET("Deduct/getDeDuctbyod{id}")
+    Call <ApiResponse<List<Reward>>> GetReward(@Path("id") int id);
+
+    @GET("Deduct/getDeDuctbyod{id}")
+    Call <ApiResponse<List<SalaryAdvance>>> GetSalaryAdvance(@Path("id") int id);
+
+    @GET("Deduct/getDeDuctbyod{id}")
+    Call <ApiResponse<String>> AddDeduct(@Body AddDeduct deduct);
 }

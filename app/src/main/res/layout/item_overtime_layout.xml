@@ -12,8 +12,8 @@
         android:id="@+id/linearLayout2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/bg_green"
         android:backgroundTint="#009688"
+        android:background="@drawable/custom_btn_blue"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:text="Ly do: "
+        android:text="Vào lúc: "
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:layout_marginTop="8dp"
@@ -53,8 +53,8 @@
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Di muon"
-        android:textColor="@color/red"
+        android:text="CN. 22/12/2024"
+        android:textColor="@color/green"
         android:textSize="16sp"
         android:layout_marginStart="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView41"
@@ -66,22 +66,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Vao luc: "
+        android:text="Tổng thời gian: "
         android:textColor="@color/gray"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView41"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+        app:layout_constraintTop_toBottomOf="@id/textView41" />
 
     <TextView
         android:id="@+id/text111"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Th4, 30/10/2024"
-        android:textColor="@color/white"
+        android:text="60 phút"
+        android:textColor="@color/blue"
         android:layout_marginStart="5dp"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView50"
         app:layout_constraintStart_toEndOf="@+id/textView50"
         app:layout_constraintTop_toTopOf="@+id/textView50" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

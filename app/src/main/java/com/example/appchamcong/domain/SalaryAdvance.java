@@ -1,18 +1,39 @@
 package com.example.appchamcong.domain;
 
 
-public class SalaryAdvance {
-    private long price;
-    private String time;
-    private String note;
+import java.util.Date;
 
-    public SalaryAdvance(long price, String time, String note) {
-        this.price = price;
-        this.time = time;
+public class SalaryAdvance {
+    private double sotienung;
+    private Date ngayung;
+    private String note;
+    private String hinhanh;
+    private int idungluong;
+    private int idctcv;
+
+    public SalaryAdvance(double price, Date ngayung, String note, String hinhanh, int idungluong, int idctcv) {
+        this.sotienung = price;
+        this.ngayung = ngayung;
         this.note = note;
+        this.hinhanh = hinhanh;
+        this.idungluong = idungluong;
+        this.idctcv = idctcv;
     }
 
-    public SalaryAdvance() {
+    public double getPrice() {
+        return sotienung;
+    }
+
+    public void setPrice(double price) {
+        this.sotienung = price;
+    }
+
+    public Date getNgayung() {
+        return ngayung;
+    }
+
+    public void setNgayung(Date ngayung) {
+        this.ngayung = ngayung;
     }
 
     public String getNote() {
@@ -23,19 +44,27 @@ public class SalaryAdvance {
         this.note = note;
     }
 
-    public long getPrice() {
-        return price;
+    public String getHinhanh() {
+        return hinhanh;
     }
 
-    public void setPrice(long price) {
-        this.price = price;
+    public void setHinhanh(String hinhanh) {
+        this.hinhanh = hinhanh;
     }
 
-    public String getTime() {
-        return time;
+    public int getIdungluong() {
+        return idungluong;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setIdungluong(int idungluong) {
+        this.idungluong = idungluong;
+    }
+
+    public int getIdctcv() {
+        return idctcv;
+    }
+
+    public void setIdctcv(int idctcv) {
+        this.idctcv = idctcv;
     }
 }

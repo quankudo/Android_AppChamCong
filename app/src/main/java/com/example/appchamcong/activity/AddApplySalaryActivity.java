@@ -78,14 +78,14 @@ public class AddApplySalaryActivity extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int price = Integer.parseInt(etSalary.getText().toString());
-                String date = tvDate.getText().toString();
-                String notes = note.getText().toString();
-                SalaryAdvanceActivity.list.add(new SalaryAdvance(price, date, notes));
-                SalaryAdvanceActivity.adapter.notifyDataSetChanged();
-                SalaryAdvanceActivity.Update();
-                finish();
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                int price = Integer.parseInt(etSalary.getText().toString());
+//                String date = tvDate.getText().toString();
+//                String notes = note.getText().toString();
+//                SalaryAdvanceActivity.list.add(new SalaryAdvance(price, date, notes));
+//                SalaryAdvanceActivity.adapter.notifyDataSetChanged();
+//                SalaryAdvanceActivity.Update();
+//                finish();
+//                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
 

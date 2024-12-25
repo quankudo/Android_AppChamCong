@@ -10,15 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.Utils.FormatDateTime;
+import com.example.appchamcong.Utils.FormatPrice;
 import com.example.appchamcong.domain.SalaryAdvance;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SalaryAdvanceAdapter extends RecyclerView.Adapter<SalaryAdvanceAdapter.ViewHolder> {
-    private ArrayList<SalaryAdvance> list;
+    private List<SalaryAdvance> list;
     private Context context;
 
-    public SalaryAdvanceAdapter(ArrayList<SalaryAdvance> list, Context context) {
+    public SalaryAdvanceAdapter(List<SalaryAdvance> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -32,8 +35,8 @@ public class SalaryAdvanceAdapter extends RecyclerView.Adapter<SalaryAdvanceAdap
 
     @Override
     public void onBindViewHolder(@NonNull SalaryAdvanceAdapter.ViewHolder holder, int position) {
-        holder.price.setText("Số tiền: " + list.get(position).getPrice()+ ",000 đ");
-        holder.date.setText(list.get(position).getTime());
+        holder.price.setText("Số tiền: " + FormatPrice.formatNumber( list.get(position).getPrice()) + "đ");
+        holder.date.setText(FormatDateTime.formatDateToString(list.get(position).getNgayung()));
     }
 
     @Override

@@ -29,7 +29,6 @@ public class UserViewModel extends AndroidViewModel {
     public LiveData<Resource<String>> getLogin() {
         return login;
     }
-
     public void login(User user) {
         userRepository.login(user, login);
     }

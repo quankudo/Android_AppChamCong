@@ -2,11 +2,13 @@ package com.example.appchamcong.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -14,19 +16,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appchamcong.Api.ApiClient;
 import com.example.appchamcong.R;
+import com.example.appchamcong.Utils.ApiResponse;
+import com.example.appchamcong.Utils.JwtUtils;
+import com.example.appchamcong.Utils.Resource;
+import com.example.appchamcong.ViewModel.SalarryAdvanceViewModel;
+import com.example.appchamcong.ViewModel.UserViewModel;
 import com.example.appchamcong.adapter.SalaryAdvanceAdapter;
 import com.example.appchamcong.domain.SalaryAdvance;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SalaryAdvanceActivity extends AppCompatActivity {
     TextView title;
     Button btnAdd;
     ImageButton btnClose;
+    private SalarryAdvanceViewModel salaryViewModel;
     public static LinearLayout ln_empty;
     public static RecyclerView rec_UngLuong;
     public static SalaryAdvanceAdapter adapter;
@@ -47,10 +59,7 @@ public class SalaryAdvanceActivity extends AppCompatActivity {
 
         initEvent();
         Update();
-        adapter = new SalaryAdvanceAdapter(list, this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rec_UngLuong.setLayoutManager(linearLayoutManager);
-        rec_UngLuong.setAdapter(adapter);
+
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -60,6 +69,31 @@ public class SalaryAdvanceActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
+
+        salaryViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                .get(SalarryAdvanceViewModel.class);
+
+        salaryViewModel.getSalaryAdvance(1).observe(SalaryAdvanceActivity.this, new Observer<Resource<ApiResponse<List<SalaryAdvance>>>>() {
+            @Override
+            public void onChanged(Resource<ApiResponse<List<SalaryAdvance>>> apiResponseResource) {
+                switch (apiResponseResource.status){
+                    case LOADING:
+                        Toast.makeText(SalaryAdvanceActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                        break;
+                    case SUCCESS:
+                        adapter = new SalaryAdvanceAdapter(apiResponseResource.data.getData(), SalaryAdvanceActivity.this);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SalaryAdvanceActivity.this);
+                        rec_UngLuong.setLayoutManager(linearLayoutManager);
+                        rec_UngLuong.setAdapter(adapter);
+                        break;
+                    case ERROR:
+                        Toast.makeText(SalaryAdvanceActivity.this, "Error: " + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
     }
 
     private void initEvent() {

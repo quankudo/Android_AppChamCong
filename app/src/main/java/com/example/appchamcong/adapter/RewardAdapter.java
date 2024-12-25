@@ -10,16 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.Utils.FormatDateTime;
+import com.example.appchamcong.Utils.FormatPrice;
 import com.example.appchamcong.domain.Reward;
 import com.example.appchamcong.domain.SalaryAdvance;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RewardAdapter extends RecyclerView.Adapter<RewardAdapter.ViewHolder> {
-    private ArrayList<Reward> list;
+    private List<Reward> list;
     private Context context;
 
-    public RewardAdapter(ArrayList<Reward> list, Context context) {
+    public RewardAdapter(List<Reward> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -33,9 +36,9 @@ public class RewardAdapter extends RecyclerView.Adapter<RewardAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.price.setText("Số tiền: " + list.get(position).getPrice()+ ",000 đ");
-        holder.date.setText(list.get(position).getTime());
-        holder.reason.setText(list.get(position).getReason());
+        holder.price.setText("Số tiền: " + FormatPrice.formatNumber(list.get(position).getSotien()) +"đ");
+        holder.date.setText(FormatDateTime.formatDateToString( list.get(position).getNgaytao()));
+        holder.reason.setText(list.get(position).getLoai());
     }
 
     @Override

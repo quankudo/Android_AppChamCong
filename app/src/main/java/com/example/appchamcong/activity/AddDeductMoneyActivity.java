@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -14,14 +15,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.appchamcong.R;
-import com.example.appchamcong.domain.MinusMoney;
-import com.example.appchamcong.domain.SalaryAdvance;
+import com.example.appchamcong.Utils.Resource;
+import com.example.appchamcong.ViewModel.DeDuctViewModel;
+import com.example.appchamcong.domain.AddDeduct;
+import com.example.appchamcong.domain.Deduct;
+import com.example.appchamcong.Utils.FormatDateTime;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class AddDeductMoneyActivity extends AppCompatActivity {
@@ -31,11 +39,17 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
     TextView btnDiMuon, btnKhongDat, btnNghiVang, btnBaoHiem, btnKhac;
     TextView tvDiMuon, btnNext, btnPre, tvDate;
     ArrayList<TextView> listBtn;
+    int idLoai =1;
+    private DeDuctViewModel deDuctViewModel;
+    private ArrayList<Deduct> listDeduct;
+    int lastID;
+    AddDeduct addDeduct = new AddDeduct();
     SimpleDateFormat sdf;
     Button btn_luu;
     EditText tv_price, tv_minutes, editText;
     Calendar cal;
     String reason = "Di muon";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +65,33 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
         initMapping();
         initData();
         initEvent();
+
+        deDuctViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                .get(DeDuctViewModel.class);
+        deDuctViewModel.getAddDeduct().observe(this, new Observer<Resource<String>>() {
+            @Override
+            public void onChanged(Resource<String> apiResponseResource) {
+                switch (apiResponseResource.status) {
+                    case LOADING:
+                        Toast.makeText(AddDeductMoneyActivity.this, "Adding...", Toast.LENGTH_SHORT).show();
+                        break;
+                    case SUCCESS:
+                        Toast.makeText(AddDeductMoneyActivity.this, "Added successfully", Toast.LENGTH_SHORT).show();
+                        DeductMoneyActivity.list.add(addDeduct);
+                        DeductMoneyActivity.adapter.notifyDataSetChanged();
+                        DeductMoneyActivity.Update();
+                        finish();
+                        break;
+                    case ERROR:
+                        Toast.makeText(AddDeductMoneyActivity.this, "Error: " + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
     }
+
+
 
     private void initEvent() {
         btnClose.setOnClickListener(new View.OnClickListener() {
@@ -103,15 +143,24 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 long price = Long.parseLong(tv_price.getText().toString());
-                if(tv_minutes.getText().toString().equals("")) //truong hop khong phai ly do la di muon thi khong co attribute: phut.
-                    tv_minutes.setText("1");
-                int mn = Integer.parseInt(tv_minutes.getText().toString());
+//                if(tv_minutes.getText().toString().equals("")) //truong hop khong phai ly do la di muon thi khong co attribute: phut.
+//                    tv_minutes.setText("1");
+//                int mn = Integer.parseInt(tv_minutes.getText().toString());
                 String date = tvDate.getText().toString();
+                Date date1 = FormatDateTime.convertStringToDate(date, "yyyy-MM-dd");
                 String notes = editText.getText().toString();
-                DeductMoneyActivity.list.add(new MinusMoney(price, reason, date, mn, notes));
-                DeductMoneyActivity.adapter.notifyDataSetChanged();
-                DeductMoneyActivity.Update();
-                finish();
+
+
+                addDeduct.setLoaiTT(idLoai);
+                addDeduct.setIdctcv(lastID);
+                addDeduct.setSoTien(price);
+                addDeduct.setGhiChu(notes);
+                addDeduct.setNgayTao(date1);
+                AddDeduct addDeduct = new AddDeduct(lastID, price, date1, notes, idLoai);
+                deDuctViewModel.addDeduct(addDeduct);
+
+//
+//                finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
@@ -157,6 +206,18 @@ public class AddDeductMoneyActivity extends AppCompatActivity {
             if(item.getId() != btn.getId()){
                 item.setBackgroundResource(R.drawable.border_outline_pink);
             }
+        }
+        if(btn.getId()==btnDiMuon.getId()){
+            idLoai=1;
+        }
+        else if(btn.getId()==btnKhongDat.getId()){
+            idLoai=2;
+        }else  if(btn.getId()==btnNghiVang.getId()){
+            idLoai=3;
+        } else if (btn.getId()==btnBaoHiem.getId()) {
+            idLoai=4;
+        }else{
+            idLoai=5;
         }
         if(btn.getId()==btnDiMuon.getId()){
             tvDiMuon.setVisibility(View.VISIBLE);
