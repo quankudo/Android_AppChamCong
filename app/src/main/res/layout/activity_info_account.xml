@@ -34,11 +34,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quan Kudo"
+                android:id="@+id/Ten"
                 android:textColor="@color/white"
                 android:textSize="20dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/EmailAccount"
                 android:text="quannguyen2004aa@gmail.com"
                 android:textColor="@color/white"
                 android:textSize="14dp"/>
@@ -56,6 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="26/09/2004"
+                    android:id="@+id/NgayTao"
                     android:textColor="@color/white"
                     android:textSize="16dp"
                     android:textStyle="bold"/>

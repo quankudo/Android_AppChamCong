@@ -9,7 +9,6 @@
     android:background="@color/black"
     tools:context=".activity.HomeFragment">
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

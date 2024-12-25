@@ -26,7 +26,7 @@
         <ImageButton
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/money_30"
+            android:src="@drawable/settings_30"
             android:background="@color/black"/>
     </LinearLayout>
 

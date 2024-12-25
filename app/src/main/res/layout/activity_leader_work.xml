@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:id="@+id/workname"
             android:layout_weight="1"
             android:text="Thiết kế web"
             android:textColor="@color/white"
@@ -271,6 +272,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:id="@+id/month"
                             android:text="Tiền công tháng 09"
                             android:textColor="@color/blue"
                             android:layout_marginHorizontal="10dp"
@@ -322,6 +324,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0d"
+                            android:id="@+id/tongTienCong"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -353,6 +356,7 @@
                             android:layout_height="wrap_content"
                             android:text="0d"
                             android:textColor="#1532C3"
+                            android:id="@+id/tongDaUng"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>

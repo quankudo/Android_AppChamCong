@@ -67,7 +67,6 @@ public class NewJobCreationProcess extends AppCompatActivity {
             }
         });
 
-
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

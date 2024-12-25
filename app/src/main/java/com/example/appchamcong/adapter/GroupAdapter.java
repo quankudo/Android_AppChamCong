@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.activity.HomeDataFragment;
 import com.example.appchamcong.activity.LeaderWorkActivity;
 import com.example.appchamcong.activity.PersonalTimekeepActivity;
 import com.example.appchamcong.domain.GroupTimeKeeping;
@@ -45,22 +46,34 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder> 
         holder.type.setText(list.get(position).getHtcc());
         holder.date.setText(list.get(position).getDateSalary());
         if("WIFI".equals(list.get(position).getHtcc())){
-            holder.icon.setImageResource(R.drawable.wifi_signal);
+            holder.icon.setImageResource(R.drawable.baseline_wifi);
         }
         else{
-            holder.icon.setImageResource(R.drawable.location_on_30);
+            holder.icon.setImageResource(R.drawable.baseline_qr_code);
         }
         final int index = position;
         holder.group.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, LeaderWorkActivity.class);
-                intent.putExtra("groupName", list.get(index).getWorkName());
-                intent.putExtra("groupDate", list.get(index).getDateSalary());
-                intent.putExtra("groupId", list.get(index).getId());
-                context.startActivity(intent);
-                if (context instanceof Activity) {
-                    ((Activity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+                if(list.get(index).isChuNhom() && list.get(index).isGroup()){
+                    Intent intent = new Intent(context, LeaderWorkActivity.class);
+                    intent.putExtra("groupName", list.get(index).getWorkName());
+                    intent.putExtra("groupDate", list.get(index).getDateSalary());
+                    intent.putExtra("groupId", list.get(index).getId());
+                    context.startActivity(intent);
+                    if (context instanceof Activity) {
+                        ((Activity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+                    }
+                }
+                else{
+                    Intent intent = new Intent(context, PersonalTimekeepActivity.class);
+                    intent.putExtra("personName", list.get(index).getWorkName());
+                    intent.putExtra("personDate", list.get(index).getDateSalary());
+                    intent.putExtra("EmployeeId", list.get(index).getId()); //id nhom
+                    context.startActivity(intent);
+                    if (context instanceof Activity) {
+                        ((Activity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+                    }
                 }
             }
         });

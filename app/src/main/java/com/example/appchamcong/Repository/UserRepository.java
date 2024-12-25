@@ -50,12 +50,12 @@ public class UserRepository {
 
     public MutableLiveData<Resource<ApiResponse<MyInfo>>> getMyInfo() {
         MutableLiveData<Resource<ApiResponse<MyInfo>>> myInfoApiResponse = new MutableLiveData<>();
+        myInfoApiResponse.setValue(Resource.loading());
         apiService.getMyInfo().enqueue(new Callback<ApiResponse<MyInfo>>() {
             @Override
             public void onResponse(Call<ApiResponse<MyInfo>> call, Response<ApiResponse<MyInfo>> response) {
                 if(response.isSuccessful()){
                     myInfoApiResponse.postValue(Resource.success(response.body()));
-
                 }
                 else {
                     myInfoApiResponse.postValue(Resource.error("Error: " + response.message()));

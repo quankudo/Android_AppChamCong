@@ -38,8 +38,9 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        String token = new JwtUtils(LoginActivity.this).getToken();
 
-        if(new JwtUtils(LoginActivity.this).getToken()!=null){
+        if(token!=null && token.length()>20){
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }

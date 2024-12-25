@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Quet ma QR"
+        android:text="Quét mã QR"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="hoac"
+        android:text="hoặc"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Hay nhap ma gom 5 ky tu de tham gia nhom"
+        android:text="Hãy nhập mã gồm 5 ký tự để tham gia nhóm"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +73,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/input1"
+            android:textAlignment="center"
             android:background="@drawable/custom_qrcode_input"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -85,6 +86,7 @@
             android:background="@drawable/custom_qrcode_input"
             android:textColor="@color/white"
             android:id="@+id/input2"
+            android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -95,6 +97,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:id="@+id/input3"
+            android:textAlignment="center"
             android:textStyle="bold" />
 
         <EditText
@@ -104,6 +107,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:id="@+id/input4"
+            android:textAlignment="center"
             android:layout_marginHorizontal="20dp"
             android:textStyle="bold" />
 
@@ -114,6 +118,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:id="@+id/input5"
+            android:textAlignment="center"
             android:textStyle="bold" />
     </LinearLayout>
 

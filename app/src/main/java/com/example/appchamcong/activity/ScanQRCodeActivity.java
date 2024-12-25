@@ -5,7 +5,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -143,16 +148,17 @@ public class ScanQRCodeActivity extends AppCompatActivity {
                     switch (apiResponseResource.status) {
                         case LOADING:
                             // Hiển thị trạng thái loading
-                            Log.d("jwt", "Loading");
+                            Toast.makeText(ScanQRCodeActivity.this, "Loading", Toast.LENGTH_SHORT).show();
                             break;
                         case SUCCESS:
+                            Toast.makeText(ScanQRCodeActivity.this, apiResponseResource.data.getMessage(), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(ScanQRCodeActivity.this, MainActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                             break;
                         case ERROR:
                             // Hiển thị thông báo lỗi
-                            Log.d("jwt", "Error" + apiResponseResource.message);
+                            toastError("Error" + apiResponseResource.message);
                             break;
                     }
                 }
@@ -162,5 +168,17 @@ public class ScanQRCodeActivity extends AppCompatActivity {
             // Nếu mã QR không hợp lệ hoặc quá ngắn
             Toast.makeText(this, "Dữ liệu mã QR không hợp lệ.", Toast.LENGTH_SHORT).show();
         }
+    }
+    @SuppressLint("MissingInflatedId")
+    public void toastError(String errorMessage) {
+        Toast toast = new Toast(ScanQRCodeActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View v = inflater.inflate(R.layout.toast_error_layout, (ViewGroup) findViewById(R.id.layout_toast_error));
+        TextView tvToastError = v.findViewById(R.id.tvToastError);
+        tvToastError.setText(errorMessage);
+        toast.setView(v);
+        toast.setGravity(Gravity.TOP, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.show();
     }
 }

@@ -7,13 +7,13 @@ public class MyInfo {
     private String hovaten;
     private String email;
     private String sdt;
-    private int trangthai;
-    private Date ngayTao;
+    private boolean trangthai;
+    private String ngayTao;
 
     public MyInfo() {
     }
 
-    public MyInfo(int iduser, String hovaten, String email, String sdt, int trangthai) {
+    public MyInfo(int iduser, String hovaten, String email, String sdt, boolean trangthai) {
         this.iduser = iduser;
         this.hovaten = hovaten;
         this.email = email;
@@ -21,7 +21,7 @@ public class MyInfo {
         this.trangthai = trangthai;
     }
 
-    public MyInfo(int iduser, String hovaten, String email, String sdt, int trangthai, Date ngayTao) {
+    public MyInfo(int iduser, String hovaten, String email, String sdt, boolean trangthai, String ngayTao) {
         this.iduser = iduser;
         this.hovaten = hovaten;
         this.email = email;
@@ -30,11 +30,11 @@ public class MyInfo {
         this.ngayTao = ngayTao;
     }
 
-    public Date getNgayTao() {
+    public String getNgayTao() {
         return ngayTao;
     }
 
-    public void setNgayTao(Date ngayTao) {
+    public void setNgayTao(String ngayTao) {
         this.ngayTao = ngayTao;
     }
 
@@ -70,11 +70,11 @@ public class MyInfo {
         this.sdt = sdt;
     }
 
-    public int getTrangthai() {
+    public boolean isTrangthai() {
         return trangthai;
     }
 
-    public void setTrangthai(int trangthai) {
+    public void setTrangthai(boolean trangthai) {
         this.trangthai = trangthai;
     }
 }

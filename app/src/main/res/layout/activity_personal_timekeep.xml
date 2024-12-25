@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:id="@+id/ten"
             android:text="Code App"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -367,6 +368,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="6"
+                            android:id="@+id/tongNgayCong"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -393,6 +395,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="10,000đ"
+                            android:id="@+id/tienCong1Ngay"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -419,6 +422,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0,0"
+                            android:id="@+id/tongNghi"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -445,6 +449,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0đ"
+                            android:id="@+id/tongTangCa"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -471,6 +476,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0đ"
+                            android:id="@+id/tongThuong"
                             android:textColor="#1532C3"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -499,6 +505,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0đ"
+                        android:id="@+id/tongLuong"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -527,6 +534,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0đ"
+                        android:id="@+id/tongDaUng"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -555,6 +563,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0đ"
+                        android:id="@+id/tongTruTien"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -583,6 +592,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0đ"
+                        android:id="@+id/tongDaThanhToan"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -610,6 +620,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0đ"
+                        android:id="@+id/tongChuaNhan"
                         android:textColor="#1532C3"
                         android:textSize="18sp"
                         android:textStyle="bold" />

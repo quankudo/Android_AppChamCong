@@ -17,11 +17,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.Utils.ApiResponse;
+import com.example.appchamcong.Utils.Resource;
+import com.example.appchamcong.ViewModel.UserViewModel;
+import com.example.appchamcong.domain.MyInfo;
 
 public class InfoAccountActivity extends AppCompatActivity {
-    TextView title;
+    private UserViewModel userViewModel;
+    TextView title, Ten, Email, NgayTao;
     ImageButton btnClose;
     LinearLayout lnChinhSua, lnSaoChep;
     @Override
@@ -33,6 +40,35 @@ public class InfoAccountActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        Ten = findViewById(R.id.Ten);
+        Email = findViewById(R.id.EmailAccount);
+        NgayTao = findViewById(R.id.NgayTao);
+
+        userViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                .get(UserViewModel.class);
+
+        userViewModel.getMyInfo().observe(InfoAccountActivity.this, new Observer<Resource<ApiResponse<MyInfo>>>() {
+            @Override
+            public void onChanged(Resource<ApiResponse<MyInfo>> apiResponseResource) {
+                switch (apiResponseResource.status) {
+                    case LOADING:
+                        // Hiển thị trạng thái loading
+                        Toast.makeText(InfoAccountActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                        break;
+                    case SUCCESS:
+                        Ten.setText(apiResponseResource.data.getData().getHovaten());
+                        Email.setText(apiResponseResource.data.getData().getEmail());
+                        NgayTao.setText(apiResponseResource.data.getData().getNgayTao());
+                        break;
+                    case ERROR:
+                        // Hiển thị thông báo lỗi
+                        Toast.makeText(InfoAccountActivity.this, "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
         });
 
         initMapping();

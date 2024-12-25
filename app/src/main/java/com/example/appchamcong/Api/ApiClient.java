@@ -18,7 +18,6 @@ public class ApiClient {
     private static Retrofit retrofit = null;
     public static boolean jwt = false;
 
-
     public static Retrofit getClient(Context context) {
         JwtUtils jwtUtils = new JwtUtils(context);
         String token = jwtUtils.getToken();

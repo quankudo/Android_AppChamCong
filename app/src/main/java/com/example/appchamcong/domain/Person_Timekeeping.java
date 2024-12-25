@@ -1,18 +1,19 @@
 package com.example.appchamcong.domain;
 
 public class Person_Timekeeping {
-    public int Id;
+    private boolean isChuNhom;
+    public int id;
     public String workName;
     public String dateSalary;
     public String method;
     public int accountEmployee;
     public String htcc;
-
+    private boolean isGruop;
     public Person_Timekeeping() {
     }
 
     public Person_Timekeeping(int id, String workName, String dateSalary, String method, int accountEmployee, String htcc) {
-        Id = id;
+        this.id = id;
         this.workName = workName;
         this.dateSalary = dateSalary;
         this.method = method;
@@ -21,17 +22,44 @@ public class Person_Timekeeping {
     }
 
     public Person_Timekeeping(int id, String workName, String dateSalary) {
-        Id = id;
+        this.id = id;
         this.workName = workName;
         this.dateSalary = dateSalary;
     }
 
+    public Person_Timekeeping(boolean isChuNhom, int id, String workName, String dateSalary, String method, int accountEmployee, String htcc, boolean isGroup) {
+        this.isChuNhom = isChuNhom;
+        this.id = id;
+        this.workName = workName;
+        this.dateSalary = dateSalary;
+        this.method = method;
+        this.accountEmployee = accountEmployee;
+        this.htcc = htcc;
+        this.isGruop = isGroup;
+    }
+
+    public boolean isChuNhom() {
+        return isChuNhom;
+    }
+
+    public void setChuNhom(boolean chuNhom) {
+        isChuNhom = chuNhom;
+    }
+
+    public boolean isGroup() {
+        return isGruop;
+    }
+
+    public void setGroup(boolean group) {
+        isGruop = group;
+    }
+
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getWorkName() {

@@ -4,36 +4,50 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class JoinTeam {
-    String valueName, valueNumber, valuePosition;
+    private int idCongViec;
+    private int idNguoiDung;
+    private String ten;
+    private String sdt;
 
-    public JoinTeam(String valueName, String valueNumber, String valuePosition) {
-        this.valueName = valueName;
-        this.valueNumber = valueNumber;
-        this.valuePosition = valuePosition;
+    public JoinTeam() {
     }
 
-
-    public String getValueName() {
-        return valueName;
+    public JoinTeam(String sdt, String ten, int idNguoiDung, int idCongViec) {
+        this.sdt = sdt;
+        this.ten = ten;
+        this.idNguoiDung = idNguoiDung;
+        this.idCongViec = idCongViec;
     }
 
-    public void setValueName(String valueName) {
-        this.valueName = valueName;
+    public int getIdCongViec() {
+        return idCongViec;
     }
 
-    public String getValueNumber() {
-        return valueNumber;
+    public void setIdCongViec(int idCongViec) {
+        this.idCongViec = idCongViec;
     }
 
-    public void setValueNumber(String valueNumber) {
-        this.valueNumber = valueNumber;
+    public int getIdNguoiDung() {
+        return idNguoiDung;
     }
 
-    public String getValuePosition() {
-        return valuePosition;
+    public void setIdNguoiDung(int idNguoiDung) {
+        this.idNguoiDung = idNguoiDung;
     }
 
-    public void setValuePosition(String valuePosition) {
-        this.valuePosition = valuePosition;
+    public String getTen() {
+        return ten;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 }

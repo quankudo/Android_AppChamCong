@@ -21,6 +21,7 @@ public class OvertimeActivity extends AppCompatActivity {
     TextView title;
     Button btnAdd;
     ImageButton btnClose;
+    int EmployeeId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,8 @@ public class OvertimeActivity extends AppCompatActivity {
             return insets;
         });
 
+        Intent intent = getIntent();
+        intent.getIntExtra("EmployeeId", 0);
         initMapping();
         initData();
         initEvent();
@@ -51,6 +54,9 @@ public class OvertimeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OvertimeActivity.this, AddOvertimeActivity.class);
+                if(EmployeeId!=0){
+                    intent.putExtra("EmployeeId", EmployeeId);
+                }
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }

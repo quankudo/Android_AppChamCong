@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/bg_light"
+    android:background="@color/black"
     android:padding="16dp">
     <LinearLayout
         android:layout_width="wrap_content"
@@ -29,6 +29,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -48,24 +49,31 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginVertical="10dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chức vụ: "
+            android:text="Tiền công: "
             android:textSize="16sp"
             android:layout_marginRight="10dp"
             android:textColor="@color/gray"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <EditText
             android:id="@+id/positions"
-            android:text="Chưa cập nhật"
-            android:textSize="16sp"
-            android:textColor="@color/white"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_border_outline"
+            android:gravity="top|start"
+            android:hint="Nhập tiền công"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -85,6 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Từ chối"
+            android:id="@+id/btnTuChoi"
             android:textAllCaps="false"
             android:background="@drawable/bg_green"
             android:layout_marginRight="10dp"
@@ -95,6 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đồng ý"
+            android:id="@+id/btnDongY"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:background="@drawable/bg_green"

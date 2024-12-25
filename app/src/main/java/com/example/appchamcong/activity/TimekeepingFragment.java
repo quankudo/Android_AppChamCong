@@ -28,7 +28,7 @@ public class TimekeepingFragment extends Fragment {
     private RecyclerView rcv;
     private TimekeepingAdapter adapter;
     private int groupId;
-    public  TimekeepingFragment(int groupId){
+    public TimekeepingFragment(int groupId){
         this.groupId = groupId;
     }
     @Override

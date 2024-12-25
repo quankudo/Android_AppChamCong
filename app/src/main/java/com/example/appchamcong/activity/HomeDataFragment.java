@@ -53,6 +53,7 @@ public class HomeDataFragment extends Fragment {
     private ImageButton btn_add_home;
     private UserViewModel userViewModel;
     private TextView Name, Today;
+    public static int id =0;
     TimekeepingOptions to = new TimekeepingOptions();
     List<TimekeepingOptions> list = to.addData();
     TimekeepingOptionsAdapter adapter = new TimekeepingOptionsAdapter(list, getContext());
@@ -94,6 +95,7 @@ public class HomeDataFragment extends Fragment {
                         break;
                     case SUCCESS:
                         Name.setText(apiResponseResource.data.getData().getHovaten());
+                        id = apiResponseResource.data.getData().getIduser();
                         break;
                     case ERROR:
                         // Hiển thị thông báo lỗi
@@ -202,16 +204,18 @@ public class HomeDataFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), NewJobCreationProcess.class);
-
+                Intent intent1 = new Intent(getContext(), ScanQRCodeActivity.class);
                 TimekeepingOptions selectedOption = adapter.getSelectedOption();
-                if (selectedOption != null) {
+                if(selectedOption.getName().startsWith("Tham")){
+                    startActivity(intent1);
+                }
+                else if (selectedOption != null) {
                     String selectedName = selectedOption.getName();
                     String selectedDescription = selectedOption.getDescribe();
                     intent.putExtra("Name", selectedName);
                     intent.putExtra("Describe", selectedDescription);
                     startActivity(intent);
                 }
-
             }
         });
     }}

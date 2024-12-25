@@ -26,7 +26,16 @@ import java.util.Calendar;
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
     private ArrayList<String> days;
     private Context context;
+    private int EmployeeId;
     private static final int REQUEST_CODE = 1000;
+    int dayDeduct = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+    int lastDay = Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
+    public CalendarAdapter(ArrayList<String> days, Context context, int EmployeeId) {
+        this.days = days;
+        this.context = context;
+        this.EmployeeId = EmployeeId;
+    }
+
     public CalendarAdapter(ArrayList<String> days, Context context) {
         this.days = days;
         this.context = context;
@@ -43,6 +52,10 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     public void CallIntent(int index) {
         Intent intent = new Intent(context, TimekDetailsActivity.class);
         intent.putExtra("position", index);
+        if(EmployeeId!=0){
+            intent.putExtra("position", index-(lastDay-dayDeduct));
+            intent.putExtra("EmployeeId", EmployeeId);
+        }
         ((Activity) context).startActivityForResult(intent, REQUEST_CODE);
         ((Activity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
@@ -73,12 +86,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
             else {
                 holder.dayOfMonth.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.bg_light));
             }
-            holder.dayOfMonth.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    CallIntent(index);
-                }
-            });
         }
         else {
             holder.dayOfMonth.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.bg_light));

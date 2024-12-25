@@ -45,6 +45,13 @@ public class HomeFragment extends Fragment {
         });
 
         Button btnJoinTeam = view.findViewById(R.id.buttonJoinTeam);
+        btnJoinTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getContext(), ScanQRCodeActivity.class);
+                startActivity(intent1);
+            }
+        });
         return view;
     }
 
@@ -71,9 +78,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), NewJobCreationProcess.class);
-
+                Intent intent1 = new Intent(getContext(), ScanQRCodeActivity.class);
                 TimekeepingOptions selectedOption = adapter.getSelectedOption();
-                if (selectedOption != null) {
+                if(selectedOption.getName().startsWith("Tham")){
+                    startActivity(intent1);
+                }
+                else if (selectedOption != null) {
                     String selectedName = selectedOption.getName();
                     String selectedDescription = selectedOption.getDescribe();
                     intent.putExtra("Name", selectedName);

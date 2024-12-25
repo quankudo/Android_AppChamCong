@@ -62,16 +62,16 @@ public class ProfileFragment extends Fragment {
                 switch (apiResponseResource.status) {
                     case LOADING:
                         // Hiển thị trạng thái loading
-                        Log.d("jwt", "Loading");
+                        Toast.makeText(getActivity(), "Loading", Toast.LENGTH_SHORT).show();
                         break;
                     case SUCCESS:
                         Username.setText(apiResponseResource.data.getData().getHovaten());
                         Email.setText(apiResponseResource.data.getData().getEmail());
-                        CreatedDate.setText(FormatDateTime.formatDateToString(apiResponseResource.data.getData().getNgayTao()));
+                        CreatedDate.setText(apiResponseResource.data.getData().getNgayTao());
                         break;
                     case ERROR:
                         // Hiển thị thông báo lỗi
-                        Log.d("jwt", "Error" + apiResponseResource.message + "login");
+                        Toast.makeText(getActivity(), "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

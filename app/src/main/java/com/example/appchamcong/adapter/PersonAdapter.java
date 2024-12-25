@@ -44,9 +44,9 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PersonalTimekeepActivity.class);
-                intent.putExtra("personName", list.get(index).getWorkName());
+                intent.putExtra("personName", list.get(index).getWorkName());//ten nhom
                 intent.putExtra("personDate", list.get(index).getDateSalary());
-                intent.putExtra("personId", list.get(index).getId());
+                intent.putExtra("personId", list.get(index).getId());//id nhom
                 context.startActivity(intent);
                 if (context instanceof Activity) {
                     ((Activity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);

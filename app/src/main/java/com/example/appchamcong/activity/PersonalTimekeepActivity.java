@@ -1,8 +1,8 @@
 package com.example.appchamcong.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.RequiresApi;
@@ -18,31 +19,49 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.R;
+import com.example.appchamcong.Repository.TimekeepingRepository;
+import com.example.appchamcong.Utils.ApiResponse;
+import com.example.appchamcong.Utils.FormatPrice;
+import com.example.appchamcong.Utils.Resource;
+import com.example.appchamcong.ViewModel.TimeKeepingViewModel;
+import com.example.appchamcong.ViewModel.WorkViewModel;
 import com.example.appchamcong.adapter.CalendarAdapter;
 import com.example.appchamcong.adapter.ShiftAdapter;
 import com.example.appchamcong.domain.Shift;
+import com.example.appchamcong.domain.TimeKeepResponse;
+import com.example.appchamcong.domain.WorkDetails;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 public class PersonalTimekeepActivity extends AppCompatActivity {
+    private WorkViewModel workViewModel;
+    private TimeKeepingViewModel timeKeepingViewModel;
     private static final int REQUEST_CODE = 1000;
-    private TextView monthYearTxt, btnXemThem_CaNhan, btnXemChiTiet_CaNhan, btnXemTongQuan, tv_xemthongke;
+    private TextView monthYearTxt, btnXemThem_CaNhan, btnXemChiTiet_CaNhan, btnXemTongQuan, tv_xemthongke, ChuaNhan;
     private RecyclerView recyclerView, recShift;
     private LocalDate localDate;
     private ArrayList<Shift> listShift;
     private LinearLayout ungluong, tangca, phucap, trutien, loinhuan, thanhtoan, thongke, xemthem, ln_xemthem_canhan;
     private Button btn_cham;
     ImageButton btnClose, setting_person;
+    private TextView ten, tongNgayCong, tienCong1Ngay, tongNghi, tongTangCa, tongThuong, tongLuong, tongDaUng,
+    tongTru, tongDaThanhToan, tongChuaNhan;
+    int EmployeeId, IdNhom, IdNhanVien;
 
     CalendarAdapter calendarAdapter;
+    @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +73,169 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Intent intent = getIntent();
+        //Khi chu nhom xem thong tin nhan vien
+        int IdChuNhom = intent.getIntExtra("IdChuNhom", 0);
+        IdNhom = intent.getIntExtra("IdNhom", 0);
+        IdNhanVien = intent.getIntExtra("IdNhanVien", 0);
+        String TenNhanVien = intent.getStringExtra("TenNhanVien");
+
+        //Cong viec ca nhan cua 1 nguoi
+        int personId = intent.getIntExtra("personId", 0);
+        String personName = intent.getStringExtra("personName");
+
+        //Cong viec nhom cua 1 nhan vien
+        EmployeeId = intent.getIntExtra("EmployeeId", 0);
+
         initWidget();
+
+        workViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                .get(WorkViewModel.class);
+
+        timeKeepingViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                .get(TimeKeepingViewModel.class);
+
+        if(EmployeeId!=0){
+            workViewModel.getWorkDetailByEmployee(EmployeeId).observe(PersonalTimekeepActivity.this, new Observer<Resource<ApiResponse<WorkDetails>>>() {
+                @Override
+                public void onChanged(Resource<ApiResponse<WorkDetails>> apiResponseResource) {
+                    switch (apiResponseResource.status) {
+                        case LOADING:
+                            // Hiển thị trạng thái loading
+                            Toast.makeText(PersonalTimekeepActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                            break;
+                        case SUCCESS:
+                            setDataForWork(apiResponseResource.data.getData());
+                            break;
+                        case ERROR:
+                            // Hiển thị thông báo lỗi
+                            Toast.makeText(PersonalTimekeepActivity.this, "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
+            });
+
+            timeKeepingViewModel.getTimeKeepings(EmployeeId).observe(PersonalTimekeepActivity.this, new Observer<Resource<ApiResponse<List<TimeKeepResponse>>>>() {
+                @Override
+                public void onChanged(Resource<ApiResponse<List<TimeKeepResponse>>> apiResponseResource) {
+                    switch (apiResponseResource.status) {
+                        case LOADING:
+                            // Hiển thị trạng thái loading
+                            Toast.makeText(PersonalTimekeepActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                            break;
+                        case SUCCESS:
+                            setMonthView(apiResponseResource.data.getData(), EmployeeId);
+                            break;
+                        case ERROR:
+                            // Hiển thị thông báo lỗi
+                            Toast.makeText(PersonalTimekeepActivity.this, "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
+            });
+        }
+
+
+        if(IdNhanVien!=0 && IdNhom!=0){
+            workViewModel.getWorkDetailByOwner(IdNhanVien, IdNhom).observe(PersonalTimekeepActivity.this, new Observer<Resource<ApiResponse<WorkDetails>>>() {
+                @Override
+                public void onChanged(Resource<ApiResponse<WorkDetails>> apiResponseResource) {
+                    switch (apiResponseResource.status) {
+                        case LOADING:
+                            // Hiển thị trạng thái loading
+                            Toast.makeText(PersonalTimekeepActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                            break;
+                        case SUCCESS:
+                            setDataForWork(apiResponseResource.data.getData());
+                            ten.setText(apiResponseResource.data.getData().getWorkName() +" - " + TenNhanVien);
+                            break;
+                        case ERROR:
+                            // Hiển thị thông báo lỗi
+                            Toast.makeText(PersonalTimekeepActivity.this, "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
+            });
+
+            timeKeepingViewModel.getTimeKeepingsByOwner(IdNhanVien, IdNhom).observe(PersonalTimekeepActivity.this, new Observer<Resource<ApiResponse<List<TimeKeepResponse>>>>() {
+                @Override
+                public void onChanged(Resource<ApiResponse<List<TimeKeepResponse>>> apiResponseResource) {
+                    switch (apiResponseResource.status) {
+                        case LOADING:
+                            // Hiển thị trạng thái loading
+                            Toast.makeText(PersonalTimekeepActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                            break;
+                        case SUCCESS:
+                            setMonthView(apiResponseResource.data.getData(), 0);
+                            break;
+                        case ERROR:
+                            // Hiển thị thông báo lỗi
+                            Toast.makeText(PersonalTimekeepActivity.this, "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
+            });
+        }
+
+        if(personId!=0){
+            workViewModel.getWorkDetail(personId).observe(PersonalTimekeepActivity.this, new Observer<Resource<ApiResponse<WorkDetails>>>() {
+                @Override
+                public void onChanged(Resource<ApiResponse<WorkDetails>> apiResponseResource) {
+                    switch (apiResponseResource.status) {
+                        case LOADING:
+                            // Hiển thị trạng thái loading
+                            Toast.makeText(PersonalTimekeepActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                            break;
+                        case SUCCESS:
+                            setDataForWork(apiResponseResource.data.getData());
+                            break;
+                        case ERROR:
+                            // Hiển thị thông báo lỗi
+                            Toast.makeText(PersonalTimekeepActivity.this, "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
+            });
+
+            timeKeepingViewModel.getTimeKeepings(personId).observe(PersonalTimekeepActivity.this, new Observer<Resource<ApiResponse<List<TimeKeepResponse>>>>() {
+                @Override
+                public void onChanged(Resource<ApiResponse<List<TimeKeepResponse>>> apiResponseResource) {
+                    switch (apiResponseResource.status) {
+                        case LOADING:
+                            // Hiển thị trạng thái loading
+                            Toast.makeText(PersonalTimekeepActivity.this, "Loading", Toast.LENGTH_SHORT).show();
+                            break;
+                        case SUCCESS:
+                            setMonthView(apiResponseResource.data.getData(), 0);
+                            break;
+                        case ERROR:
+                            // Hiển thị thông báo lỗi
+                            Toast.makeText(PersonalTimekeepActivity.this, "Error" + apiResponseResource.message, Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
+            });
+        }
+
         initEvent();
         localDate = LocalDate.now();
-        setMonthView();
         initListShift();
         setShiftView();
+    }
+
+    private void setDataForWork(WorkDetails data) {
+        ten.setText(data.getWorkName());
+        tongChuaNhan.setText(FormatPrice.formatNumber(data.getChuaThanhToan()) + "đ");
+        tongLuong.setText(FormatPrice.formatNumber(data.getTienCong())+ "đ");
+        tongTangCa.setText(FormatPrice.formatNumber(data.getTongTangCa()) + "đ");
+        tongThuong.setText(FormatPrice.formatNumber(data.getTongThuong()) + "đ");
+        tongNghi.setText(FormatPrice.formatNumber(data.getTongNghiCoLuong()) + "đ");
+        tongDaUng.setText(FormatPrice.formatNumber(data.getTongDaUng()) + "đ");
+        tongTru.setText(FormatPrice.formatNumber(data.getTruTien()) + "đ");
+        ChuaNhan.setText(FormatPrice.formatNumber(data.getChuaThanhToan()) + " đ");
     }
 
     private void initEvent() {
@@ -76,6 +252,7 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PersonalTimekeepActivity.this, OvertimeActivity.class);
+                intent.putExtra("EmployeeId", EmployeeId);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
@@ -121,6 +298,14 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PersonalTimekeepActivity.this, TimekDetailsActivity.class);
+                if(EmployeeId!=0){
+                    intent.putExtra("position", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+                    intent.putExtra("EmployeeId", EmployeeId);
+                }
+                else if(IdNhom!=0 || IdNhanVien!=0){
+                    intent.putExtra("IdNhom", IdNhom);
+                    intent.putExtra("IdNhanVien", IdNhanVien);
+                }
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
@@ -203,29 +388,42 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void setMonthView() {
+    private void setMonthView(List<TimeKeepResponse> list, int EmployId) {
         monthYearTxt.setText(MonthYearFromDate(localDate));
-        ArrayList<String> dayInMonth = dayInMonthArray(localDate);
-        calendarAdapter = new CalendarAdapter(dayInMonth, this);
+        ArrayList<String> dayInMonth = dayInMonthArray(localDate, list);
+        if(EmployId!=0){
+            calendarAdapter = new CalendarAdapter(dayInMonth, this, EmployId);
+        }
+        else {
+            calendarAdapter = new CalendarAdapter(dayInMonth, this);
+        }
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),7);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(calendarAdapter);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private ArrayList<String> dayInMonthArray(LocalDate date) {
+    private ArrayList<String> dayInMonthArray(LocalDate date, List<TimeKeepResponse> list) {
         ArrayList<String> daysInMonthArray = new ArrayList<>();
         YearMonth yearMonth = YearMonth.from(date);
         int daysInMonth = YearMonth.now().lengthOfMonth();
         LocalDate firstOfMonth = localDate.withDayOfMonth(1);
         int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
-
         for(int i =1 ; i<=42; i++) {
             if(i<=dayOfWeek || i>daysInMonth + dayOfWeek){
                 daysInMonthArray.add("");
             }
             else{
-                daysInMonthArray.add(String.valueOf(i-dayOfWeek));
+                boolean flag = false;
+                for(TimeKeepResponse time : list){
+                    if(time.getNgay()==(i-dayOfWeek)){
+                        daysInMonthArray.add(String.valueOf(i-dayOfWeek) + time.getLoaiChamCong());
+                        flag=true;
+                    }
+                }
+                if(!flag){
+                    daysInMonthArray.add(String.valueOf(i-dayOfWeek));
+                }
             }
         }
         return daysInMonthArray;
@@ -258,6 +456,20 @@ public class PersonalTimekeepActivity extends AppCompatActivity {
         btnXemTongQuan = findViewById(R.id.textView13);
         tv_xemthongke = findViewById(R.id.tv_xemthongke);
         setting_person = findViewById(R.id.setting_person);
+
+        //Thong tin chi tiet cong viec ca nhan
+        ten = findViewById(R.id.ten);
+        tongNgayCong = findViewById(R.id.tongNgayCong);
+        tienCong1Ngay = findViewById(R.id.tienCong1Ngay);
+        tongNghi = findViewById(R.id.tongNghi);
+        tongTangCa = findViewById(R.id.tongTangCa);
+        tongThuong = findViewById(R.id.tongThuong);
+        tongLuong = findViewById(R.id.tongLuong);
+        tongDaUng = findViewById(R.id.tongDaUng);
+        tongTru = findViewById(R.id.tongTruTien);
+        tongDaThanhToan = findViewById(R.id.tongDaThanhToan);
+        tongChuaNhan = findViewById(R.id.tongChuaNhan);
+        ChuaNhan = findViewById(R.id.textView14);
     }
 
     @Override
